@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ab2af050c5ab4397bcdb9d98e3ea4c93" Name="Diagram1">
+        <EntityTypeShape EntityType="BanTraModel.ChiTietDH" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.ChiTietDNH" Width="1.5" PointX="10.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.DanhGia" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.DonHang" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.DonNhapHang" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.KhachHang" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.NhaCungCap" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.NhanVien" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.SanPham" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanTraModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BanTraModel.FK__ChiTietDH__MaDH__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__ChiTietDH__MaSP__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__DanhGia__MaCTDH__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__ChiTietDN__MaDNH__40058253" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__ChiTietDNH__MaSP__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__DanhGia__MaKH__44CA3770" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__DonHang__MaKH__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__DonHang__MaNV__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__DonNhapHa__MaNCC__3D2915A8" ManuallyRouted="false" />
+        <AssociationConnector Association="BanTraModel.FK__NhanVien__MaQuan__2EDAF651" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

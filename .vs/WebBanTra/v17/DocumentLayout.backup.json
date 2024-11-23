@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\LTWEB\\WebBanTra\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|d:\\ltweb\\webbantra\\webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DNController.cs",
+              "DocumentMoniker": "D:\\LTWEB\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\DNController.cs",
+              "ToolTip": "D:\\LTWEB\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
+              "RelativeToolTip": "WebBanTra\\Controllers\\DNController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T05:00:01.874Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
