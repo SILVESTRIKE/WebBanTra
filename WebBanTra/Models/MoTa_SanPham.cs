@@ -12,14 +12,12 @@ namespace WebBanTra.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChiTietDNH
+    public partial class MoTa_SanPham
     {
-        public int MaDNH { get; set; }
+        public int MaMoTa { get; set; }
         public int MaSP { get; set; }
-        public Nullable<int> SoLuongNhap { get; set; }
-        public Nullable<decimal> GiaNhap { get; set; }
+        public string MoTa { get; set; }
     
-        public virtual DonNhapHang DonNhapHang { get; set; }
         public virtual SanPham SanPham { get; set; }
     }
 }

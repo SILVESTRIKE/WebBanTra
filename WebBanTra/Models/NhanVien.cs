@@ -22,19 +22,19 @@ namespace WebBanTra.Models
         }
     
         public int MaNV { get; set; }
+        public Nullable<int> MaTK { get; set; }
         public string TenNV { get; set; }
         public string SDT { get; set; }
         public string Email { get; set; }
         public string DiaChi { get; set; }
         public string ChucVu { get; set; }
         public Nullable<int> MaQuanLy { get; set; }
-        public string TenDangNhap { get; set; }
-        public string MatKhau { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NhanVien> NhanVien1 { get; set; }
         public virtual NhanVien NhanVien2 { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

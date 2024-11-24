@@ -12,28 +12,24 @@ namespace WebBanTra.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class KhachHang
+    public partial class TaiKhoan
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KhachHang()
+        public TaiKhoan()
         {
-            this.DanhGias = new HashSet<DanhGia>();
-            this.DonHangs = new HashSet<DonHang>();
+            this.KhachHangs = new HashSet<KhachHang>();
+            this.NhanViens = new HashSet<NhanVien>();
         }
     
-        public int MaKH { get; set; }
-        public Nullable<int> MaTK { get; set; }
-        public string TenKH { get; set; }
-        public string GioiTinh { get; set; }
-        public string Email { get; set; }
-        public string SDT { get; set; }
-        public string DiaChi { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public int MaTK { get; set; }
+        public string TenDangNhap { get; set; }
+        public string MatKhau { get; set; }
+        public string VaiTro { get; set; }
+        public string TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhGia> DanhGias { get; set; }
+        public virtual ICollection<KhachHang> KhachHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHangs { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
 }

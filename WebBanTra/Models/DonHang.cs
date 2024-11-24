@@ -18,6 +18,7 @@ namespace WebBanTra.Models
         public DonHang()
         {
             this.ChiTietDHs = new HashSet<ChiTietDH>();
+            this.HoaDons = new HashSet<HoaDon>();
         }
     
         public int MaDH { get; set; }
@@ -31,5 +32,7 @@ namespace WebBanTra.Models
         public virtual ICollection<ChiTietDH> ChiTietDHs { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

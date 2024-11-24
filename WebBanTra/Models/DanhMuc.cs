@@ -12,23 +12,19 @@ namespace WebBanTra.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChiTietDH
+    public partial class DanhMuc
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ChiTietDH()
+        public DanhMuc()
         {
-            this.DanhGias = new HashSet<DanhGia>();
+            this.SanPhams = new HashSet<SanPham>();
         }
     
-        public int MaCTDH { get; set; }
-        public Nullable<int> MaDH { get; set; }
-        public Nullable<int> MaSP { get; set; }
-        public Nullable<int> SoLuongMua { get; set; }
-        public string YeuCau { get; set; }
+        public int MaDM { get; set; }
+        public string TenDM { get; set; }
+        public string LinkDM { get; set; }
     
-        public virtual DonHang DonHang { get; set; }
-        public virtual SanPham SanPham { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanhGia> DanhGias { get; set; }
+        public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

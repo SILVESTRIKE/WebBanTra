@@ -142,50 +142,62 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Anh_SanPham.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ChiTietDH.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDNH.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhGia.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\dbBanTra.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbBanTra.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dbBanTra.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbBanTra.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dbBanTra.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbBanTra.edmx</DependentUpon>
+    <Compile Include="Models\DanhMuc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHang.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonNhapHang.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoaDon.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MoTa_SanPham.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>dbBanTra.tt</DependentUpon>
+    <Compile Include="Models\TaiKhoan.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,11 +246,6 @@
     <Content Include="assets\img\team\team-2.jpg" />
     <Content Include="assets\img\team\team-3.jpg" />
     <Content Include="assets\img\team\team-4.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-1.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-2.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-3.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-4.jpg" />
-    <Content Include="assets\img\testimonials\testimonials-5.jpg" />
     <Content Include="assets\img\working-1.jpg" />
     <Content Include="assets\img\working-2.jpg" />
     <Content Include="assets\img\working-3.jpg" />
@@ -376,6 +383,16 @@
     <Content Include="Images\logo_brands.png" />
     <Content Include="Images\logo_brands_black_bg.png" />
     <Content Include="Images\logo_no_Back_Ground.png" />
+    <Content Include="Images\member\member-1.jpg" />
+    <Content Include="Images\member\member-10.jpg" />
+    <Content Include="Images\member\member-2.jpg" />
+    <Content Include="Images\member\member-3.jpg" />
+    <Content Include="Images\member\member-4.jpg" />
+    <Content Include="Images\member\member-5.jpg" />
+    <Content Include="Images\member\member-6.jpg" />
+    <Content Include="Images\member\member-7.jpg" />
+    <Content Include="Images\member\member-8.jpg" />
+    <Content Include="Images\member\member-9.jpg" />
     <Content Include="Images\momo.png" />
     <Content Include="Images\ND\Hồng_trà_Hà_Giang\Hồng_trà_Hà_Giang_info.txt" />
     <Content Include="Images\ND\Trà_Bạc_Hà\Trà_Bạc_Hà_info.txt" />
@@ -465,15 +482,15 @@
     <Content Include="Images\tra\tra_shantuyet\link sp.txt" />
     <Content Include="Images\Visa-Logo.png" />
     <Content Include="Images\zalo.jpg" />
-    <Content Include="Models\dbBanTra.Context.tt">
+    <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbBanTra.edmx</DependentUpon>
-      <LastGenOutput>dbBanTra.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\dbBanTra.tt">
+    <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbBanTra.edmx</DependentUpon>
-      <LastGenOutput>dbBanTra.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -481,13 +498,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\dbBanTra.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbBanTra.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\dbBanTra.edmx.diagram">
-      <DependentUpon>dbBanTra.edmx</DependentUpon>
-    </Content>
     <Content Include="assets\vendor\aos\aos.js.map" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.scss" />
@@ -517,6 +527,13 @@
     <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js.map" />
     <Content Include="forms\contact.php" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

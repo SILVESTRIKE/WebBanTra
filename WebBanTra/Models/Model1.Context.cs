@@ -13,10 +13,10 @@ namespace WebBanTra.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BanTraEntities : DbContext
+    public partial class DB_BanTraEntities : DbContext
     {
-        public BanTraEntities()
-            : base("name=BanTraEntities")
+        public DB_BanTraEntities()
+            : base("name=DB_BanTraEntities")
         {
         }
     
@@ -25,15 +25,19 @@ namespace WebBanTra.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Anh_SanPham> Anh_SanPham { get; set; }
         public virtual DbSet<ChiTietDH> ChiTietDHs { get; set; }
         public virtual DbSet<ChiTietDNH> ChiTietDNHs { get; set; }
         public virtual DbSet<DanhGia> DanhGias { get; set; }
+        public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<DonNhapHang> DonNhapHangs { get; set; }
+        public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
+        public virtual DbSet<MoTa_SanPham> MoTa_SanPham { get; set; }
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
     }
 }
