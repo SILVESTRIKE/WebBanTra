@@ -6,34 +6,193 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="~/assets/css/main.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+            <a href="/Home/Index" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <img src="~/Images/logo_no_Back_Ground.png" />
+                <img src="~/Images/brand_name.png" />
+            </a>
+            <div class="search">
+                <input type="text" class="search__input" placeholder="Type your text">
+                <button class="search__button">
+                    <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <g>
+                            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="/Home/Index" class="active">Trang chủ</a></li>
+                    <li class="dropdown">
+                        <a href="/Product/Index"><span>Danh mục</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                        
+                        <ul>
+                            <li><a href="#">Dropdown 1</a></li>
+                            <li class="dropdown">
+                                <a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Dropdown 1</a></li>
+                                    <li><a href="#">Deep Dropdown 2</a></li>
+                                    <li><a href="#">Deep Dropdown 3</a></li>
+                                    <li><a href="#">Deep Dropdown 4</a></li>
+                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Dropdown 2</a></li>
+                            <li><a href="#">Dropdown 3</a></li>
+                            <li><a href="#">Dropdown 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#DanhMuc">Bán chạy</a></li>
+                    <li><a href="#GioiThieu">Về chúng tôi</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                    <li><a href="/Cart/Index">Giỏ hàng</a></li>
+                    <li><a href="/DN/Index">Đăng nhập</a></li>
+
                 </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer>
+        <hr />
+        <div class="container">
+            <div class="container mt-5">
+                <div class="row text-muted">
+
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Liên hệ trực tiếp</h6>
+                        <p>Tư vấn trước khi mua hoặc liên hệ đặt hàng cho công ty</p>
+                        <p class="mb-1">Hotline đặt hàng:</p>
+                        <h4 class="fw-bold">0903-037-017</h4>
+                        <img src="~/Images/qr_zalo.png" alt="Zalo QR" class="img-fluid" style="max-width: 100px;">
+                    </div>
+
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Hệ thống cửa hàng</h6>
+                        <p><strong>TP. HỒ CHÍ MINH</strong><br>140 Đ. Lê Trọng Tấn, Tây Thạnh, Tân Phú, Hồ Chí Minh<br>ĐT: 028 6270 6275<br>Giờ mở cửa: 6h00 – 21h00</p>
+                        <p><strong>TP. HỒ CHÍ MINH</strong><br>93 Tân Kỳ Tân Quý, Tân Sơn Nhì, Tân Phú, TP. Hồ Chí Minh.<br>ĐT: 028 6270 6275<br>Giờ mở cửa: 6h00 – 21h00</p>
+                        <p><strong>TP. HỒ CHÍ MINH</strong><br>73/1 Nguyễn Đỗ Cung, Tây Thạnh, Tân Phú, TP. Hồ Chí Minh.<br>ĐT: 028 6270 6275<br>Giờ mở cửa: 6h00 – 21h00</p>
+                        <p><strong>TP. HỒ CHÍ MINH</strong><br>102-104-106 Nguyễn Quý Anh, Tân Sơn Nhì, Tân Phú, TP. HCM.<br>ĐT: 028 6270 6275<br>Giờ mở cửa: 6h00 – 21h00</p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="row">
+                            <h6 class="fw-bold">Có trên các sàn MTĐT</h6>
+                            <a href="https://www.amazon.com"><img src="~/Images/amazon.jpg" alt="Amazon" class="img-fluid mb-2" style="max-width: 250px;"></a>
+                            <div class="d-flex flex-wrap gap-2">
+
+                                <a href="https://shopee.vn"><img src="~/Images/shopee 1.png" alt="Shopee" class="img-fluid" style="max-width: 50px;"></a>
+                                <a href="https://www.tiktok.com"><img src="~/Images/tiktok.jpg" alt="TikTok" class="img-fluid" style="max-width: 50px;"></a>
+                                <a href="https://lazada.vn"><img src="~/Images/lazada.jpg" alt="Lazada" class="img-fluid" style="max-width: 50px;"></a>
+                                <a href="https://tiki.vn"><img src="~/Images/tiki.png" alt="Tiki" class="img-fluid" style="max-width: 50px;"></a>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 50px;">
+                            <h4 class="fw-bold">Nhận thanh toán</h4>
+                            <img src="~/Images/paypal_logo.png" alt="PayPal" class="img-fluid" style="max-width: 150px;">
+                            <div class="d-flex flex-wrap gap-5">
+                                <img src="~/Images/Visa-Logo.png" alt="Visa" class="img-fluid" style="max-width: 70px;">
+
+                            </div>
+                            <img src="~/Images/momo.png" alt="Momo" class="img-fluid" style="max-width: 70px;">
+                        </div>
+
+                        <div class="row" style="margin-top: 40px;">
+                            <img src="~/Images/logo-da-thong-bao-bo-cong-thuong-1.png" alt="Momo" class="img-fluid" style="max-width: 250px;">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h6 class="fw-bold">Thông tin / Chính sách</h6>
+                        <ul class="list-unstyled">
+                            <li>Trà Việt Rewards</li>
+                            <li>Bảng Giá Trà Việt</li>
+                            <li>Hệ thống cửa hàng</li>
+                            <li>Kiểm tra đơn hàng</li>
+                            <li>Giao hàng và đổi trả</li>
+                            <li>Mua hàng & Thanh toán</li>
+                            <li>Chính sách bảo mật thông tin cá nhân</li>
+                            <li>Điều khoản sử dụng website</li>
+                            <li>Tuyển dụng</li>
+                            <li>Tin Trà Việt</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-4 text-muted">
+                    <div class="col-md-4 text-start">
+                        Copyright © 2024 - LTW & CNPM
+                    </div>
+
+                    <div class="col-md-4 text-center">
+                        Web shop bán trà
+                    </div>
+                    <div class="col-md-4 text-end" style="color: red;">
+                        Việt Nam
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div><br /></div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
 </body>
 </html>

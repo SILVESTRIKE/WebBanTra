@@ -3,34 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\views\\dn\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\dn\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\app_start\\bundleconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|WebBanTra||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\webbantra\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,35 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Web.config",
-              "RelativeDocumentMoniker": "WebBanTra\\Web.config",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Web.config",
-              "RelativeToolTip": "WebBanTra\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAADFAQAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2024-11-23T12:48:51.813Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\DN\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Views\\DN\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\DN\\Index.cshtml",
-              "RelativeToolTip": "WebBanTra\\Views\\DN\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-23T14:09:31.296Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
@@ -95,66 +46,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FilterConfig.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\App_Start\\FilterConfig.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\App_Start\\FilterConfig.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\App_Start\\FilterConfig.cs",
-              "RelativeToolTip": "WebBanTra\\App_Start\\FilterConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T14:07:37.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BundleConfig.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\App_Start\\BundleConfig.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\App_Start\\BundleConfig.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\App_Start\\BundleConfig.cs",
-              "RelativeToolTip": "WebBanTra\\App_Start\\BundleConfig.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T14:07:33.831Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RouteConfig.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\App_Start\\RouteConfig.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\App_Start\\RouteConfig.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\App_Start\\RouteConfig.cs",
-              "RelativeToolTip": "WebBanTra\\App_Start\\RouteConfig.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T14:07:25.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WebBanTra",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra.csproj",
-              "RelativeDocumentMoniker": "WebBanTra\\WebBanTra.csproj",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra.csproj*",
-              "RelativeToolTip": "WebBanTra\\WebBanTra.csproj*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-23T12:48:16.752Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DNController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\DNController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
-              "RelativeToolTip": "WebBanTra\\Controllers\\DNController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAYwA0AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T05:00:01.874Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "WebBanTra\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEYAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-24T03:59:17.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebBanTra\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAEsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-24T03:56:14.718Z",
               "EditorCaption": ""
             }
           ]

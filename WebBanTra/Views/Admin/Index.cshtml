@@ -1,0 +1,498 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/vendor/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: NiceAdmin
+    * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+    * Updated: Apr 20 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link " href="/Home/Index">
+                <i class="bi bi-grid"></i>
+                <span>Trang chủ</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="charts-chartjs.html">
+                        <i class="bi bi-circle"></i><span>Chart.js</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="charts-apexcharts.html">
+                        <i class="bi bi-circle"></i><span>ApexCharts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="charts-echarts.html">
+                        <i class="bi bi-circle"></i><span>ECharts</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Charts Nav -->
+
+
+        <li class="nav-heading">Pages</li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="pages-login.html">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Login</span>
+            </a>
+        </li><!-- End Login Page Nav -->
+
+    </ul>
+
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <!-- Left side columns -->
+            <div class="col-lg-8">
+                <div class="row">
+
+                    <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Sales <span>| Today</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-cart"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>145</h6>
+                                        <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- End Sales Card -->
+                    <!-- Revenue Card -->
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card revenue-card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Revenue <span>| This Month</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-currency-dollar"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>$3,264</h6>
+                                        <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div><!-- End Revenue Card -->
+                    <!-- Customers Card -->
+                    <div class="col-xxl-4 col-xl-12">
+
+                        <div class="card info-card customers-card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Customers <span>| This Year</span></h5>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-people"></i>
+                                    </div>
+                                    <div class="ps-3">
+                                        <h6>1244</h6>
+                                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div><!-- End Customers Card -->
+                    <!-- Reports -->
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                                <!-- Line Chart -->
+                                <div id="reportsChart"></div>
+
+                                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                      new ApexCharts(document.querySelector("#reportsChart"), {
+                        series: [{
+                          name: 'Sales',
+                          data: [31, 40, 28, 51, 42, 82, 56],
+                        }, {
+                          name: 'Revenue',
+                          data: [11, 32, 45, 32, 34, 52, 41]
+                        }, {
+                          name: 'Customers',
+                          data: [15, 11, 32, 18, 9, 24, 11]
+                        }],
+                        chart: {
+                          height: 350,
+                          type: 'area',
+                          toolbar: {
+                            show: false
+                          },
+                        },
+                        markers: {
+                          size: 4
+                        },
+                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                        fill: {
+                          type: "gradient",
+                          gradient: {
+                            shadeIntensity: 1,
+                            opacityFrom: 0.3,
+                            opacityTo: 0.4,
+                            stops: [0, 90, 100]
+                          }
+                        },
+                        dataLabels: {
+                          enabled: false
+                        },
+                        stroke: {
+                          curve: 'smooth',
+                          width: 2
+                        },
+                        xaxis: {
+                          type: 'datetime',
+                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                        },
+                        tooltip: {
+                          x: {
+                            format: 'dd/MM/yy HH:mm'
+                          },
+                        }
+                      }).render();
+                    });
+                                </script>
+                                <!-- End Line Chart -->
+
+                            </div>
+
+                        </div>
+                    </div><!-- End Reports -->
+                    <!-- Recent Sales -->
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+
+                            <div class="filter">
+                                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <li class="dropdown-header text-start">
+                                        <h6>Filter</h6>
+                                    </li>
+
+                                    <li><a class="dropdown-item" href="#">Today</a></li>
+                                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+
+                                <table class="table table-borderless datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Mã sản phẩm</th>
+                                            <th scope="col">Tên sản phẩm</th>
+                                            <th scope="col">Ảnh</th>
+                                            <th scope="col">Mô tả </th>
+                                            <th scope="col">Giá</th>
+                                            <th scope="col">Số lượng tồn</th>
+                                            <th scope="col">Số lượng bán</th>
+                                            <th scope="col">Loại sản phẩm</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><a href="#">#SP01</a></th>
+                                            <td>Tra Xanh</td>
+                                            <td>Ảnh</td>
+                                            <td>Tra xanh nguyen chat</td>
+                                            <td>20000</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>Đồ uống</td>
+
+                                            <td><span class="badge bg-success">Sửa</span></td>
+                                            <td><span class="badge bg-success">Xóa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><a href="#">#SP01</a></th>
+                                            <td>Tra Xanh</td>
+                                            <td>Ảnh</td>
+                                            <td>Tra xanh nguyen chat</td>
+                                            <td>20000</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>Đồ uống</td>
+
+                                            <td><span class="badge bg-success">Sửa</span></td>
+                                            <td><span class="badge bg-success">Xóa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><a href="#">#SP01</a></th>
+                                            <td>Tra Xanh</td>
+                                            <td>Ảnh</td>
+                                            <td>Tra xanh nguyen chat</td>
+                                            <td>20000</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>Đồ uống</td>
+
+                                            <td><span class="badge bg-success">Sửa</span></td>
+                                            <td><span class="badge bg-success">Xóa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><a href="#">#SP01</a></th>
+                                            <td>Tra Xanh</td>
+                                            <td>Ảnh</td>
+                                            <td>Tra xanh nguyen chat</td>
+                                            <td>20000</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>Đồ uống</td>
+
+                                            <td><span class="badge bg-success">Sửa</span></td>
+                                            <td><span class="badge bg-success">Xóa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><a href="#">#SP01</a></th>
+                                            <td>Tra Xanh</td>
+                                            <td>Ảnh</td>
+                                            <td>Tra xanh nguyen chat</td>
+                                            <td>20000</td>
+                                            <td>100</td>
+                                            <td>10</td>
+                                            <td>Đồ uống</td>
+
+                                            <td><span class="badge bg-success">Sửa</span></td>
+                                            <td><span class="badge bg-success">Xóa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge bg-success">Thêm</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div><!-- End Recent Sales -->
+
+                </div>
+            </div><!-- End Left side columns -->
+            <!-- Right side columns -->
+            <div class="col-lg-4">
+
+                <!-- Budget Report -->
+                <div class="card">
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Filter</h6>
+                            </li>
+
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">This Month</a></li>
+                            <li><a class="dropdown-item" href="#">This Year</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+
+                        <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
+
+                        <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
+                    legend: {
+                      data: ['Allocated Budget', 'Actual Spending']
+                    },
+                    radar: {
+                      // shape: 'circle',
+                      indicator: [{
+                          name: 'Sales',
+                          max: 6500
+                        },
+                        {
+                          name: 'Administration',
+                          max: 16000
+                        },
+                        {
+                          name: 'Information Technology',
+                          max: 30000
+                        },
+                        {
+                          name: 'Customer Support',
+                          max: 38000
+                        },
+                        {
+                          name: 'Development',
+                          max: 52000
+                        },
+                        {
+                          name: 'Marketing',
+                          max: 25000
+                        }
+                      ]
+                    },
+                    series: [{
+                      name: 'Budget vs spending',
+                      type: 'radar',
+                      data: [{
+                          value: [4200, 3000, 20000, 35000, 50000, 18000],
+                          name: 'Allocated Budget'
+                        },
+                        {
+                          value: [5000, 14000, 28000, 26000, 42000, 21000],
+                          name: 'Actual Spending'
+                        }
+                      ]
+                    }]
+                  });
+                });
+                        </script>
+
+                    </div>
+                </div><!-- End Budget Report -->
+
+            </div><!-- End Right side columns -->
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
