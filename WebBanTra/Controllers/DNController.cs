@@ -11,7 +11,7 @@ namespace WebBanTra.Controllers
     
     public class DNController : Controller
     {
-        public ActionResult Index()
+        public ActionResult DangNhap()
         {
             return View();
         }

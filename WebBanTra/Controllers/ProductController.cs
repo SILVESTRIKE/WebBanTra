@@ -9,7 +9,7 @@ namespace WebBanTra.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        public ActionResult Index()
+        public ActionResult Product()
         {
             return View();
         }
