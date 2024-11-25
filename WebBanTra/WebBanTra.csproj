@@ -179,10 +179,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
+    <Compile Include="Models\DB_BanTra.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>DB_BanTra.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MoTa_SanPham.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -199,6 +199,7 @@
     <Compile Include="Models\TaiKhoan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="OOP\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -441,6 +442,7 @@
     <Content Include="Images\san_pham_kem_theo\hop-son-mai-gold-tra-sen-tay-ho-4-scaled-300x300.jpeg" />
     <Content Include="Images\san_pham_kem_theo\hop-son-mai-gold-tra-sen-tay-ho-4-scaled-500x500.jpeg" />
     <Content Include="Images\san_pham_kem_theo\hop-tam-giao-4-mo-nap-e1689310984978-500x500.jpg" />
+    <Content Include="Images\san_pham_kem_theo\bo-son-mai-7.jpg" />
     <Content Include="Images\shopee 1.png" />
     <Content Include="Images\sidebar-1_renew.png" />
     <Content Include="Images\sidebar-2.png" />
@@ -484,12 +486,12 @@
     <Content Include="Images\zalo.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>DB_BanTra.edmx</DependentUpon>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>DB_BanTra.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -527,12 +529,12 @@
     <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js.map" />
     <Content Include="forms\contact.php" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\DB_BanTra.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB_BanTra.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\DB_BanTra.edmx.diagram">
+      <DependentUpon>DB_BanTra.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />

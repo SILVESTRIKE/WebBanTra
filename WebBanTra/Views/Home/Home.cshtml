@@ -1,6 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "Trang chủ";
+    var listSPBanChay = ViewBag.SanPhamBanChay as List<WebBanTra.Models.SanPham>;
+    var listAnhSPBanChay = ViewBag.AnhSanPhamBanChay as List<WebBanTra.Models.Anh_SanPham>;
+    var listMoTaSPBanChay = ViewBag.MoTaSanPhamBanChay as List<WebBanTra.Models.MoTa_SanPham>;
+    var styleDM = "";
+    var titleDM = "";
 }
 
 <main class="main">
@@ -78,104 +83,61 @@
                     <li data-filter=".filter-product">Bộ Ấm trà</li>
                     <li data-filter=".filter-branding">Bộ trà</li>
                 </ul><!-- End Portfolio Filters -->
-                @*app : trà
-                  product : bộ ấm trà
-                  brand: bộ trà
+                @*filter-app : trà
+                  filter-product : bộ ấm trà
+                  filter-brand: bộ trà
                     *@
-                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                
+             
+            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                @if (listSPBanChay != null && listAnhSPBanChay != null && listMoTaSPBanChay != null)
+                {
+                    foreach (WebBanTra.Models.SanPham item in listSPBanChay)
+                    {
+                        if (item != null)
+                        {
+                            switch (item.MaDM)
+                            {
+                                case 1:
+                                    {
+                                        styleDM = "app";
+                                        titleDM = "App ";
+                                        break;
+                                    }
 
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                        <img src="~/Images/bo_sp/sp1/anh2.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Bộ sản phẩm 2</h4>
-                            <p>Quà tặng khách hàng, đối tác- Trà Cà Phê, Trà Vối, Trà Hương Thảo</p>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
-                            <a href="~/Images/bo_sp/sp1/anh2.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
 
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                        <img src="~/Images/bo_sp/sp105/anh3.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Bộ ấm trà nhã nhặn</h4>
-                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
+                                case 2:
+                                    {
+                                        styleDM = "product";
+                                        titleDM = "Product ";
+                                        break;
+                                    }
 
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Branding 1</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
 
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 2</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
+                                default:
+                                    {
+                                        styleDM = "branding";
+                                        titleDM = "Branding ";
+                                        break;
+                                    }
 
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Product 2</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
+                            }
+                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@styleDM">
+                                <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="ảnh sản phẩm @item.TenSP">
+                                <div class="portfolio-info">
+                                    <h4>@item.TenSP</h4>
+                                    <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>
+                                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
+                                    <a href="~/Images/bo_sp/sp1/anh2.jpg" title="@titleDM @item.MaSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                </div>
+                            </div><!-- End Portfolio Item -->
+                        }
+                    }
+                }
+                
 
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Branding 2</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>App 3</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Product 3</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                        <img src="~/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h4>Branding 3</h4>
-                            <p>Lorem ipsum, dolor sit</p>
-                            <a href="~/assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                            <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                        </div>
-                    </div><!-- End Portfolio Item -->
-
-                </div><!-- End Portfolio Container -->
+            </div><!-- End Portfolio Container -->
 
             </div>
 
@@ -219,27 +181,24 @@
                 <div class="tab-pane fade active show" id="features-tab-1">
                     <div class="row">
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                            <h3>Đa dạng loài trà</h3>
                             <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua.
+                                Chúng tôi cung cấp nhiều loại trà khác nhau cũng như các sản phẩm liên qua đến tra như ấm trà và các bộ quà tặng dùng để tặng đối tác.
                             </p>
                             <ul>
                                 <li>
                                     <i class="bi bi-check2-all"></i>
-                                    <spab>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</spab>
+                                    <spab>Trà nguyên chất, an toàn và chất lượng</spab>
                                 </li>
-                                <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit</span>.</li>
-                                <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                                <li><i class="bi bi-check2-all"></i> <span>Sơ chế và đống gói dưới quy trình gắt gao.</span>.</li>
+                                <li><i class="bi bi-check2-all"></i> <span>Kiểm tra và thu thập đánh giá, cải thiện sản phẩm trước khi bán ra thị trường.</span></li>
                             </ul>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
+                                Trà từ chúng tôi được tuyển chọn kỹ lưỡng từ những lá trà tươi ngon nhất, mang hương vị đặc trưng và chất lượng cao. Với cam kết cung cấp sản phẩm tự nhiên, sạch và đảm bảo an toàn, trà được chế biến theo quy trình hiện đại nhưng vẫn giữ được hương thơm và vị nguyên bản. Đây là lựa chọn hoàn hảo cho những người yêu thích trà và muốn thưởng thức sự tinh túy từ thiên nhiên.
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="~/assets/img/working-1.jpg" alt="" class="img-fluid">
+                            <img src="~/Images/san_pham_kem_theo/anh6.jpg" alt="ảnh mô tả 1" class="img-fluid">
                         </div>
                     </div>
                 </div><!-- End Tab Content Item -->
@@ -247,25 +206,23 @@
                 <div class="tab-pane fade" id="features-tab-2">
                     <div class="row">
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
+                            <h3>Quà Tặng Đặc Biệt Cho Khách Hàng Yêu Trà</h3>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
+                                món quà tinh tế mang đậm hương vị trà. Bộ quà tặng gồm các loại trà thượng hạng được tuyển chọn kỹ lưỡng, 
+                                kết hợp với phụ kiện pha trà sang trọng, giúp quý khách trải nghiệm trọn vẹn nghệ thuật thưởng trà. Đây không chỉ là món quà ý nghĩa mà còn là lời tri ân sâu sắc dành cho quý khách hàng đã tin tưởng và đồng hành cùng chúng tôi.
                             </p>
                             <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua.
+                                
                             </p>
                             <ul>
-                                <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                                <li><i class="bi bi-check2-all"></i> <span>Chuyên nghiệp</span></li>
+                                <li><i class="bi bi-check2-all"></i> <span>Tao nhãn.</span></li>
+                                <li><i class="bi bi-check2-all"></i> <span>Thanh cao.</span></li>
+                                <li><i class="bi bi-check2-all"></i> <span>Bắt mắt.</span></li>
                             </ul>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="~/assets/img/working-2.jpg" alt="" class="img-fluid">
+                            <img src="~/Images/san_pham_kem_theo/hop-an-khang-go-2-scaled-500x500.jpeg" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div><!-- End Tab Content Item -->
@@ -273,24 +230,16 @@
                 <div class="tab-pane fade" id="features-tab-3">
                     <div class="row">
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                            <h3>Khám phá sự tinh tế của thế giới trà</h3>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
+                                Không chỉ là trà ngon, sự xuất sắc và tinh tế còn thể hiện rõ ràng qua thiết kế đẹp mắt và sự công phu trong chế tác ấm chén được dùng pha trà.
                             </p>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
-                            </ul>
                             <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua.
+                               
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="~/assets/img/working-3.jpg" alt="" class="img-fluid">
+                            <img src="~/Images/san_pham_kem_theo/bo-son-mai-7.jpg" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div><!-- End Tab Content Item -->
@@ -298,24 +247,15 @@
                 <div class="tab-pane fade" id="features-tab-4">
                     <div class="row">
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                            <h3>Omnis fugiat ea explicabo sunt dolorum asperiores sequi inventore rerum</h3>
+                            <h3>Quà Tết 2025</h3>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
+                                Bộ quà này không chỉ là một sản phẩm, mà còn là sự tôn vinh vẻ đẹp của văn hóa trà Việt, khơi gợi những khoảnh khắc ấm áp, gắn kết trong dịp Tết.
                             </p>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                                <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                            </ul>
+                            
+                            
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="~/assets/img/working-4.jpg" alt="" class="img-fluid">
+                            <img src="https://www.traviet.com/wp-content/uploads/2024/10/banner-qua-tet-2025-at-ti-2.jpg" alt="" class="img-fluid">
                         </div>
                     </div>
                 </div><!-- End Tab Content Item -->
@@ -328,107 +268,30 @@
 
     <div class="container section-title" data-aos="fade-up">
         <h2>Ưa thích</h2>
-        <p>Sản phẩm bán chạy</p>
+        <p>Sản phẩm ưa thích</p>
     </div><!-- End Section Title -->
 
     <div class="container" id="BanChay">
         <div class="row gy-2">
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-
-            <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="pricing-item">
-                    <img src="~/assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="btn-wrap">
-                        <h3>Tên sản phẩm</h3>
-                        <h4><sup>$</sup>0</h4>
-                        <a href="#" class="btn-buy">Mua Ngay</a>
-                    </div>
-                </div>
-            </div><!-- End Pricing Item -->
-
-
-
-
+            @if (listSPBanChay != null && listAnhSPBanChay != null && listMoTaSPBanChay != null)
+            {
+                foreach (WebBanTra.Models.SanPham item in listSPBanChay)
+                {
+                    if (item != null)
+                    {
+                        <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="pricing-item">
+                                <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="@item.TenSP">
+                                <div class="btn-wrap">
+                                    <h3>@item.TenSP</h3>
+                                    <h4>@item.Gia <sup>VNĐ</sup></h4>
+                                    <a href="#" class="btn-buy">Mua Ngay</a>
+                                </div>
+                            </div>
+                        </div><!-- End Pricing Item -->
+                    }
+                }
+            }
         </div>
 
     </div>
@@ -455,20 +318,20 @@
                       },
                       "slidesPerView": "auto",
                       "pagination": {
-                        "el": ".swiper-pagination",
+                                "el": ".swiper-pagination",
                         "type": "bullets",
                         "clickable": true
                       },
                       "breakpoints": {
-                        "320": {
-                          "slidesPerView": 1,
+                                "320": {
+                                    "slidesPerView": 1,
                           "spaceBetween": 40
-                        },
+                                },
                         "1200": {
-                          "slidesPerView": 3,
+                                    "slidesPerView": 3,
                           "spaceBetween": 10
                         }
-                      }
+                            }
                     }
                 </script>
                 <div class="swiper-wrapper">

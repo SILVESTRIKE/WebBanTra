@@ -1550,7 +1550,7 @@ section,
 }
 
 .recent-posts .post-category {
-  font-size: 16px;
+  font-size: 20px;
   color: color-mix(in srgb, var(--default-color), transparent 50%);
   margin-bottom: 10px;
 }
@@ -2004,7 +2004,7 @@ section,
 
 .blog-posts .post-category {
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
   margin-bottom: 10px;
 }
 
