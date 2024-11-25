@@ -12,9 +12,10 @@ namespace WebBanTra.Controllers
     public class ProductController : Controller
     {
         // GET: Product
+        private readonly DB_BanTraEntities _dbBanTra;
+        DB_BanTraEntities db = new DB_BanTraEntities();
         public ActionResult Product(int page = 1)
         {
-            DB_BanTraEntities db = new DB_BanTraEntities();
             int pageSize = 9;
 
             List<WebBanTra.Models.SanPham> listProducts = db.SanPhams.ToList().Skip((page - 1) * pageSize).Take(pageSize).ToList();
@@ -30,15 +31,33 @@ namespace WebBanTra.Controllers
 
             return View(productViewModels);
         }
-
-        public ActionResult ChiTietSanPham()
+        public ActionResult ChiTietSanPham(int id = 0)
         {
-            return View();
+            using (db)
+            {
+                var product = db.SanPhams
+                    .Where(sp => sp.MaSP == id)
+                    .Select(sp => new ProductDetailViewModel
+                    {
+                        TenSP = sp.TenSP,
+                        Gia = sp.Gia,
+                        Images = sp.Anh_SanPham.Select(a => a.LinhAnh).ToList(),
+                        Descriptions = sp.MoTa_SanPham.Select(m => m.MoTa).ToList(),
+                        DanhMuc = sp.DanhMuc.TenDM
+                    })
+                    .FirstOrDefault();
+
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(product);
+            }
         }
+
 
         public ActionResult Search(string nameSP, int page = 1)
         {
-            DB_BanTraEntities db = new DB_BanTraEntities();
             ProductViewModel productViewModels;
             if (nameSP == null)
             {

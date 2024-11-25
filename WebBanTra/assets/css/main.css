@@ -635,7 +635,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 85px 0;
   scroll-margin-top: 77px;
   overflow: clip;
 }
@@ -2380,7 +2380,7 @@ section,
 # Widgets
 --------------------------------------------------------------*/
 .widgets-container {
-  margin: 60px 0 30px 0;
+  margin: 85px 0 30px 0;
 }
 
 .widget-title {
@@ -2575,4 +2575,30 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+.thumbnail {
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+    .thumbnail.selected {
+        border: 3px solid pink; /* Viền màu hồng khi ảnh được chọn */
+    }
+
+    .thumbnail:hover {
+        opacity: 0.7; /* Tạo hiệu ứng hover nhẹ */
+    }
+
+.card-img-top {
+    max-height: 500px; /* Giới hạn chiều cao của ảnh lớn */
+    object-fit: contain; /* Đảm bảo ảnh lớn không bị vỡ */
+}
+a {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    color: inherit; /* Sử dụng màu chữ mặc định */
+}
+
+a:hover {
+    text-decoration: none;
+    color: #007bff; /* Màu khi hover */
 }

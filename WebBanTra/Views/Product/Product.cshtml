@@ -37,24 +37,21 @@
                     if (item != null)
                     {
                         <div class="col-lg-4">
-                            <article>
+                            <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })">
+                                <article>
+                                    <div class="post-img">
+                                        <img src="@Model.listAnhSP.Find(r => r.MaSP == item.MaSP).LinhAnh" alt="@item.TenSP" class="img-fluid">
+                                    </div>
 
-                                <div class="post-img">
-                                    <a href="#">
-                                        <img src="@Model.listAnhSP.Find(r=>r.MaSP == item.MaSP).LinhAnh" alt="@item.TenSP" class="img-fluid">
-                                    </a>
-                                </div>
+                                    <h2 class="title">@item.TenSP</h2>
 
-                                <h2 class="title">
-                                    <a href="blog-details.html">@item.TenSP</a>
-                                </h2>
-
-                                <p class="post-category">@item.Gia VNĐ</p>
-
-                            </article>
+                                    <p class="post-category">@item.Gia VNĐ</p>
+                                </article>
+                            </a>
                         </div><!-- End post list item -->
                     }
                 }
+
 
 
             </div>

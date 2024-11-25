@@ -11,5 +11,8 @@ namespace WebBanTra.OOP
         public List<WebBanTra.Models.Anh_SanPham> listAnhSP { get; set; }
         public int totalPage { get; set; }
         public int currentPage { get; set; }
+
+
     }
+    
 }
