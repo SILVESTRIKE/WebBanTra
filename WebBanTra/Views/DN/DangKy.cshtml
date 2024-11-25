@@ -1,23 +1,86 @@
-﻿
+﻿@model WebBanTra.OOP.AppUser
+
 @{
+    Layout = null;
     ViewBag.Title = "DangKy";
 }
-<link href="~/assets/css/DK.css" rel="stylesheet" />
+<header>
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/assets/css/DK.css" rel="stylesheet" />
+</header>
+<body>
     <div class="form-container" style="margin-top: 80px;">
         <p class="title">Welcome back</p>
-        <form class="form" method="post">
-            <input type="text" class="input" placeholder="Họ tên">
-            <input type="email" class="input" placeholder="Email">
-            <input type="number" class="input" placeholder="Số điện thoại">
-            <input type="text" class="input" placeholder="Địa chỉ">
-            <input type="text" class="input" placeholder="Tên Tài Khoản">
-            <input type="password" class="input" placeholder="Mật Khẩu">
-            <a href="/DN/DangKy">
-                <label for="SigUp"></label>
-                <input type="button" name="SigUp" value="Đăng ký" class="form-btn align-items-center"/>
-            </a>
-        </form>
+        @using (Html.BeginForm("DangKy", "DN", FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.HoTen, new { @class = "input", placeholder = "Nhập Họ tên người dùng" })
+                <br />
+                @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.Email, new { @class = "input", placeholder = "Nhập Email" })
+                <br />
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "input", placeholder = "Nhập Số điện thoại" })
+                <br />
+                @Html.ValidationMessageFor(m => m.SoDienThoai, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.DiaChi, new { @class = "input", placeholder = "Nhập Địa chỉ" })
+                <br />
+                @Html.ValidationMessageFor(m => m.DiaChi, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.DiaChi, new { @class = "input", @type = "date", placeholder = "Nhập Ngày sinh" })
+                <br />
+                @Html.ValidationMessageFor(m => m.DiaChi, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "input", placeholder = "Nhập tên đăng nhập" })
+                <br />
+                @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.PasswordFor(m => m.MatKhau, new { @class = "input", placeholder = "Nhập mật khẩu" })
+                <br />
+                @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.PasswordFor(m => m.confirmMatKhau, new { @class = "input", placeholder = "Nhập lại mật khẩu" })
+                <br />
+                @Html.ValidationMessageFor(m => m.confirmMatKhau, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn form-btn align-items-center">Đăng ký</button>
+        }
         <p class="sign-up-label">
-            <a href="/DN/Index"><span class="sign-up-link">Đăng Nhập</span></a>
+            <a href="/DN/DangNhap"><span class="sign-up-link">Đăng Nhập</span></a>
         </p>
     </div>
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+</body>

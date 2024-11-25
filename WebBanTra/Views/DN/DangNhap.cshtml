@@ -1,22 +1,53 @@
-﻿@{ 
+﻿@model WebBanTra.Models.TaiKhoan
+
+@{
+    Layout = null;
     ViewBag.Title = "Đăng Nhập";
 }
-<link href="~/assets/css/DN.css" rel="stylesheet" />
-<div class="form-container">
-    <p class="title">Đăng Nhập</p>
-    <form class="form">
-        <input type="text" class="input" placeholder="Tên Đăng Nhập">
-        <input type="password" class="input" placeholder="Mật Khẩu">
-        <p class="page-link">
-            <span class="page-link-label">Quên Mật Khẩu?</span>
+
+<header>
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/assets/css/DN.css" rel="stylesheet" />
+</header>
+
+<body>
+    <div class="form-container">
+        <p class="title">Đăng Nhập</p>
+
+        @using (Html.BeginForm("DangNhap", "DN", FormMethod.Post, new { @class = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "input", placeholder = "Nhập tên đăng nhập" })
+                @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.PasswordFor(m => m.MatKhau, new { @class = "input", placeholder = "Nhập mật khẩu" })
+                @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+            </div>
+
+            <button type="submit" class="btn form-btn align-items-center">Đăng nhập</button>
+        }
+        <p class="sign-up-label">
+            Bạn chưa có tài khoản? Hãy đăng ký ngay<a href="/DN/DangKy"><span class="sign-up-link">Đăng Ký</span></a>
         </p>
-        <a href="/Home/Home" style="text-align: center;">
-            <label for="Login"></label>
-            <input type="button" name="Login" value="Đăng nhập" class="form-btn align-items-center" />
-        </a>
-    </form>
-    <p class="sign-up-label">
-        Don't have an account? <a href="/DN/DangKy"><span class="sign-up-link">Đăng Ký</span></a>
-    </p>
-</div>
+    </div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+</body>
 
