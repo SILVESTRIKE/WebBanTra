@@ -16,7 +16,7 @@ namespace WebBanTra.Controllers
 
         public ActionResult ChiTietSanPham()
         {
-            Console.WriteLine("ABC");
+
             return View();
         }
     }
