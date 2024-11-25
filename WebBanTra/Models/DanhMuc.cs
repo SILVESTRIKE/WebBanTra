@@ -22,7 +22,6 @@ namespace WebBanTra.Models
     
         public int MaDM { get; set; }
         public string TenDM { get; set; }
-        public string LinkDM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
