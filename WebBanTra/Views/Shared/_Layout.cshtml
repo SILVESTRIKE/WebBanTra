@@ -35,6 +35,7 @@
 <body class="index-page">
 
     <header id="header" class="header d-flex align-items-center fixed-top">
+        @*style="background-color: rgba(0, 0, 0, 0.5); border-radius: 50px; margin: 1vw"*@
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="/Home/Home" class="logo d-flex align-items-center">
@@ -55,12 +56,12 @@
                     </button>
                 </form>
             </div>
-            <nav id="navmenu" class="navmenu">
+            <nav id="navmenu" class="navmenu" ">
                 <ul>
                     <li><a href="/Home/Home" class="active">Trang chủ</a></li>
                     <li class="dropdown">
                         <a href="/Product/Product"><span>Danh mục</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                        
+
                         <ul>
 
                             @if (ViewBag.DanhMuc != null)
@@ -172,6 +173,7 @@
             </div>
         </div>
     </footer>
+    @RenderSection("Scripts", required: false)
 
 
     <!-- Scroll Top -->
