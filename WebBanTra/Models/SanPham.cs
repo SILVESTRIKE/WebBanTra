@@ -14,7 +14,6 @@ namespace WebBanTra.Models
     
     public partial class SanPham
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
         {
             this.Anh_SanPham = new HashSet<Anh_SanPham>();
@@ -29,14 +28,10 @@ namespace WebBanTra.Models
         public int SoLuongTon { get; set; }
         public int MaDM { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Anh_SanPham> Anh_SanPham { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDH> ChiTietDHs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDNH> ChiTietDNHs { get; set; }
         public virtual DanhMuc DanhMuc { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MoTa_SanPham> MoTa_SanPham { get; set; }
     }
 }

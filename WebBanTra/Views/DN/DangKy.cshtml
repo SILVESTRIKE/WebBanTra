@@ -1,23 +1,28 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "DangKy";
 }
 <link href="~/assets/css/DK.css" rel="stylesheet" />
-    <div class="form-container" style="margin-top: 80px;">
-        <p class="title">Welcome back</p>
-        <form class="form" method="post">
-            <input type="text" class="input" placeholder="Họ tên">
-            <input type="email" class="input" placeholder="Email">
-            <input type="number" class="input" placeholder="Số điện thoại">
-            <input type="text" class="input" placeholder="Địa chỉ">
-            <input type="text" class="input" placeholder="Tên Tài Khoản">
-            <input type="password" class="input" placeholder="Mật Khẩu">
-            <a href="/DN/DangKy">
-                <label for="SigUp"></label>
-                <input type="button" name="SigUp" value="Đăng ký" class="form-btn align-items-center"/>
-            </a>
-        </form>
-        <p class="sign-up-label">
-            <a href="/DN/Index"><span class="sign-up-link">Đăng Nhập</span></a>
-        </p>
-    </div>
+<div class="form-container" style="margin-top: 80px;">
+    <p class="title">Welcome back</p>
+    <form class="form" method="post">
+        <input type="text" class="input" name="hoTen" placeholder="Họ tên" required />
+        <input type="email" class="input" name="email" placeholder="Email" required />
+        <input type="number" class="input" name="soDienThoai" placeholder="Số điện thoại" required />
+        <input type="text" class="input" name="diaChi" placeholder="Địa chỉ" required />
+        <input type="text" class="input" name="taiKhoan" placeholder="Tên Tài Khoản" required />
+        <input type="password" class="input" name="matKhau" placeholder="Mật Khẩu" required />
+        <input type="password" class="input" name="xacNhanMatKhau" placeholder="Xác Nhận Mật Khẩu" required />
+
+        <!-- Role selection dropdown -->
+        <select class="input" name="vaiTro" required>
+            <option value="Khách hàng">Khách hàng</option>
+            <option value="Nhân viên">Nhân viên</option>
+            <option value="Admin">Admin</option>
+        </select>
+
+        <input type="submit" name="SigUp" value="Đăng ký" class="form-btn align-items-center" />
+    </form>
+    <p class="sign-up-label">
+        <a href="/DN/DangNhap"><span class="sign-up-link">Đăng Nhập</span></a>
+    </p>
+</div>

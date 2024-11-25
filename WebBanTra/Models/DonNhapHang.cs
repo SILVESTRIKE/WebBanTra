@@ -14,7 +14,6 @@ namespace WebBanTra.Models
     
     public partial class DonNhapHang
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonNhapHang()
         {
             this.ChiTietDNHs = new HashSet<ChiTietDNH>();
@@ -25,7 +24,6 @@ namespace WebBanTra.Models
         public Nullable<System.DateTime> NgayDat { get; set; }
         public Nullable<decimal> TongTien { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDNH> ChiTietDNHs { get; set; }
         public virtual NhaCungCap NhaCungCap { get; set; }
     }

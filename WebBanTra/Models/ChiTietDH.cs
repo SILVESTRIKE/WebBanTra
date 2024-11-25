@@ -14,7 +14,6 @@ namespace WebBanTra.Models
     
     public partial class ChiTietDH
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChiTietDH()
         {
             this.DanhGias = new HashSet<DanhGia>();
@@ -28,7 +27,6 @@ namespace WebBanTra.Models
     
         public virtual DonHang DonHang { get; set; }
         public virtual SanPham SanPham { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhGia> DanhGias { get; set; }
     }
 }

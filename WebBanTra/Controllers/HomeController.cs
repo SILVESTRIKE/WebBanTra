@@ -11,7 +11,7 @@ namespace WebBanTra.Controllers
         // GET: Home
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            DB_BanTraEntities db = new DB_BanTraEntities();
+            DB_BanTraEntities2 db = new DB_BanTraEntities2();
             ViewBag.DanhMuc = db.DanhMucs.ToList();
             ViewBag.DanhMucCount = db.DanhMucs.Count();
             base.OnActionExecuting(filterContext);

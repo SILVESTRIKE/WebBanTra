@@ -14,7 +14,6 @@ namespace WebBanTra.Models
     
     public partial class KhachHang
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
             this.DanhGias = new HashSet<DanhGia>();
@@ -30,9 +29,7 @@ namespace WebBanTra.Models
         public string DiaChi { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhGia> DanhGias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

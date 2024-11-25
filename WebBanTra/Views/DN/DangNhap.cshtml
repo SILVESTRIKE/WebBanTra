@@ -1,22 +1,29 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "Đăng Nhập";
 }
 <link href="~/assets/css/DN.css" rel="stylesheet" />
 <div class="form-container">
     <p class="title">Đăng Nhập</p>
-    <form class="form">
-        <input type="text" class="input" placeholder="Tên Đăng Nhập">
-        <input type="password" class="input" placeholder="Mật Khẩu">
+    <!-- Form POST dữ liệu đến action DangNhap -->
+    <form class="form" method="post" action="/DN/DangNhap">
+        <!-- Input cho tên đăng nhập -->
+        <input type="text" class="input" name="taiKhoan" placeholder="Tên Đăng Nhập" required>
+        <!-- Input cho mật khẩu -->
+        <input type="password" class="input" name="matKhau" placeholder="Mật Khẩu" required>
+        <!-- Link quên mật khẩu -->
         <p class="page-link">
             <span class="page-link-label">Quên Mật Khẩu?</span>
         </p>
-        <a href="/Home/Home" style="text-align: center;">
-            <label for="Login"></label>
-            <input type="button" name="Login" value="Đăng nhập" class="form-btn align-items-center" />
-        </a>
+        <!-- Nút đăng nhập -->
+        <button type="submit" class="form-btn align-items-center">Đăng Nhập</button>
     </form>
+    <!-- Link đến trang Đăng Ký -->
     <p class="sign-up-label">
         Don't have an account? <a href="/DN/DangKy"><span class="sign-up-link">Đăng Ký</span></a>
     </p>
+    <!-- Hiển thị lỗi nếu có -->
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <p style="color: red; text-align: center;">@ViewBag.ErrorMessage</p>
+    }
 </div>
-

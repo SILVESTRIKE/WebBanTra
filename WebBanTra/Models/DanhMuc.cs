@@ -14,7 +14,6 @@ namespace WebBanTra.Models
     
     public partial class DanhMuc
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DanhMuc()
         {
             this.SanPhams = new HashSet<SanPham>();
@@ -24,7 +23,6 @@ namespace WebBanTra.Models
         public string TenDM { get; set; }
         public string LinkDM { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

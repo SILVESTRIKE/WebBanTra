@@ -10,21 +10,10 @@
 namespace WebBanTra.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class NhaCungCap
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public NhaCungCap()
-        {
-            this.DonNhapHangs = new HashSet<DonNhapHang>();
-        }
-    
-        public int MaNCC { get; set; }
-        public string TenNCC { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string Email { get; set; }
-    
-        public virtual ICollection<DonNhapHang> DonNhapHangs { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
