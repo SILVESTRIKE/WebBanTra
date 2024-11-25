@@ -5,7 +5,6 @@
     var listAnhSPBanChay = ViewBag.AnhSanPhamBanChay as List<WebBanTra.Models.Anh_SanPham>;
     var listMoTaSPBanChay = ViewBag.MoTaSanPhamBanChay as List<WebBanTra.Models.MoTa_SanPham>;
     var styleDM = "";
-    var titleDM = "";
 }
 
 <main class="main">
@@ -101,7 +100,6 @@
                                 case 1:
                                     {
                                         styleDM = "app";
-                                        titleDM = "App ";
                                         break;
                                     }
 
@@ -109,7 +107,6 @@
                                 case 2:
                                     {
                                         styleDM = "product";
-                                        titleDM = "Product ";
                                         break;
                                     }
 
@@ -117,7 +114,6 @@
                                 default:
                                     {
                                         styleDM = "branding";
-                                        titleDM = "Branding ";
                                         break;
                                     }
 
@@ -128,8 +124,8 @@
                                     <h4>@item.TenSP</h4>
                                     <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>
                                     <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
-                                    <a href="~/Images/bo_sp/sp1/anh2.jpg" title="@titleDM @item.MaSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    <a href="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" title="@item.TenSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div><!-- End Portfolio Item -->
                         }
@@ -279,14 +275,16 @@
                 {
                     if (item != null)
                     {
-                        <div class="col-xl-3 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-xl-3 col-lg-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
                             <div class="pricing-item">
-                                <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="@item.TenSP">
-                                <div class="btn-wrap">
-                                    <h3>@item.TenSP</h3>
-                                    <h4>@item.Gia <sup>VNĐ</sup></h4>
-                                    <a href="#" class="btn-buy">Mua Ngay</a>
-                                </div>
+                                <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})">
+                                    <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="@item.TenSP">
+                                    <div class="btn-wrap">
+                                        <h3>@item.TenSP</h3>
+                                        <h4>@item.Gia <sup>VNĐ</sup></h4>
+                                        <a href="#" class="btn-buy">Mua Ngay</a>
+                                    </div>
+                                </a>
                             </div>
                         </div><!-- End Pricing Item -->
                     }
