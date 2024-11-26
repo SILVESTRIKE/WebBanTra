@@ -4,6 +4,8 @@
 }
 
 
+@model IEnumerable<WebBanTra.Models.SanPham>
+
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
 
@@ -62,7 +64,7 @@
 
 </aside><!-- End Sidebar-->
 
-<main id="main" class="main">
+<main id="main" class="main" style="width:100%">
 
     <div class="pagetitle">
         <h1>Dashboard</h1>
@@ -287,89 +289,51 @@
                                 <h5 class="card-title">Recent Sales <span>| Today</span></h5>
 
                                 <table class="table table-borderless datatable">
-                                    <thead>
+                                    <thead class="table-success">
                                         <tr>
-                                            <th scope="col">Mã sản phẩm</th>
-                                            <th scope="col">Tên sản phẩm</th>
-                                            <th scope="col">Ảnh</th>
-                                            <th scope="col">Mô tả </th>
-                                            <th scope="col">Giá</th>
-                                            <th scope="col">Số lượng tồn</th>
-                                            <th scope="col">Số lượng bán</th>
-                                            <th scope="col">Loại sản phẩm</th>
+                                            <th>Mã Sản Phẩm</th>
+                                            <th>Tên Sản Phẩm</th>
+                                            <th>Ảnh</th>
+                                            <th>Giá</th>
+                                            <th>Số lượng tồn</th>
+                                            <th>Loại sản phẩm</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if (Model != null)
+                                        {
+                                            foreach (var sanPham in Model)
+                                            {
+                                                <tr>
+                                                    <td>@sanPham.MaSP</td>
+                                                    <td>@sanPham.TenSP</td>
+                                                    <td>
+                                                        @if (sanPham.Anh_SanPham.Any())
+                                                        {
+                                                            <img src="@sanPham.Anh_SanPham.FirstOrDefault().LinhAnh" alt="Ảnh sản phẩm" width="100">
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>Chưa có ảnh</span>
+                                                        }
+                                                    </td>
+                                                    <td>@sanPham.Gia</td>
+                                                    <td>@sanPham.SoLuongTon</td>
+                                                    <td>@sanPham.DanhMuc.TenDM</td>
+                                                    <td>
+                                                        @Html.ActionLink("Cập nhật", "UpdateSanPham", "Admin", new { id = sanPham.MaSP }, new { @class = "btn btn-outline-success btn-sm w-100" })
+                                                        <button class="btn btn-danger btn-sm w-100" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-productid="@sanPham.MaSP" data-productname="@sanPham.TenSP">Xóa</button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
                                         <tr>
-                                            <th scope="row"><a href="#">#SP01</a></th>
-                                            <td>Tra Xanh</td>
-                                            <td>Ảnh</td>
-                                            <td>Tra xanh nguyen chat</td>
-                                            <td>20000</td>
-                                            <td>100</td>
-                                            <td>10</td>
-                                            <td>Đồ uống</td>
-
-                                            <td><span class="badge bg-success">Sửa</span></td>
-                                            <td><span class="badge bg-success">Xóa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#SP01</a></th>
-                                            <td>Tra Xanh</td>
-                                            <td>Ảnh</td>
-                                            <td>Tra xanh nguyen chat</td>
-                                            <td>20000</td>
-                                            <td>100</td>
-                                            <td>10</td>
-                                            <td>Đồ uống</td>
-
-                                            <td><span class="badge bg-success">Sửa</span></td>
-                                            <td><span class="badge bg-success">Xóa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#SP01</a></th>
-                                            <td>Tra Xanh</td>
-                                            <td>Ảnh</td>
-                                            <td>Tra xanh nguyen chat</td>
-                                            <td>20000</td>
-                                            <td>100</td>
-                                            <td>10</td>
-                                            <td>Đồ uống</td>
-
-                                            <td><span class="badge bg-success">Sửa</span></td>
-                                            <td><span class="badge bg-success">Xóa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#SP01</a></th>
-                                            <td>Tra Xanh</td>
-                                            <td>Ảnh</td>
-                                            <td>Tra xanh nguyen chat</td>
-                                            <td>20000</td>
-                                            <td>100</td>
-                                            <td>10</td>
-                                            <td>Đồ uống</td>
-
-                                            <td><span class="badge bg-success">Sửa</span></td>
-                                            <td><span class="badge bg-success">Xóa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"><a href="#">#SP01</a></th>
-                                            <td>Tra Xanh</td>
-                                            <td>Ảnh</td>
-                                            <td>Tra xanh nguyen chat</td>
-                                            <td>20000</td>
-                                            <td>100</td>
-                                            <td>10</td>
-                                            <td>Đồ uống</td>
-
-                                            <td><span class="badge bg-success">Sửa</span></td>
-                                            <td><span class="badge bg-success">Xóa</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="badge bg-success">Thêm</span></td>
+                                            @Html.ActionLink("Thêm sản phẩm", "CreateSanPham", "Admin", new { @class = "btn btn-primary m-3" })
                                         </tr>
                                     </tbody>
                                 </table>
+
 
                             </div>
 
@@ -379,85 +343,117 @@
                 </div>
             </div><!-- End Left side columns -->
             <!-- Right side columns -->
-            <div class="col-lg-4">
+            <!--<div class="col-lg-4">-->
+            <!-- Budget Report -->
+            <!--<div class="card">
+                <div class="filter">
+                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                            <h6>Filter</h6>
+                        </li>
 
-                <!-- Budget Report -->
-                <div class="card">
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
+                        <li><a class="dropdown-item" href="#">Today</a></li>
+                        <li><a class="dropdown-item" href="#">This Month</a></li>
+                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                    </ul>
+                </div>
 
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
+                <div class="card-body pb-0">
+                    <h5 class="card-title">Budget Report <span>| This Month</span></h5>
 
-                    <div class="card-body pb-0">
-                        <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+                    <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
 
-                        <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
-                                    legend: {
-                                        data: ['Allocated Budget', 'Actual Spending']
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
+                                legend: {
+                                    data: ['Allocated Budget', 'Actual Spending']
+                                },
+                                radar: {
+                                    // shape: 'circle',
+                                    indicator: [{
+                                        name: 'Sales',
+                                        max: 6500
                                     },
-                                    radar: {
-                                        // shape: 'circle',
-                                        indicator: [{
-                                            name: 'Sales',
-                                            max: 6500
-                                        },
-                                        {
-                                            name: 'Administration',
-                                            max: 16000
-                                        },
-                                        {
-                                            name: 'Information Technology',
-                                            max: 30000
-                                        },
-                                        {
-                                            name: 'Customer Support',
-                                            max: 38000
-                                        },
-                                        {
-                                            name: 'Development',
-                                            max: 52000
-                                        },
-                                        {
-                                            name: 'Marketing',
-                                            max: 25000
-                                        }
-                                        ]
+                                    {
+                                        name: 'Administration',
+                                        max: 16000
                                     },
-                                    series: [{
-                                        name: 'Budget vs spending',
-                                        type: 'radar',
-                                        data: [{
-                                            value: [4200, 3000, 20000, 35000, 50000, 18000],
-                                            name: 'Allocated Budget'
-                                        },
-                                        {
-                                            value: [5000, 14000, 28000, 26000, 42000, 21000],
-                                            name: 'Actual Spending'
-                                        }
-                                        ]
-                                    }]
-                                });
+                                    {
+                                        name: 'Information Technology',
+                                        max: 30000
+                                    },
+                                    {
+                                        name: 'Customer Support',
+                                        max: 38000
+                                    },
+                                    {
+                                        name: 'Development',
+                                        max: 52000
+                                    },
+                                    {
+                                        name: 'Marketing',
+                                        max: 25000
+                                    }
+                                    ]
+                                },
+                                series: [{
+                                    name: 'Budget vs spending',
+                                    type: 'radar',
+                                    data: [{
+                                        value: [4200, 3000, 20000, 35000, 50000, 18000],
+                                        name: 'Allocated Budget'
+                                    },
+                                    {
+                                        value: [5000, 14000, 28000, 26000, 42000, 21000],
+                                        name: 'Actual Spending'
+                                    }
+                                    ]
+                                }]
                             });
-                        </script>
+                        });
+                    </script>
 
-                    </div>
-                </div><!-- End Budget Report -->
-
-            </div><!-- End Right side columns -->
+                </div>
+            </div>-->
+            <!-- End Budget Report -->
+            <!--</div>--><!-- End Right side columns -->
 
         </div>
     </section>
 
 </main><!-- End #main -->
+<!-- Modal Confirm Delete -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <span id="productName"></span> (ID: <span id="productId"></span>)?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a id="confirmDeleteButton" class="btn btn-danger" href="#">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var confirmDeleteModal = document.getElementById('confirmDeleteModal');
+    confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var productId = button.getAttribute('data-productid');
+        var productName = button.getAttribute('data-productname');
+        var modalProductName = confirmDeleteModal.querySelector('#productName');
+        var modalProductId = confirmDeleteModal.querySelector('#productId');
+        modalProductName.textContent = productName;
+        modalProductId.textContent = productId;
+        var confirmDeleteButton = confirmDeleteModal.querySelector('#confirmDeleteButton');
+        confirmDeleteButton.setAttribute('href', '@Url.Action("DeleteSanPham", "Admin")/' + productId);
+    });
+</script>

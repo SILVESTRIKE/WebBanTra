@@ -200,19 +200,7 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
-  //document.addEventListener('DOMContentLoaded', function () {
-  //    const thumbnails = document.querySelectorAll('.thumbnail'); // Class cho các ảnh nhỏ
-  //    const mainImage = document.querySelector('#mainImage'); // ID cho ảnh lớn
 
-  //    thumbnails.forEach(thumbnail => {
-  //        thumbnail.addEventListener('click', function () {
-  //            mainImage.src = this.src;
-  //            thumbnails.forEach(thumb => thumb.classList.remove('border', 'border-pink'));
-
-  //            this.classList.add('border', 'border-pink');
-  //        });
-  //    });
-  //});
 
 
 })();

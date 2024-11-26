@@ -2602,3 +2602,6 @@ a:hover {
     text-decoration: none;
     color: #007bff; /* Màu khi hover */
 }
+body {
+    padding-top: 70px; /* Thêm padding cho body để tránh bị che khuất bởi navbar */
+}
