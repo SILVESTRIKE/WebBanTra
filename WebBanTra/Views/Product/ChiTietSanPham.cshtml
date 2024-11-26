@@ -1,30 +1,25 @@
-﻿
-@model WebBanTra.OOP.ProductDetailViewModel
-<link href="~/assets/css/cart.css" rel="stylesheet" />
-<script src="~/assets/js/TaskWork.js"></script>
+﻿@model WebBanTra.Models.SanPham
+
 @{
     ViewBag.Title = "ChiTietSanPham";
 }
-
-
 <main class="main">
     <div class="container" style="margin-top:85px">
-        <!-- Breadcrumb -->
-
+        <!-- Product Image -->
         <div class="row">
-            <!-- Product Image -->
             <div class="col-md-6">
                 <div class="card border-0">
                     <!-- Ảnh lớn -->
-                    <img id="largeImage" src="@Model.Images.FirstOrDefault()" class="card-img-top" alt="Product Image">
+                    <img id="largeImage" src="@Url.Content(Model.Anh_SanPham.FirstOrDefault()?.LinhAnh)" class="card-img-top" alt="Product Image">
 
                     <!-- Ảnh nhỏ (thumbnail) -->
                     <div class="d-flex mt-3" style="overflow-x:scroll">
-                        @foreach (var image in Model.Images)
+                        @foreach (var image in Model.Anh_SanPham)
                         {
-                            <img src="@image" class="me-2 img-thumbnail rounded-0" alt="Thumbnail"
+                            <img src="@Url.Content(image.LinhAnh)" class="me-2 img-thumbnail rounded-0" alt="Thumbnail"
                                  style="width: 70px; height: 70px; object-fit: cover;"
                                  onclick="changeImage(this)">
+
                         }
                     </div>
                 </div>
@@ -34,35 +29,28 @@
             <div class="col-md-6">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb d-flex">
-                        <li class="breadcrumb-item" style="color:rgba(216, 34, 83, 255) ;"><a href="/Home/Home">Trang chủ</a></li>
-                        @if (Model != null && !string.IsNullOrEmpty(Model.DanhMuc))
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        @if (Model.DanhMuc != null)
                         {
-                            <li class="breadcrumb-item" style="color:rgba(216, 34, 83, 255) ;"><a href="@Url.Action("Search", "Product", new {nameSP = Model.TenDM})">@Model.DanhMuc</a></li>
+                            <li class="breadcrumb-item"><a href="#">@Model.DanhMuc.TenDM</a></li>
                         }
                         <li class="breadcrumb-item active" aria-current="page">@Model.TenSP</li>
                     </ol>
                 </nav>
 
                 <h1 class="h4">@Model.TenSP</h1>
-                <h2 class="text-danger fw-bold">@Model.Gia VNĐ</h2>
+                <h2 class="text-danger fw-bold">@Model.Gia.ToString("C0")</h2>
 
                 <ul class="list-unstyled mt-4">
-                    @foreach (var description in Model.Descriptions)
+                    @foreach (var description in Model.MoTa_SanPham)
                     {
-                        <li>@description</li>
+                        <li>@description.MoTa</li>
                     }
                 </ul>
 
-                <div class="btn-group">
-                    <div class="input-group-text inputgroup">
-                        <button id="btnDown" onclick="decreaseCTSP()">-</button>
-                        <input type="text" name="number" value="1" min="1" id="number-PDCTSP" />
-                        <button id="btnUp" onclick="increaseCTSP()">+</button>
-                    </div>
-                </div>
-
-                <div class="btn-group">
-                    <a id="ctsp-a" class="cta-btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Thêm vào giỏ hàng</a>
+                <div class="d-flex align-items-center mt-4">
+                    <input type="number" class="form-control w-25 me-3" value="1" min="1">
+                    <button class="btn btn-danger">Thêm vào giỏ hàng</button>
                 </div>
 
                 <div class="mt-3">
@@ -72,80 +60,34 @@
             </div>
         </div>
 
-
         <!-- Additional Information and Similar Products -->
-        <div class="mt-5">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="true">Thông tin bổ sung</button>
-                </li>
-            </ul>
-            <div class="tab-content border p-3" id="myTabContent">
-                <div class="tab-pane fade show active" id="details" role="tabpanel" aria-labelledby="details-tab">
-                    <table class="table">
-                        <tr>
-                            <th>Trọng lượng</th>
-                            <td>100 g</td>
-                        </tr>
-                        <tr>
-                            <th>Kích thước</th>
-                            <td>12 × 9 × 20 cm</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sản phẩm tương tự -->
+        
         <div class="mt-5">
             <h3 class="mb-4">Sản phẩm tương tự</h3>
             <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="position-relative">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                            <span class="position-absolute top-0 start-0 badge bg-secondary">Hết hàng</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Bộ ấm trà thủy tinh Lục Ấm</h5>
-                            <p class="text-warning">★★★★★</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Trà Ô Long – Hộp 10 tép 8 gram tiện dụng</h5>
+                @foreach (var product in ViewBag.RelatedProducts)
+                {
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                @*<img src="@Url.Content(product.Anh_SanPham.FirstOrDefault()?.LinhAnh ?? "~/Content/Images/default.jpg")"
+                                     class="card-img-top" alt="@product.TenSP">*@
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@product.TenSP</h5>
+                                <p class="card-text text-danger">@string.Format("{0:C}", product.Gia)</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Quà tặng Khách VIP – Trà Ô Long, Trà Nõn Tôm, Hồng Trà</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <div class="position-relative">
-                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                            <span class="position-absolute top-0 start-0 badge bg-secondary">Hết hàng</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Bộ Ấm Trà Sứ Trắng Lục Ấm</h5>
-                            <p class="text-warning">★★★★★</p>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
-    </div>
-
 </main>
-
+<script>
+    function changeImage(image) {
+        document.getElementById('largeImage').src = image.src;
+    }
+</script>
 
 
 <!-- Page Title

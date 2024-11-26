@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,8 +19,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Vendor CSS Files -->
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -26,7 +27,6 @@
     <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <script src="~/assets/js/main.js"></script>
 
     <!-- Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet">
@@ -56,55 +56,33 @@
                     </button>
                 </form>
             </div>
-            <nav id="navmenu" class="navmenu">
+            <nav id="navmenu" class="navmenu" ">
                 <ul>
                     <li><a href="/Home/Home" class="active">Trang chủ</a></li>
                     <li class="dropdown">
                         <a href="/Product/Product"><span>Danh mục</span><i class="bi bi-chevron-down toggle-dropdown"></i></a>
 
                         <ul>
-                            @Html.Action("DanhMuc", "Product")
-                            @*@if (ViewBag.DanhMuc != null)
+
+                            @if (ViewBag.DanhMuc != null)
+                            {
+                                foreach (var item in ViewBag.DanhMuc)
                                 {
-                                    foreach (var item in ViewBag.DanhMuc)
-                                    {
-                                        <li><a href="@Url.Action("SearchDM", "Product", new { nameSP = item.TenDM })">@item.TenDM</a></li>
-                                    }
-                                }*@
+                                    <li><a href="#">@item.TenDM</a></li>
+                                }
+                            }
                         </ul>
                     </li>
                     <li><a href="#DanhMuc">Bán chạy</a></li>
                     <li><a href="#GioiThieu">Về chúng tôi</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
                     <li><a href="/Cart/Cart">Giỏ hàng</a></li>
-                    @{
-                        var vaiTro = Session["VaiTro"];
-                        if (vaiTro != null)
-                        {
-                            if (vaiTro.ToString() == "Admin")
-                            {
-                                <li><a href="/Admin/Admin">Admin</a></li>
-
-                            }
-                            else if (vaiTro.ToString() == "Nhân viên")
-                            {
-                                <li><a href="/Admin/UserProfile">Thông tin nhân viên</a></li>
-                            }
-                            else
-                            {
-                                <li><a href="/DN/DangNhap">Thông tin khách hàng</a></li>
-                            }
-                        }
-                        else
-                        {
-                            Response.Redirect("/DN/DangNhap");
-                        }
-                    }
+                    <li><a href="/Admin/Admin">Admin</a></li>
+                    <li><a href="/DN/DangNhap">Đăng nhập</a></li>
 
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-
 
         </div>
     </header>
@@ -196,12 +174,13 @@
             </div>
         </div>
     </footer>
+    @RenderSection("Scripts", required: false)
 
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    @*Preloader*@
+    <!-- Preloader -->
     <div id="preloader"></div>
 
     <!-- Vendor JS Files -->

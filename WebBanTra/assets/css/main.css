@@ -72,10 +72,10 @@ a {
   transition: 0.3s;
 }
 
-/*a:hover {
+a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
-}*/
+}
 
 h1,
 h2,
@@ -143,13 +143,13 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-    --background-color: rgba(216, 34, 83, 0.5);
-    --heading-color: #ffffff;
-    color: var(--default-color);
-    background-color: var(--background-color);
-    padding: 20px 0;
-    transition: all 0.5s;
-    z-index: 997;
+  --background-color: rgba(255, 255, 255, 0);
+  --heading-color: #ffffff;
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 20px 0;
+  transition: all 0.5s;
+  z-index: 997;
 }
 
 .header .logo {
@@ -199,34 +199,34 @@ h6 {
 }
 
 .search__input:hover, .search__input:focus {
-    box-shadow: 0 0 1vw #ffffff13;
+  box-shadow: 0 0 1vw #ffffff13;
 }
 
 .search__input:focus {
-    outline: none;
-    background-color: #f0eeee;
+  outline: none;
+  background-color: #f0eeee;
 }
 
 .search__input::-webkit-input-placeholder {
-    font-weight: 100;
-    color: #ccc;
+  font-weight: 100;
+  color: #ccc;
 }
 
 .search__input:focus + .search__button {
-    background-color: #f0eeee;
+  background-color: #f0eeee;
 }
 
 .search__button {
-    border: none;
-    background-color: #f4f2f2;
-    margin-top: .1em;
-    padding: 0;
-    margin-left: -1vw;
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: .1em;
+  padding: 0;
+  margin-left: -1vw;
 }
 
 .search__button:hover {
-    cursor: pointer;
-    color: rgba(216, 34, 83, 255);
+  cursor: pointer;
+ 
 }
 
 .search__icon {
@@ -257,6 +257,7 @@ h6 {
   .navmenu li {
     position: relative;
     margin-left: 5px;
+
   }
 
   .navmenu a,
@@ -282,16 +283,11 @@ h6 {
     transition: 0.3s;
   }
 
-    .navmenu > ul > li:hover > a {
-        background-color: black;
-        color: white !important;
-    }
-
-    .navmenu .active,
-    .navmenu .active:focus {
-        background-color: black;
-        color: white !important;
-    }
+  .navmenu li:hover>a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    background-color: black ;
+  }
 
   .navmenu .dropdown ul {
     margin: 0;
@@ -329,7 +325,7 @@ h6 {
   .navmenu .dropdown ul .active:hover,
   .navmenu .dropdown ul li:hover>a {
     background-color: transparent;
-    color: rgba(216, 34, 83, 255) !important;
+    color: var(--nav-hover-color);
   }
 
   .navmenu .dropdown:hover>ul {
@@ -344,7 +340,7 @@ h6 {
     visibility: hidden;
   }
 
-.navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover>ul {
     opacity: 1;
     top: 0;
     left: -100%;
@@ -421,7 +417,7 @@ h6 {
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: rgba(216, 34, 83, 255);
+    color: var(--nav-dropdown-hover-color);
   }
 
   .navmenu .active i,
@@ -2409,7 +2405,7 @@ section,
 }
 
 .blog-author-widget img {
-    max-width: 160px;
+  max-width: 160px;
 }
 
 .blog-author-widget h4 {
@@ -2604,44 +2600,8 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: rgba(216, 34, 83, 255); /* Màu khi hover */
+    color: #007bff; /* Màu khi hover */
 }
-
-.price-slider {
-    position: relative;
-    margin-top: 20px;
-}
-
-    .price-slider input[type="range"] {
-        -webkit-appearance: none;
-        width: 100%;
-        height: 8px;
-        background: #eee;
-        outline: none;
-        border-radius: 5px;
-    }
-
-        .price-slider input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            background-color: #d81b60;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .price-slider input[type="range"]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            background-color: #d81b60;
-            border-radius: 50%;
-            cursor: pointer;
-        }       
-
-.price-label {
-    margin-top: 10px;
-    font-size: 1rem;
-    text-align: center;
+body {
+    padding-top: 70px; /* Thêm padding cho body để tránh bị che khuất bởi navbar */
 }
