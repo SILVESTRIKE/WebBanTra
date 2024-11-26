@@ -53,7 +53,34 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.4\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.4\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.4\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -143,64 +170,71 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Anh_SanPham.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDNH.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhGia.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhMuc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DonHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DonNhapHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HoaDon.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
+    <Compile Include="Models\DB_BanTra.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model1.cs">
+    <Compile Include="Models\DB_BanTra.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DB_BanTra.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_BanTra.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DonHang.cs">
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonNhapHang.cs">
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoaDon.cs">
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MoTa_SanPham.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
+    <Compile Include="OOP\AppUser.cs" />
+    <Compile Include="OOP\CartDetail.cs" />
+    <Compile Include="OOP\ProductDetailViewModel.cs" />
     <Compile Include="OOP\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\cart.css" />
@@ -252,6 +286,7 @@
     <Content Include="assets\img\working-3.jpg" />
     <Content Include="assets\img\working-4.jpg" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\TaskWork.js" />
     <Content Include="assets\scss\Readme.txt" />
     <Content Include="assets\vendor\animate.css\animate.compat.css" />
     <Content Include="assets\vendor\animate.css\animate.css" />
@@ -484,15 +519,15 @@
     <Content Include="Images\tra\tra_shantuyet\link sp.txt" />
     <Content Include="Images\Visa-Logo.png" />
     <Content Include="Images\zalo.jpg" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\DB_BanTra.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB_BanTra.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <LastGenOutput>DB_BanTra.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\DB_BanTra.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB_BanTra.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <LastGenOutput>DB_BanTra.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -567,8 +602,8 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\UserProfile.cshtml" />
-    <Content Include="Views\Admin\CreateSanPham.cshtml" />
-    <Content Include="Views\Admin\UpdateSanPham.cshtml" />
+    <Content Include="Views\Product\DanhMuc.cshtml" />
+    <Content Include="Views\Cart\DataCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

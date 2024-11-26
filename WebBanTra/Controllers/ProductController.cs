@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Mvc;
 using WebBanTra.Models;
 using WebBanTra.OOP;
-using System.Data.Entity;
 
 
 namespace WebBanTra.Controllers
@@ -33,27 +32,29 @@ namespace WebBanTra.Controllers
 
             return View(productViewModels);
         }
-
         public ActionResult ChiTietSanPham(int id = 0)
         {
-            var product = db.SanPhams
-                .Include(sp => sp.Anh_SanPham) 
-                .Include(sp => sp.MoTa_SanPham)
-                .Include(sp => sp.DanhMuc)
-                .FirstOrDefault(sp => sp.MaSP == id);
-
-            if (product == null)
+            using (db)
             {
-                return HttpNotFound();
-            }
-            var relatedProducts = db.SanPhams
-                            .Where(p => p.DanhMuc.MaDM == product.DanhMuc.MaDM && p.MaSP != id)
-                            .Take(4)
-                            .ToList();
-            ViewBag.RelatedProducts = relatedProducts;
-            return View(product);
-        }
+                var product = db.SanPhams
+                    .Where(sp => sp.MaSP == id)
+                    .Select(sp => new ProductDetailViewModel
+                    {
+                        TenSP = sp.TenSP,
+                        Gia = sp.Gia,
+                        Images = sp.Anh_SanPham.Select(a => a.LinhAnh).ToList(),
+                        Descriptions = sp.MoTa_SanPham.Select(m => m.MoTa).ToList(),
+                        DanhMuc = sp.DanhMuc.TenDM
+                    })
+                    .FirstOrDefault();
 
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(product);
+            }
+        }
 
 
         public ActionResult Search(string nameSP, int page = 1)
