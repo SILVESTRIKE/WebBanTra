@@ -11,8 +11,6 @@ using WebBanTra.OOP;
 
 namespace WebBanTra.Controllers
 {
-
-    
     public class DNController : Controller
     {
         public ActionResult DangNhap()
@@ -110,7 +108,7 @@ namespace WebBanTra.Controllers
         public ActionResult DangXuat()
         {
             Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("DangNhap", "DN");
         }
     }
 }

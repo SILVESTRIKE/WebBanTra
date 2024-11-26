@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using WebBanTra.Models;
 using WebBanTra.OOP;
 
+
 namespace WebBanTra.Controllers
 {
     public class ProductController : Controller
@@ -82,5 +83,68 @@ namespace WebBanTra.Controllers
             }
             return View("Product", productViewModels);
         }
+
+        public ActionResult SearchDM(string nameDM, int page = 1)
+        {
+            ProductViewModel productViewModels;
+            if (nameDM == null)
+            {
+                return RedirectToAction("Product");
+            }
+            else
+            {
+                int pageSize = 9;
+                int MaDM = Convert.ToInt16(nameDM);
+                List<WebBanTra.Models.SanPham> listProducts = string.IsNullOrEmpty(nameDM)
+                ? null
+                : db.SanPhams.Where(p => p.MaDM == MaDM).ToList();
+                ViewBag.ListAnhSP = db.Anh_SanPham.ToList().Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                productViewModels = new ProductViewModel
+                {
+                    listProducts = listProducts,
+                    listAnhSP = db.Anh_SanPham.ToList(),
+                    totalPage = (int)Math.Ceiling((double)db.SanPhams.Where(r => r.MaDM == MaDM).Count() / pageSize),
+                    currentPage = page
+                };
+            }
+            return View("Product", productViewModels);
+        }
+
+        public ActionResult SearchGia(string GiaBatDau, string GiaKetThuc, int page = 1)
+        {
+            ProductViewModel productViewModels;
+            if (GiaBatDau == null || GiaKetThuc == null)
+            {
+                return RedirectToAction("Product");
+            }
+            else
+            {
+                int pageSize = 9;
+                int giaBD = Convert.ToInt32(GiaBatDau);
+                int giaKT = Convert.ToInt32(GiaKetThuc);
+                List<WebBanTra.Models.SanPham> listProducts = string.IsNullOrEmpty(GiaBatDau) || string.IsNullOrEmpty(GiaKetThuc)
+                ? null
+                : db.SanPhams.Where(p => p.Gia >= giaBD && p.Gia <= giaKT).ToList();
+                ViewBag.ListAnhSP = db.Anh_SanPham.ToList().Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+                productViewModels = new ProductViewModel
+                {
+                    listProducts = listProducts,
+                    listAnhSP = db.Anh_SanPham.ToList(),
+                    totalPage = (int)Math.Ceiling((double)db.SanPhams.Where(p => p.Gia >= giaBD && p.Gia <= giaKT).Count() / pageSize),
+                    currentPage = page
+                };
+            }
+            return View("Product", productViewModels);
+        }
+
+        public ActionResult DanhMuc()
+        {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            List<DanhMuc> dm = db.DanhMucs.ToList();
+            return PartialView(dm);
+        }
+
     }
 }

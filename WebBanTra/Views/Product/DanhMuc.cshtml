@@ -1,0 +1,9 @@
+﻿@model List<WebBanTra.Models.DanhMuc>
+
+@if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <li><a href="@Url.Action("SearchDM", "Product", new {nameDM = item.MaDM})">@item.TenDM</a></li>
+        }
+    }

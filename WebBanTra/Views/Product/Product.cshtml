@@ -12,7 +12,7 @@
             <p>Hãy mua theo cách của bạn!</p>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="/Home/Index" style="color: rgba(216, 34, 83, 255);">Trang chủ</a></li>
+                    <li><a href="/Home/Home" style="color: rgba(216, 34, 83, 255);">Trang chủ</a></li>
                     <li class="current">Sản phẩm</li>
                 </ol>
             </nav>
@@ -24,7 +24,7 @@
             <div class="row gy-4 align-items-center">
                 <h5 class="text-center mt-4">Lọc trong khoảng giá</h5>
                 <div class="price-slider">
-                    <input type="range" id="priceRange" min="98000" max="9999000" step="1000" value="5000000" onchange="updatePriceLabel()">
+                    <input type="range" id="priceRange" min="98000" max="9999000" step="1000" value="5000000">
                     <div class="price-label text-muted">
                         Giá: <span id="priceValue">5.000.000 VND</span>
                     </div>
@@ -64,45 +64,48 @@
         <div class="container">
             <div class="d-flex justify-content-center">
                 <ul>
-                    @if (Model.currentPage > 1)
+                    @if (Model.totalPage > 0)
                     {
-                        <li>
-                            <a href="@Url.Action("Product", new { page = Model.currentPage - 1 })"><i class="bi bi-chevron-left"></i></a>
-                        </li>
-                    }
+                        if (Model.currentPage > 1)
+                        {
+                            <li>
+                                <a href="@Url.Action("Product", new { page = Model.currentPage - 1 })"><i class="bi bi-chevron-left"></i></a>
+                            </li>
+                        }
 
-                    @if (Model.currentPage >= 2)
-                    {
-                        <li><a href="@Url.Action("Product", new { page = Model.currentPage - 1 })">@Convert.ToString(Model.currentPage - 1)</a></li>
-                    }
+                        if (Model.currentPage >= 2)
+                        {
+                            <li><a href="@Url.Action("Product", new { page = Model.currentPage - 1 })">@Convert.ToString(Model.currentPage - 1)</a></li>
+                        }
 
-                    <li><a href="@Url.Action("Product", new { page = Model.currentPage })" class="active">@Model.currentPage</a></li>
+                        <li><a href="@Url.Action("Product", new { page = Model.currentPage })" class="active">@Model.currentPage</a></li>
 
-                    @if (Model.currentPage == Model.totalPage)
-                    {
-                        <li><a hidden href="@Url.Action("Product", new { page = Model.currentPage + 1 })">@Convert.ToString(Model.currentPage + 1)</a></li>
-                    }
-                    else
-                    {
-                        <li><a href="@Url.Action("Product", new { page = Model.currentPage + 1 })">@Convert.ToString(Model.currentPage + 1)</a></li>
-                    }
+                        if (Model.currentPage == Model.totalPage)
+                        {
+                            <li><a hidden href="@Url.Action("Product", new { page = Model.currentPage + 1 })">@Convert.ToString(Model.currentPage + 1)</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("Product", new { page = Model.currentPage + 1 })">@Convert.ToString(Model.currentPage + 1)</a></li>
+                        }
 
-                    
-                    @if (Model.currentPage < Model.totalPage)
-                    {
 
-                        <li>
-                            <a href="@Url.Action("Product", new { page = Model.currentPage + 1 })"><i class="bi bi-chevron-right"></i></a>
-                        </li>
+                        if (Model.currentPage < Model.totalPage)
+                        {
+
+                            <li>
+                                <a href="@Url.Action("Product", new { page = Model.currentPage + 1 })"><i class="bi bi-chevron-right"></i></a>
+                            </li>
+                        }
                     }
 
                     @*<li><a href="#"><i class="bi bi-chevron-left"></i></a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#" class="active">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li>...</li>
-                    <li><a href="#">10</a></li>*@
+        <li><a href="#">1</a></li>
+        <li><a href="#" class="active">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li>...</li>
+        <li><a href="#">10</a></li>*@
 
                 </ul>
             </div>

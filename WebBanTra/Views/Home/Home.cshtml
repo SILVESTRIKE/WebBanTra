@@ -18,7 +18,7 @@
             <div class="carousel-item active" style="background-image: url(/Images/sidebar-1_renew.png); background-repeat: no-repeat; background-size: cover; ">
                 <div class="carousel-container">
                     <h2 class="animate__animated animate__fadeInDown"><span style="color: white;">SERENITEA</span></h2>
-                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="color:white; border-color: white;">Mua Ngay</a>
+                    <a href="@Url.Action("SearchDM", "Product", new {nameDM = 4})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="color:white; border-color: white;">Mua Ngay</a>
                 </div>
 
             </div>
@@ -26,14 +26,14 @@
             <!-- Slide 2 -->
             <div class="carousel-item" style="background-image: url(/Images/sidebar-2.png); background-repeat: no-repeat; background-size: cover;">
                 <div class="carousel-container">
-                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="border-color: black;">Read More</a>
+                    <a href="@Url.Action("SearchDM", "Product", new {nameDM = 2})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="border-color: black;">Mua Ngay</a>
                 </div>
             </div>
 
             <!-- Slide 3 -->
             <div class="carousel-item" style="background-image: url(/Images/sidebar-3.png); background-repeat: no-repeat; background-size: cover;">
                 <div class="carousel-container">
-                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="color:white; border-color: white;">Read More</a>
+                    <a href="@Url.Action("SearchDM", "Product", new {nameDM = 3})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="color:white; border-color: white;">Mua Ngay</a>
                 </div>
             </div>
 
@@ -123,7 +123,8 @@
                                 <div class="portfolio-info">
                                     <h4>@item.TenSP</h4>
                                     <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>
-                                    <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
+                                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
+                                    <a href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="margin-left: 150px;">Thêm vào giỏ hàng</a>
                                     <a href="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" title="@item.TenSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                     <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                 </div>
@@ -282,7 +283,8 @@
                                     <div class="btn-wrap">
                                         <h3>@item.TenSP</h3>
                                         <h4>@item.Gia <sup>VNĐ</sup></h4>
-                                        <a href="#" class="btn-buy">Mua Ngay</a>
+                                        <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-buy">Mua Ngay</a>
+                                        <a style="margin-left: 70px;" href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-buy">Thêm vào giỏ hàng</a>
                                     </div>
                                 </a>
                             </div>

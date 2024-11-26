@@ -1,119 +1,68 @@
-﻿
+﻿@model List<WebBanTra.OOP.CartDetail>
 @{
     ViewBag.Title = "Giỏ hàng";
 }
 <link href="~/assets/css/cart.css" rel="stylesheet" />
+<script src="~/assets/js/TaskWork.js"></script>
+<main class="main" style="margin-top: 100px;">
+    <div class="container">
+        @if (Model.Count > 0)
+        {
+            <div class="row">
+                <h1 style="color: black; font-size: 50px; font-weight: bold;">Giỏ hàng</h1>
+                <div class="col-lg-8">
 
-<section>
-    <div class="container px-3 my-5 clearfix">
-        <!-- Shopping cart table -->
-        <div class="card">
-            <div class="card-header">
-                <h2>Shopping Cart</h2>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered m-0">
-                        <thead>
-                            <tr>
-                                <!-- Set columns width -->
-                                <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
-                                <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
-                                <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
-                                <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
-                                <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <section id="blog-details" class="blog-details section">
+                        <div class="container">
+                            @Html.Action("DataCart", "Cart")
 
-                            <tr>
-                                <td class="p-4">
-                                    <div class="media align-items-center">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                                        <div class="media-body">
-                                            <a href="#" class="d-block text-dark">Product 1</a>
-                                            <small>
-                                                <span class="text-muted">Color:</span>
-                                                <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#e81e2c;"></span> &nbsp;
-                                                <span class="text-muted">Size: </span> EU 37 &nbsp;
-                                                <span class="text-muted">Ships from: </span> China
-                                            </small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right font-weight-semibold align-middle p-4">$57.55</td>
-                                <td class="align-middle p-4"><input type="text" class="form-control text-center" value="2"></td>
-                                <td class="text-right font-weight-semibold align-middle p-4">$115.1</td>
-                                <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                            </tr>
-
-                            <tr>
-                                <td class="p-4">
-                                    <div class="media align-items-center">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                                        <div class="media-body">
-                                            <a href="#" class="d-block text-dark">Product 2</a>
-                                            <small>
-                                                <span class="text-muted">Color:</span>
-                                                <span class="ui-product-color ui-product-color-sm align-text-bottom" style="background:#000;"></span> &nbsp;
-                                                <span class="text-muted">Storage: </span> 32GB &nbsp;
-                                                <span class="text-muted">Warranty: </span> Standard - 1 year &nbsp;
-                                                <span class="text-muted">Ships from: </span> China
-                                            </small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-                                <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                                <td class="text-right font-weight-semibold align-middle p-4">$1049.00</td>
-                                <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                            </tr>
-
-                            <tr>
-                                <td class="p-4">
-                                    <div class="media align-items-center">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="d-block ui-w-40 ui-bordered mr-4" alt="">
-                                        <div class="media-body">
-                                            <a href="#" class="d-block text-dark">Product 3</a>
-                                            <small>
-                                                <span class="text-muted">Ships from: </span> Germany
-                                            </small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-                                <td class="align-middle p-4"><input type="text" class="form-control text-center" value="1"></td>
-                                <td class="text-right font-weight-semibold align-middle p-4">$20.55</td>
-                                <td class="text-center align-middle px-0"><a href="#" class="shop-tooltip close float-none text-danger" title="" data-original-title="Remove">×</a></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                <!-- / Shopping cart table -->
-
-                <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
-                    <div class="mt-4">
-                        <label class="text-muted font-weight-normal">Promocode</label>
-                        <input type="text" placeholder="ABC" class="form-control">
-                    </div>
-                    <div class="d-flex">
-                        <div class="text-right mt-4 mr-5">
-                            <label class="text-muted font-weight-normal m-0">Discount</label>
-                            <div class="text-large"><strong>$20</strong></div>
                         </div>
-                        <div class="text-right mt-4">
-                            <label class="text-muted font-weight-normal m-0">Total price</label>
-                            <div class="text-large"><strong>$1164.65</strong></div>
-                        </div>
-                    </div>
+                    </section>
+
+
                 </div>
 
-                <div class="float-right">
-                    <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Mua tiếp</button>
-                    <button type="button" class="btn btn-lg btn-primary mt-2">Thanh toán</button>
+                <div class="col-lg-4 sidebar">
+
+                    <div class="widgets-container">
+
+                        <div class="blog-author-widget widget-item" style="border-radius: 50px;">
+
+                            <div class="d-flex flex-column align-items-center">
+                                <h4 style="margin-bottom: 10px; color: black;">Tổng giỏ hàng</h4>
+                                <table class="table">
+                                    <tr>
+                                        <td colspan="2"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Tạm tính</th>
+                                        <td style="color: color-mix(in srgb, var(--default-color), transparent 20%); text-align: right;">212</td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Tổng tiền</th>
+                                        <td style="color: color-mix(in srgb, var(--default-color), transparent 20%); text-align: right; font-weight: bold;"><p id="tong-tien-gio-hang"></p></td>
+                                    </tr>
+                                </table>
+
+                                <a href="#" class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 100px; text-align: center; font-size: 20px;">Thanh toán</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div style="height: 200px; display:flex; justify-content: center; align-items: center;">
+                <div style="width: 100%; background-color: whitesmoke; color: black; font-size: 30px;">
+                    Chưa có sản phẩm nào trong giỏ hàng :(((
+                </div>
+            </div>
+        }
     </div>
-</section>
+</main>

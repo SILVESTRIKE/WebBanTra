@@ -93,8 +93,8 @@ C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\bin\System.Web.Web
 C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\bin\Newtonsoft.Json.xml
 C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\bin\Antlr3.Runtime.pdb
 C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.AssemblyReference.cache
-C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.Up2Date
-C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Debug\WebBanTra.dll
-C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Debug\WebBanTra.pdb
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Release\WebBanTra.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Release\WebBanTra.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Release\WebBanTra.csproj.Up2Date
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Release\WebBanTra.dll
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\obj\Release\WebBanTra.pdb

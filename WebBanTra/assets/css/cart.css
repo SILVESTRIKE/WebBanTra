@@ -1,24 +1,49 @@
-body{
-    margin-top:20px;
-    background:#eee;
-}
-.ui-w-40 {
-    width: 40px !important;
-    height: auto;
+﻿.inputgroup {
+    border-radius: 50px;
 }
 
-.card{
-    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
+    .inputgroup button {
+        border: none;
+        background-color: transparent;
+        color: rgba(216, 34, 83, 255);
+        font-size: 20px;
+    }
+
+    .inputgroup input {
+        all:unset;
+        border: none;
+        background-color: transparent;
+        width: 50px;
+        font-size: 20px;
+    }
+
+.table {
+    table-layout: fixed; /* Bắt buộc bảng sử dụng độ rộng cố định */
+    width: 100%; /* Hoặc đặt giá trị cụ thể như 500px */
 }
 
-.ui-product-color {
-    display: inline-block;
-    overflow: hidden;
-    margin: .144em;
-    width: .875rem;
-    height: .875rem;
-    border-radius: 10rem;
-    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
-    vertical-align: middle;
+.table th:nth-child(1) {
+    width: 50%; /* Cột "Sản phẩm" */
 }
+
+.table tr td p {
+    word-wrap: break-word; /* Bẻ dòng khi từ quá dài */
+    overflow-wrap: break-word; /* Đảm bảo tương thích trình duyệt */
+    margin: 0;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+}    
+
+.table th:nth-child(2) {
+    width: 15%; /* Cột "Số lượng" */
+    text-align: center;
+}
+
+    .table th:nth-child(3) {
+        width: 30%;
+        text-align: center;
+    }
+
+    .table th:nth-child(4) {
+        width: 5%; /* Cột "Tạm tính" */
+        text-align: center;
+    }

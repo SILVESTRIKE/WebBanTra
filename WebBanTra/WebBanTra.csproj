@@ -230,6 +230,7 @@
       <DependentUpon>DB_BanTra.tt</DependentUpon>
     </Compile>
     <Compile Include="OOP\AppUser.cs" />
+    <Compile Include="OOP\CartDetail.cs" />
     <Compile Include="OOP\ProductDetailViewModel.cs" />
     <Compile Include="OOP\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -285,6 +286,7 @@
     <Content Include="assets\img\working-3.jpg" />
     <Content Include="assets\img\working-4.jpg" />
     <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\TaskWork.js" />
     <Content Include="assets\scss\Readme.txt" />
     <Content Include="assets\vendor\animate.css\animate.compat.css" />
     <Content Include="assets\vendor\animate.css\animate.css" />
@@ -600,6 +602,8 @@
     <Content Include="Views\Admin\Admin.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\UserProfile.cshtml" />
+    <Content Include="Views\Product\DanhMuc.cshtml" />
+    <Content Include="Views\Cart\DataCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
