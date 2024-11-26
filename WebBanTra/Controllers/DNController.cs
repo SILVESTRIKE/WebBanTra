@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using WebBanTra.Models;
 using WebBanTra.OOP;
-using System.Web.Helpers;
 
 namespace WebBanTra.Controllers
 {
@@ -30,29 +29,28 @@ namespace WebBanTra.Controllers
                 DB_BanTraEntities db = new DB_BanTraEntities();
                 TaiKhoan user = db.TaiKhoans.FirstOrDefault(r=>r.TenDangNhap == model.TenDangNhap && r.MatKhau == model.MatKhau);
 
-                if (user != null)
+                try
                 {
-                    // Lưu thông tin đăng nhập vào Session
-                    Session["TenDangNhap"] = user.TenDangNhap;
-                    Session["VaiTro"] = user.VaiTro;
-
-                    // Điều hướng theo vai trò
-                    switch (user.VaiTro)
+                    if (user != null && model != null)
                     {
-                        case "Admin":
+                        if (user.MatKhau == user.MatKhau)
+                        {
+                            Session["TenDangNhap"] = user.TenDangNhap;
+                            Session["VaiTro"] = user.VaiTro;
+
                             return RedirectToAction("Home", "Home");
-                        case "Nhân viên":
-                            return RedirectToAction("Home", "Home");
-                        case "Khách hàng":
-                            return RedirectToAction("Home", "Home");
-                        default:
-                            ModelState.AddModelError("", "Không thể xác định vai trò.");
-                            break;
+                        }
+                        else
+                        {
+                            throw new Exception("MatKhau");
+                            
+                        }
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không chính xác.");
+                    ModelState.AddModelError(ex.Message, "Tên đăng nhập hoặc mật khẩu không chính xác.");
+                    return View(model);
                 }
             }
 

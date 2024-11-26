@@ -77,7 +77,23 @@
                     <li><a href="#GioiThieu">Về chúng tôi</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
                     <li><a href="/Cart/Cart">Giỏ hàng</a></li>
-                    <li><a href="/DN/DangNhap">Đăng nhập</a></li>
+                    <li>
+                        @{ 
+                            var vaiTro = Session["VaiTro"];
+                            if (vaiTro.ToString() == "Admin")
+                            {
+                                <a href="/Admin/Admin">Admin</a>
+                            }
+                            else if (vaiTro.ToString() == "Nhân viên")
+                            {
+                                <a href="/Admin/UserProfile">Thông tin nhân viên</a>
+                            }
+                            else
+                            {
+                                <a href="/DN/DangNhap">Thông tin khách hàng</a>
+                            }
+                        }
+                    </li>
 
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
