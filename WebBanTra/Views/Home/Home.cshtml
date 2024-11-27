@@ -83,58 +83,59 @@
                     <li data-filter=".filter-branding">Bộ trà</li>
                 </ul><!-- End Portfolio Filters -->
                 @*filter-app : trà
-                  filter-product : bộ ấm trà
-                  filter-brand: bộ trà
-                    *@
-                
-             
-            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-                @if (listSPBanChay != null && listAnhSPBanChay != null && listMoTaSPBanChay != null)
-                {
-                    foreach (WebBanTra.Models.SanPham item in listSPBanChay)
+                    filter-product : bộ ấm trà
+                    filter-brand: bộ trà
+                *@
+
+
+                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                    @if (listSPBanChay != null && listAnhSPBanChay != null && listMoTaSPBanChay != null)
                     {
-                        if (item != null)
+                        foreach (WebBanTra.Models.SanPham item in listSPBanChay)
                         {
-                            switch (item.MaDM)
+                            if (item != null)
                             {
-                                case 1:
-                                    {
-                                        styleDM = "app";
-                                        break;
-                                    }
+                                switch (item.MaDM)
+                                {
+                                    case 1:
+                                        {
+                                            styleDM = "app";
+                                            break;
+                                        }
 
 
-                                case 2:
-                                    {
-                                        styleDM = "product";
-                                        break;
-                                    }
+                                    case 2:
+                                        {
+                                            styleDM = "product";
+                                            break;
+                                        }
 
 
-                                default:
-                                    {
-                                        styleDM = "branding";
-                                        break;
-                                    }
+                                    default:
+                                        {
+                                            styleDM = "branding";
+                                            break;
+                                        }
 
+                                }
+                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@styleDM">
+                                    <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="ảnh sản phẩm @item.TenSP">
+                                    <div class="portfolio-info">
+                                        <h4>@item.TenSP</h4>
+                                        <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>
+                                        <br />
+                                        <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="padding-right: 90px;">Mua Ngay</a>
+                                        <a href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="padding-left: 70px; border-left: 2px solid black;">Thêm vào giỏ hàng</a>
+                                        <a href="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" title="@item.TenSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                    </div>
+                                </div><!-- End Portfolio Item -->
                             }
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@styleDM">
-                                <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="ảnh sản phẩm @item.TenSP">
-                                <div class="portfolio-info">
-                                    <h4>@item.TenSP</h4>
-                                    <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>
-                                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto">Mua Ngay</a>
-                                    <a href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="margin-left: 150px;">Thêm vào giỏ hàng</a>
-                                    <a href="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" title="@item.TenSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div><!-- End Portfolio Item -->
                         }
                     }
-                }
-                
 
-            </div><!-- End Portfolio Container -->
+
+                </div><!-- End Portfolio Container -->
 
             </div>
 
@@ -205,11 +206,11 @@
                         <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                             <h3>Quà Tặng Đặc Biệt Cho Khách Hàng Yêu Trà</h3>
                             <p>
-                                món quà tinh tế mang đậm hương vị trà. Bộ quà tặng gồm các loại trà thượng hạng được tuyển chọn kỹ lưỡng, 
+                                món quà tinh tế mang đậm hương vị trà. Bộ quà tặng gồm các loại trà thượng hạng được tuyển chọn kỹ lưỡng,
                                 kết hợp với phụ kiện pha trà sang trọng, giúp quý khách trải nghiệm trọn vẹn nghệ thuật thưởng trà. Đây không chỉ là món quà ý nghĩa mà còn là lời tri ân sâu sắc dành cho quý khách hàng đã tin tưởng và đồng hành cùng chúng tôi.
                             </p>
                             <p class="fst-italic">
-                                
+
                             </p>
                             <ul>
                                 <li><i class="bi bi-check2-all"></i> <span>Chuyên nghiệp</span></li>
@@ -232,7 +233,7 @@
                                 Không chỉ là trà ngon, sự xuất sắc và tinh tế còn thể hiện rõ ràng qua thiết kế đẹp mắt và sự công phu trong chế tác ấm chén được dùng pha trà.
                             </p>
                             <p class="fst-italic">
-                               
+
                             </p>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -248,8 +249,8 @@
                             <p>
                                 Bộ quà này không chỉ là một sản phẩm, mà còn là sự tôn vinh vẻ đẹp của văn hóa trà Việt, khơi gợi những khoảnh khắc ấm áp, gắn kết trong dịp Tết.
                             </p>
-                            
-                            
+
+
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 text-center">
                             <img src="https://www.traviet.com/wp-content/uploads/2024/10/banner-qua-tet-2025-at-ti-2.jpg" alt="" class="img-fluid">
@@ -277,16 +278,21 @@
                     if (item != null)
                     {
                         <div class="col-xl-3 col-lg-6 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                            <div class="pricing-item">
+                            <div class="pricing-item" style="height: 80%; width: 100%;">
                                 <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})">
                                     <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="@item.TenSP">
                                     <div class="btn-wrap">
-                                        <h3>@item.TenSP</h3>
-                                        <h4>@item.Gia <sup>VNĐ</sup></h4>
-                                        <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-buy">Mua Ngay</a>
-                                        <a style="margin-left: 70px;" href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-buy">Thêm vào giỏ hàng</a>
+                                        <h3 id="dynamicTruncate" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">@item.TenSP</h3>
                                     </div>
+                                    <br />
                                 </a>
+                            </div>
+                            <div style="height: 10%; width: 100%;">
+                                <h4>@item.Gia <sup>VNĐ</sup></h4>
+                            </div>
+                            <div style="height: 10%; width: 100%;">
+                                <a style="padding-right: 50px;"href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-buy">Mua Ngay</a>
+                                <a style="padding-left: 40px; border-left: 1px solid black;" href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-buy">Thêm vào giỏ hàng</a>
                             </div>
                         </div><!-- End Pricing Item -->
                     }
@@ -338,7 +344,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="~/Images/member/member-1.jpg" class="testimonial-img" alt="member 1"/>
+                            <img src="~/Images/member/member-1.jpg" class="testimonial-img" alt="member 1" />
                             <h3>Nguyễn Mạnh Quân</h3>
                             <h4>2001223942 - Nhóm trưởng</h4>
                             <div class="stars">
@@ -354,7 +360,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="~/Images/member/member-10.jpg" class="testimonial-img" alt="member 2"/>
+                            <img src="~/Images/member/member-10.jpg" class="testimonial-img" alt="member 2" />
                             <h3>Văn Trọng Dương</h3>
                             <h4>2001220817 - Nhóm trưởng</h4>
                             <div class="stars">
@@ -370,7 +376,7 @@
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="~/Images/member/member-7.jpg" class="testimonial-img" alt="member 3"/>
+                            <img src="~/Images/member/member-7.jpg" class="testimonial-img" alt="member 3" />
                             <h3>Nguyễn Hải Đăng</h3>
                             <h4>2001220959 - thành viên</h4>
                             <div class="stars">
@@ -655,331 +661,102 @@
                         </div>
                     </div><!-- End Team Member -->
 
-                    <!--<div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-                        <div class="team-member">
-                            <div class="member-img">
-                                <img src="~/assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                            </div>
-                        </div>
-                    </div>--><!-- End Team Member -->
+
 
                 </div>
 
             </div>
 
         </section><!-- /Team Section -->
-        <!-- Recent Posts Section -->
-        <!--<section id="recent-posts" class="recent-posts section">-->
 
-            <!-- Section Title -->
-            <!--<div class="container section-title" data-aos="fade-up">
-                <h2>Đội ngũ</h2>
-                <p>Thành viên<br></p>
-            </div>--><!-- End Section Title -->
 
-            <!--<div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Politics</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Maria Doe</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jan 1, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Sports</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Allisa Mayer</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 5, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Mark Dower</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 22, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Mark Dower</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 22, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Mark Dower</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 22, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Mark Dower</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 22, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Mark Dower</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 22, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                    <!--<div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <article>
-
-                            <div class="post-img">
-                                <img src="~/assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                            <div class="d-flex align-items-center">
-                                <img src="~/assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-                                <div class="post-meta">
-                                    <p class="post-author">Mark Dower</p>
-                                    <p class="post-date">
-                                        <time datetime="2022-01-01">Jun 22, 2022</time>
-                                    </p>
-                                </div>
-                            </div>
-
-                        </article>
-                    </div>--><!-- End post list item -->
-
-                <!--</div>--><!-- End recent posts list -->
-
-            <!--</div>
-
-        </section>--><!-- /Recent Posts Section -->
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Liên hệ</h2>
-                <p>Liên hệ với chúng tôi</p>
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-4">
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <i class="bi bi-geo-alt flex-shrink-0"></i>
-                            <div>
-                                <h3>Địa chỉnh trụ sở chính</h3>
-                                <p>140 Đ. Lê Trọng Tấn, Tây Thạnh, Tân Phú, Hồ Chí Minh</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-telephone flex-shrink-0"></i>
-                            <div>
-                                <h3>Số điện thoại</h3>
-                                <p>028 6270 6275</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                                <h3>Email</h3>
-                                <p>huit@edu.com.vn</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                    </div>
-
-                    <div class="col-lg-8">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                            <div class="row gy-4">
-
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Đang tải</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Cảm ơn thông tin của bạn!</div>
-
-                                    <button type="submit">Gửi thông tin</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div><!-- End Contact Form -->
+    </section>--><!-- /Recent Posts Section -->
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Liên hệ</h2>
+            <p>Liên hệ với chúng tôi</p>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade" data-aos-delay="100">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4">
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h3>Địa chỉnh trụ sở chính</h3>
+                            <p>140 Đ. Lê Trọng Tấn, Tây Thạnh, Tân Phú, Hồ Chí Minh</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <div>
+                            <h3>Số điện thoại</h3>
+                            <p>028 6270 6275</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-envelope flex-shrink-0"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>huit@edu.com.vn</p>
+                        </div>
+                    </div><!-- End Info Item -->
 
                 </div>
 
-            </div>
+                <div class="col-lg-8">
+                    <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                        <div class="row gy-4">
 
-        </section><!-- /Contact Section -->
-    </section>
+                            <div class="col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                            </div>
+
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <div class="loading">Đang tải</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Cảm ơn thông tin của bạn!</div>
+
+                                <button type="submit">Gửi thông tin</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div><!-- End Contact Form -->
+
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    var h3Element = document.getElementById('dynamicTruncate');
+                    var text = h3Element.textContent;
+
+                    if (text.length > 30) {
+                        h3Element.textContent = text.substring(0, 30) + '...';
+                    }
+                });
+            </script>
+        </div>
+        
+    </section><!-- /Contact Section -->
+
 </main>
 

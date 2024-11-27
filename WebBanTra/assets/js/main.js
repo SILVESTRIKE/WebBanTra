@@ -27,12 +27,12 @@
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  //function mobileNavToogle() {
-  //  document.querySelector('body').classList.toggle('mobile-nav-active');
-  //  mobileNavToggleBtn.classList.toggle('bi-list');
-  //  mobileNavToggleBtn.classList.toggle('bi-x');
-  //}
-  //mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  function mobileNavToogle() {
+    document.querySelector('body').classList.toggle('mobile-nav-active');
+    mobileNavToggleBtn.classList.toggle('bi-list');
+    mobileNavToggleBtn.classList.toggle('bi-x');
+  }
+  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -78,13 +78,13 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  //scrollTop.addEventListener('click', (e) => {
-  //  e.preventDefault();
-  //  window.scrollTo({
-  //    top: 0,
-  //    behavior: 'smooth'
-  //  });
-  //});
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
@@ -200,67 +200,19 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
-  //document.addEventListener('DOMContentLoaded', function () {
-  //    const thumbnails = document.querySelectorAll('.thumbnail'); // Class cho các ảnh nhỏ
-  //    const mainImage = document.querySelector('#mainImage'); // ID cho ảnh lớn
+  document.addEventListener('DOMContentLoaded', function () {
+      const thumbnails = document.querySelectorAll('.thumbnail'); // Class cho các ảnh nhỏ
+      const mainImage = document.querySelector('#mainImage'); // ID cho ảnh lớn
 
-  //    thumbnails.forEach(thumbnail => {
-  //        thumbnail.addEventListener('click', function () {
-  //            mainImage.src = this.src;
-  //            thumbnails.forEach(thumb => thumb.classList.remove('border', 'border-pink'));
+      thumbnails.forEach(thumbnail => {
+          thumbnail.addEventListener('click', function () {
+              mainImage.src = this.src;
+              thumbnails.forEach(thumb => thumb.classList.remove('border', 'border-pink'));
 
-  //            this.classList.add('border', 'border-pink');
-  //        });
-  //    });
-  //});
-    //let timeoutIdCart; 
-    //function updateProduct(id) {
-    //    const quantityInput = document.getElementById('numberPD-' + id).value;
-    //    if (!quantityInput) {
-    //        alert("Không tìm thấy sản phẩm cần cập nhật!");
-    //        return;
-    //    }
+              this.classList.add('border', 'border-pink');
+          });
+      });
+  });
 
-    //    const quantity = parseInt(quantityInput.value, 10); // Chuyển giá trị về số nguyên
-    //    if (isNaN(quantity) || quantity < 0) {
-    //        alert("Số lượng không hợp lệ!");
-    //        return;
-    //    }
-
-    //    // Xóa timeout hiện tại nếu người dùng thay đổi nhanh
-    //    if (timeoutIdCart) {
-    //        clearTimeout(timeoutIdCart);
-    //    }
-
-    //    timeoutIdCart = setTimeout(() => {
-    //        $.ajax({
-    //            url: '/Cart/UpdateCart',
-    //            type: 'POST',
-    //            data: {
-    //                id: id,
-    //                quantity: quantity
-    //            },
-    //            success: function (res) {
-    //                if (res.success) {
-    //                    // Cập nhật thành tiền của sản phẩm
-    //                    $('#tong-tien-' + id).html(
-    //                        res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VNĐ" })
-    //                    );
-
-    //                    // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
-    //                    $('#tong-tien-gio-hang').html(
-    //                        res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VNĐ" })
-    //                    );
-    //                } else {
-    //                    alert("Cập nhật không thành công!");
-    //                }
-    //            },
-    //            error: function (err) {
-    //                alert("Lỗi không thể cập nhật sản phẩm");
-    //                console.log(err);
-    //            }
-    //        });
-    //    }, 3000); // Đợi 3 giây trước khi gửi yêu cầu AJAX
-    //}
 })();
 

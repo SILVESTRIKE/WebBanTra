@@ -9,39 +9,40 @@
 <div class="d-flex flex-column justify-content-center m-3 container">
     @using (Html.BeginForm("CreateSanPham", "Admin", FormMethod.Post, new { @class = "w-50 form d-flex flex-column gap-2" }))
     {
-        <h3 class="text-primary">THÊM MỚI SẢN PHẨM</h3>
+    <h3 class="text-primary">THÊM MỚI SẢN PHẨM</h3>
 
-        <div class="form-group">
-            @Html.LabelFor(x => x.TenSP, new { @class = "form-label" })
-            @Html.TextBoxFor(x => x.TenSP, new { @class = "form-control", required = "required" })
-            @Html.ValidationMessageFor(x => x.TenSP, "", new { @class = "text-danger" })
-        </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.TenSP, new { @class = "form-label" })
+        @Html.TextBoxFor(x => x.TenSP, new { @class = "form-control", required = "required" })
+        @Html.ValidationMessageFor(x => x.TenSP, "", new { @class = "text-danger" })
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(x => x.Gia, new { @class = "form-label" })
-            @Html.TextBoxFor(x => x.Gia, new { @class = "form-control", required = "required", type = "number" })
-            @Html.ValidationMessageFor(x => x.Gia, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(x => x.SoLuongTon, new { @class = "form-label" })
-            @Html.TextBoxFor(x => x.SoLuongTon, new { @class = "form-control", required = "required", type = "number" })
-            @Html.ValidationMessageFor(x => x.SoLuongTon, "", new { @class = "text-danger" })
-        </div>
-        @*<div class="form-group">
-                @Html.LabelFor(x => x.MoTa_SanPham, new { @class = "form-label" })
-                @Html.TextAreaFor(x => x.MoTa_SanPham, new { @class = "form-control", rows = "4" })
-                @Html.ValidationMessageFor(x => x.MoTa_SanPham, "", new { @class = "text-danger" })
-            </div>*@
+    <div class="form-group">
+        @Html.LabelFor(x => x.Gia, new { @class = "form-label" })
+        @Html.TextBoxFor(x => x.Gia, new { @class = "form-control", required = "required", type = "number" })
+        @Html.ValidationMessageFor(x => x.Gia, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.SoLuongTon, new { @class = "form-label" })
+        @Html.TextBoxFor(x => x.SoLuongTon, new { @class = "form-control", required = "required", type = "number" })
+        @Html.ValidationMessageFor(x => x.SoLuongTon, "", new { @class = "text-danger" })
+    </div>
+    @*<div class="form-group">
+        @Html.LabelFor(x => x.MoTa_SanPham, new { @class = "form-label" })
+        @Html.TextAreaFor(x => x.MoTa_SanPham, new { @class = "form-control", rows = "4" })
+        @Html.ValidationMessageFor(x => x.MoTa_SanPham, "", new { @class = "text-danger" })
+    </div>*@
 
-        <div class="form-group">
-            @Html.LabelFor(x => x.MaDM, new { @class = "form-label" })
-            @Html.DropDownListFor(x => x.MaDM, (IEnumerable<SelectListItem>)ViewBag.DanhMucs, new { @class = "form-control" })
+    <div class="form-group">
+        @Html.LabelFor(x => x.MaDM, new { @class = "form-label" })
+        @Html.DropDownListFor(x => x.MaDM, (IEnumerable<SelectListItem>
+            )ViewBag.DanhMucs, new { @class = "form-control" })
             @Html.ValidationMessageFor(x => x.MaDM, "", new { @class = "text-danger" })
-        </div>
+    </div>
 
-        <div class="mt-3">
-            @Html.ActionLink("Cancel", "ShowSanPham", "Admin", new { @class = "btn btn-secondary" })
-            <button class="btn btn-success">Submit</button>
-        </div>
+    <div class="mt-3">
+        @Html.ActionLink("Cancel", "ShowSanPham", "Admin", new { @class = "btn btn-secondary" })
+        <button class="btn btn-success">Submit</button>
+    </div>
     }
 </div>

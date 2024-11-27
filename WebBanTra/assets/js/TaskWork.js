@@ -98,13 +98,15 @@ function updateProduct(id, quantity) {
 }
 
 
-getElementById('ctsp-a').document.addEventListener('click', function () {
-    var input = document.getElementById('numberPDCTSP');
-    var quantity = parseInt(input.val());
-    var link = document.getElementById('ctsp-a');
-    var url '@Url.Action("AddCart", "Cart", new { maSP = Model.MaSP ,' + 'soLuong = ' + quantity + '})';
-    link.href = url;
-})
+//getElementById('ctsp-a').document.addEventListener('click', function () {
+//    var input = document.getElementById('numberPDCTSP');
+//    var quantity = parseInt(input.val());
+//    var link = document.getElementById('ctsp-a');
+//    var url '@Url.Action("AddCart", "Cart", new { maSP = Model.MaSP ,' + 'soLuong = ' + quantity + '})';
+//    link.href = url;
+//});
+
+
 //if (timeoutIdCart) {
 //    clearTimeout(timeoutIdCart);
 //}

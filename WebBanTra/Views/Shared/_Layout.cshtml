@@ -26,8 +26,6 @@
     <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
     <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <script src="~/assets/js/main.js"></script>
-
     <!-- Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet">
 </head>
@@ -64,13 +62,6 @@
 
                         <ul>
                             @Html.Action("DanhMuc", "Product")
-                            @*@if (ViewBag.DanhMuc != null)
-                                {
-                                    foreach (var item in ViewBag.DanhMuc)
-                                    {
-                                        <li><a href="@Url.Action("SearchDM", "Product", new { nameSP = item.TenDM })">@item.TenDM</a></li>
-                                    }
-                                }*@
                         </ul>
                     </li>
                     <li><a href="#DanhMuc">Bán chạy</a></li>
@@ -103,6 +94,7 @@
 
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
             </nav>
 
 
@@ -196,13 +188,35 @@
             </div>
         </div>
     </footer>
-
+    @RenderSection("Scripts", required: false)
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     @*Preloader*@
     <div id="preloader"></div>
+    <script>
+        const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+
+        function mobileNavToogle() {
+            document.querySelector('body').classList.toggle('mobile-nav-active');
+            mobileNavToggleBtn.classList.toggle('bi-list');
+            mobileNavToggleBtn.classList.toggle('bi-x');
+        }
+        mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+
+        function bootstrapHandler(element, fn) {
+            return function handler(event) {
+                hydrateObj(event, { delegateTarget: element })
+
+                if (handler.oneOff) {
+                    EventHandler.off(element, event.type, fn)
+                }
+
+                return fn.apply(element, [event])
+            }
+        }
+    </script>
 
     <!-- Vendor JS Files -->
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

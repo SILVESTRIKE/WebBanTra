@@ -54,19 +54,25 @@ namespace WebBanTra.Controllers
             DB_BanTraEntities db = new DB_BanTraEntities();
             try
             {
-                if (db.SanPhams.Where(p => p.MaSP == maSP).Count() > 0)
+                List<CartDetail> listCart = GetCart();
+                if (db.SanPhams.Where(p => p.MaSP == maSP).Count() > 0 && listCart.Where(r =>r.MaSP == maSP).Count() == 0)
                 {
                     SanPham sp = db.SanPhams.Find(maSP);
-                    List<CartDetail> listCart = GetCart();
                     CartDetail cart = new CartDetail();
+
                     cart.MaSP = maSP;
                     cart.TenSP = sp.TenSP;
                     cart.Gia = sp.Gia;
-                    cart.SoLuong = 1;
+                    cart.SoLuong = soLuong;
                     cart.LinkAnh = db.Anh_SanPham.FirstOrDefault(p => p.MaSP == maSP).LinhAnh;
                     listCart.Add(cart);
                     Session["Cart"] = listCart;
 
+                    return RedirectToAction("Product", "Product");
+                }
+                else if (listCart.Where(r => r.MaSP == maSP).Count() > 0)
+                {
+                    listCart.Where(r => r.MaSP == maSP).ToList().ForEach(p => p.SoLuong += soLuong);
                     return RedirectToAction("Product", "Product");
                 }
                 else

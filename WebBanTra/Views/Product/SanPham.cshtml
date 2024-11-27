@@ -1,0 +1,29 @@
+﻿@model WebBanTra.OOP.ProductViewModel
+
+@foreach (WebBanTra.Models.SanPham item in Model.listProducts)
+{
+    if (item != null)
+    {
+        
+        <div class="col">
+            <div class="card h-100">
+                <div class="position-relative">
+                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})">
+                        <img src="@Model.listAnhSP.Where(r => r.MaSP == item.MaSP).FirstOrDefault().LinhAnh" class="card-img-top" alt="@item.TenSP">
+                        @if (item.SoLuongTon == 0)
+                        {
+                            <span class="position-absolute top-0 start-0 badge bg-secondary text-danger"></span>
+                        }
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})">
+                        <h5 class="card-title" style="font-weight: bold;">@item.TenSP</h5>
+                    </a>
+                    <p class="text-danger" style="font-size: 20px;">@item.Gia VNĐ</p>
+                    <p>Danh mục: <a href="@Url.Action("SearchDM", "Product", new {nameDM = item.MaDM})" style="color: rgba(216, 34, 83, 0.8);">@item.DanhMuc.TenDM</a></p>
+                </div>
+            </div>
+        </div>
+    }
+}

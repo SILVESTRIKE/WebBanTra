@@ -4,6 +4,7 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using WebBanTra.Models;
 using WebBanTra.OOP;
 
@@ -15,6 +16,7 @@ namespace WebBanTra.Controllers
         // GET: Product
         private readonly DB_BanTraEntities _dbBanTra;
         DB_BanTraEntities db = new DB_BanTraEntities();
+
         public ActionResult Product(int page = 1)
         {
             int pageSize = 9;
@@ -27,7 +29,6 @@ namespace WebBanTra.Controllers
                 listAnhSP = db.Anh_SanPham.ToList(),
                 totalPage = (int)Math.Ceiling((double)db.SanPhams.Count() / pageSize),
                 currentPage = page
-
             };
 
             return View(productViewModels);
@@ -40,13 +41,13 @@ namespace WebBanTra.Controllers
                     .Where(sp => sp.MaSP == id)
                     .Select(sp => new ProductDetailViewModel
                     {
+                        MaSP = id,
                         TenSP = sp.TenSP,
                         Gia = sp.Gia,
                         Images = sp.Anh_SanPham.Select(a => a.LinhAnh).ToList(),
                         Descriptions = sp.MoTa_SanPham.Select(m => m.MoTa).ToList(),
                         DanhMuc = sp.DanhMuc.TenDM
-                    })
-                    .FirstOrDefault();
+                    }).FirstOrDefault();
 
                 if (product == null)
                 {
@@ -137,6 +138,20 @@ namespace WebBanTra.Controllers
                 };
             }
             return View("Product", productViewModels);
+        }
+
+        public ActionResult SanPham(int page = 1, int NoId = 0, string TenDM = "", int pageSize = 9)
+        {
+            List<WebBanTra.Models.SanPham> listProducts = db.SanPhams.Where(r => r.MaSP != NoId && r.DanhMuc.TenDM == TenDM).ToList().Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            ProductViewModel productViewModels = new ProductViewModel
+            {
+                listProducts = listProducts,
+                listAnhSP = db.Anh_SanPham.ToList(),
+                totalPage = (int)Math.Ceiling((double)db.SanPhams.Count() / pageSize),
+                currentPage = page
+            };
+            return PartialView(productViewModels);
         }
 
         public ActionResult DanhMuc()
