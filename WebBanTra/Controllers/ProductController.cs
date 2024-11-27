@@ -160,6 +160,5 @@ namespace WebBanTra.Controllers
             List<DanhMuc> dm = db.DanhMucs.ToList();
             return PartialView(dm);
         }
-
     }
 }

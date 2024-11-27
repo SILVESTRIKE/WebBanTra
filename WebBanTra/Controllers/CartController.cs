@@ -55,7 +55,7 @@ namespace WebBanTra.Controllers
             try
             {
                 List<CartDetail> listCart = GetCart();
-                if (db.SanPhams.Where(p => p.MaSP == maSP).Count() > 0 && listCart.Where(r =>r.MaSP == maSP).Count() == 0)
+                if (db.SanPhams.Where(p => p.MaSP == maSP).Count() > 0 && listCart.All(r => r.MaSP != maSP))
                 {
                     SanPham sp = db.SanPhams.Find(maSP);
                     CartDetail cart = new CartDetail();
@@ -87,6 +87,49 @@ namespace WebBanTra.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult AddCart(int maSP, int soLuong = 1)
+        {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            try
+            {
+                List<CartDetail> listCart = GetCart();
+                if (db.SanPhams.Any(p => p.MaSP == maSP) && listCart.All(r => r.MaSP != maSP))
+                {
+                    SanPham sp = db.SanPhams.Find(maSP);
+                    CartDetail cart = new CartDetail
+                    {
+                        MaSP = maSP,
+                        TenSP = sp.TenSP,
+                        Gia = sp.Gia,
+                        SoLuong = soLuong,
+                        LinkAnh = db.Anh_SanPham.FirstOrDefault(p => p.MaSP == maSP)?.LinhAnh
+                    };
+                    listCart.Add(cart);
+                    Session["Cart"] = listCart;
+
+                    return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+                }
+                else if (listCart.Any(r => r.MaSP == maSP))
+                {
+                    CartDetail cart = listCart.Find(p => p.MaSP == maSP);
+                    listCart.First(r => r.MaSP == maSP).SoLuong += soLuong;
+                    return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch
+            {
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
+
         void removeProduct(int maSP)
         {
             List<CartDetail> listCart = GetCart();
@@ -101,6 +144,38 @@ namespace WebBanTra.Controllers
         }
 
         public ActionResult DataCart()
+        {
+            List<CartDetail> listCart = GetCart();
+            return PartialView(listCart);
+        }
+
+        public ActionResult Order()
+        {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            int user = Convert.ToInt32(Session["MaTK"]);
+            OrderDetail listOrderDetail = new OrderDetail();
+            listOrderDetail.listCart = GetCart();
+            KhachHang kh =  new KhachHang();
+            kh = db.KhachHangs.Where(p => p.MaTK == user).FirstOrDefault();
+            if(kh == null)
+            {
+                NhanVien nv = new NhanVien();
+                nv = db.NhanViens.Where(p => p.MaTK == user).FirstOrDefault();
+                kh = new KhachHang()
+                {
+                    MaKH = nv.MaNV,
+                    TenKH = nv.TenNV,
+                    DiaChi = nv.DiaChi,
+                    Email = nv.Email,
+                    SDT = nv.SDT,
+                    GioiTinh = "Không có"
+                };
+            }
+            listOrderDetail.khachHang = kh;
+            return View(listOrderDetail);
+        }
+
+        public ActionResult DataOrder()
         {
             List<CartDetail> listCart = GetCart();
             return PartialView(listCart);

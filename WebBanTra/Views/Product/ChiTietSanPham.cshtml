@@ -134,10 +134,38 @@
 
             function getLink() {
                 var ida = document.getElementById('ctsp-a');
-                var quantity = parseInt(document.getElementById('number-PDCTSP').value);  
+
+                var quantityInput = document.getElementById('number-PDCTSP');
+
+                // Kiểm tra xem phần tử có tồn tại không
+                if (!ida || !quantityInput) {
+                    console.error("Không tìm thấy phần tử 'ctsp-a' hoặc 'number-PDCTSP'");
+                    return;
+                }
+
+                var quantity = parseInt(quantityInput.value);
                 var id = parseInt(ida.title);
-                var link = '@Url.Action("AddProduct", "Cart", new { maSP = "_id_", soLuong = "_soLuong_"})';
-                ida.setAttribute('href', link.replace("_id_", id).replace("_soLuong_", quantity));
+
+                $.ajax({
+                    url: '/Cart/AddCart',
+                    type: 'POST',
+                    data: {
+                        maSP: id,
+                        soLuong: quantity
+                    },
+                    success: function (res) {
+                        if (res.success) {
+                            alert("Thêm sản phẩm thành công!")       
+                        } else {
+                            alert("Thêm sản phẩm không thành công!");
+                        }
+                    },
+                    error: function (err) {
+                        alert("Lỗi không thể thêm sản phẩm");
+                        console.log(err);
+                    }
+                });
+
             }
         </script>
     </main>

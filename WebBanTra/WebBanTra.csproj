@@ -231,6 +231,7 @@
     </Compile>
     <Compile Include="OOP\AppUser.cs" />
     <Compile Include="OOP\CartDetail.cs" />
+    <Compile Include="OOP\OrderDetail.cs" />
     <Compile Include="OOP\ProductDetailViewModel.cs" />
     <Compile Include="OOP\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -607,6 +608,8 @@
     <Content Include="Views\Admin\CreateSanPham.cshtml" />
     <Content Include="Views\Admin\UpdateSanPham.cshtml" />
     <Content Include="Views\Product\SanPham.cshtml" />
+    <Content Include="Views\Cart\Order.cshtml" />
+    <Content Include="Views\Cart\DataOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

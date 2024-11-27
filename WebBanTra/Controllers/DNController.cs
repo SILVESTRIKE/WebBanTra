@@ -33,6 +33,7 @@ namespace WebBanTra.Controllers
                     {
                         if (user.MatKhau == user.MatKhau)
                         {
+                            Session["MaTK"] = user.MaTK;
                             Session["TenDangNhap"] = user.TenDangNhap;
                             Session["VaiTro"] = user.VaiTro;
 
