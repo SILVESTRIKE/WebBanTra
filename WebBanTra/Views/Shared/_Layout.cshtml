@@ -70,21 +70,9 @@
                     <li><a href="/Cart/Cart">Giỏ hàng</a></li>
                     @{
                         var vaiTro = Session["VaiTro"];
-                        if (vaiTro != null)
+                        if (vaiTro != null && vaiTro.ToString() == "Khách hàng")
                         {
-                            if (vaiTro.ToString() == "Admin")
-                            {
-                                <li><a href="/Admin/Admin">Admin</a></li>
-
-                            }
-                            else if (vaiTro.ToString() == "Nhân viên")
-                            {
-                                <li><a href="/Admin/UserProfile"></a></li>
-                            }
-                            else
-                            {
-                                <li><a href="/DN/DangNhap">Danh thiếp</a></li>
-                            }
+                            <li><a href="/KhachHang/KhachHangProfile">Danh thiếp</a></li>
                         }
                         else
                         {

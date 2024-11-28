@@ -119,7 +119,7 @@
 
                                 }
                                 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-@styleDM">
-                                    <img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="ảnh sản phẩm @item.TenSP">
+                                    <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})"><img src="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" class="img-fluid" alt="ảnh sản phẩm @item.TenSP"></a>
                                     <div class="portfolio-info">
                                         <h4>@item.TenSP</h4>
                                         <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>

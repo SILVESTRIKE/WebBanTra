@@ -14,10 +14,11 @@
             {
                 <tr>
                     <td>
-                        <img style="width: 100px" src="@item.LinkAnh" alt="Alternate Text" />
+                        <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })"><img style="width: 100px" src="@item.LinkAnh" alt="Alternate Text" /></a>
                     </td>
                     <td>
-                        <p>@item.TenSP</p>
+                        <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })"><p>@item.TenSP</p></a>
+                        
                         <div class="btn-group">
                             <div class="input-group-text inputgroup">
                                 <button id="btnDown" onclick="decrementQuantity(@item.MaSP)">-</button>

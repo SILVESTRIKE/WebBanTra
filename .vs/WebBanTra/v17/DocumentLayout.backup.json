@@ -5,22 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\views\\cart\\dataorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\cart\\dataorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\views\\cart\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\cart\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\views\\cart\\datacart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8C1DAF86-1133-4A3C-BDCE-2DDBBD339822}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\cart\\datacart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,67 +42,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Order.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Cart\\Order.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Views\\Cart\\Order.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Cart\\Order.cshtml",
-              "RelativeToolTip": "WebBanTra\\Views\\Cart\\Order.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADQAAACEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-27T17:47:22.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\CartController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Controllers\\CartController.cs",
-              "RelativeToolTip": "WebBanTra\\Controllers\\CartController.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAkwKMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T17:34:40.078Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "DNController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
               "RelativeDocumentMoniker": "WebBanTra\\Controllers\\DNController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
               "RelativeToolTip": "WebBanTra\\Controllers\\DNController.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAkwCMAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T17:24:47.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataOrder.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Cart\\DataOrder.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Views\\Cart\\DataOrder.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Cart\\DataOrder.cshtml",
-              "RelativeToolTip": "WebBanTra\\Views\\Cart\\DataOrder.cshtml",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAAAG0AAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-27T16:36:51.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DataCart.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Cart\\DataCart.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Views\\Cart\\DataCart.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\Views\\Cart\\DataCart.cshtml",
-              "RelativeToolTip": "WebBanTra\\Views\\Cart\\DataCart.cshtml",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAADoAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-27T16:02:36.029Z",
+              "WhenOpened": "2024-11-28T10:42:37.628Z",
               "EditorCaption": ""
             }
           ]

@@ -17,8 +17,10 @@
             {
                 <tr>
                     <td>
-                        <img style="width: 100px" src="@item.LinkAnh" alt="Alternate Text" />
-                        <p>@item.TenSP</p>
+                        <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })">
+                            <img style="width: 100px" src="@item.LinkAnh" alt="Alternate Text" />
+                            <p>@item.TenSP</p>
+                        </a>
                     </td>
                     <td>
                         <div class="btn-group">

@@ -180,5 +180,52 @@ namespace WebBanTra.Controllers
             List<CartDetail> listCart = GetCart();
             return PartialView(listCart);
         }
+
+        public ActionResult CheckOut()
+        {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            List<CartDetail> listCart = GetCart();
+            try
+            {
+                
+                ChiTietDH chiTietDH = new ChiTietDH();
+                DonHang donHang = new DonHang();
+                int maTK = Convert.ToInt32(Session["MaTK"]);
+                int maKH = db.KhachHangs.Where(p => p.MaTK == maTK).FirstOrDefault().MaKH;
+
+                donHang = new DonHang()
+                {
+                    MaKH = maKH,
+                    MaNV = null,
+                    NgayDat = DateTime.Now,
+                    TongTien = listCart.Sum(r => r.TongTien),
+                    TrangThai = "Chưa giao"
+                };
+                db.DonHangs.Add(donHang);
+                db.SaveChanges();
+
+                int maDH = db.DonHangs.ToList().LastOrDefault().MaDH;
+
+                foreach (CartDetail i in listCart)
+                {
+                    chiTietDH = new ChiTietDH()
+                    {
+                        MaDH = maDH,
+                        MaSP = i.MaSP,
+                        SoLuongMua = i.SoLuong,
+                    };
+                    db.ChiTietDHs.Add(chiTietDH);
+                    db.SaveChanges();
+                }
+
+                Session["Cart"] = null;
+                listCart = new List<CartDetail>();
+                return View("Cart", listCart);
+            }
+            catch
+            {
+                return View("Cart", listCart);
+            }
+        }
     }
 }

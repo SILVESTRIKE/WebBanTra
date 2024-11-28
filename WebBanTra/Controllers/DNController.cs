@@ -37,7 +37,15 @@ namespace WebBanTra.Controllers
                             Session["TenDangNhap"] = user.TenDangNhap;
                             Session["VaiTro"] = user.VaiTro;
 
-                            return RedirectToAction("Home", "Home");
+                            switch(user.VaiTro)
+                            {
+                                case "Admin":
+                                    return RedirectToAction("Admin", "Admin");
+                                case "Nhân viên":
+                                    return RedirectToAction("Admin", "Admin");
+                                default:
+                                    return RedirectToAction("Home", "Home");
+                            } 
                         }
                         else
                         {
