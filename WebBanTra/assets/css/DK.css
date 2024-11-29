@@ -1,138 +1,76 @@
+
+
+/* Form Container Styles */
 .form-container {
-    width:fit-content;
-    height:fit-content;
+    position: relative;
+    z-index: 2;
+    width: 350px;
+    max-width: 100%;
     background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
-    box-sizing: border-box;
-    padding: 20px 30px;
-    margin:2vh auto;
-    border:3px solid aqua;
+    border-color: teal;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 20px auto;
+}
 
-  }
-  
-  .title {
+/* Form Title */
+.title {
     text-align: center;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    margin: 10px 0 30px 0;
-    font-size: 28px;
-    font-weight: 800;
-  }
-  
-  .form {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Form Input Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-bottom: 15px;
-  }
-  
-  .input {
-    border-radius: 20px;
-    border: 1px solid #c0c0c0;
-    outline: 0 !important;
-    box-sizing: border-box;
     padding: 12px 15px;
-    width: 400px !important;
-  }
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
 
-  .page-link {
-    text-decoration: underline;
-    margin: 0;
-    text-align:center;
-    color: #747474;
-    text-decoration-color: #747474;
-  }
-  
-  .page-link-label {
-    cursor: pointer;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 9px;
-    font-weight: 700;
+    .input:focus {
+        border-color: #6a11cb;
+        outline: none;
+        box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+    }
 
-  }
-  
-  .page-link-label:hover {
-    color: #000;
-  }
-  
-  .form-btn {
-    padding: 10px 15px;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    border-radius: 20px;
-    border: 0 !important;
-    outline: 0 !important;
-    background: teal;
-    color: white;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
-  
-  .form-btn:active {
-    box-shadow: none;
-  }
-  
-  .sign-up-label {
-    margin: 0;
-    font-size: 10px;
-    color: #747474;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  
-  .sign-up-link {
-    margin-left: 1px;
-    font-size: 11px;
-    text-decoration: underline;
-    text-decoration-color: teal;
-    color: teal;
-    cursor: pointer;
-    font-weight: 800;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  
-  .buttons-container {
+/* Submit Button */
+.form-btn {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 20px;
-    gap: 15px;
-  }
-  
-  .apple-login-button,
-      .google-login-button {
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-          rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    font-size: 11px;
-    gap: 5px;
-  }
-  
-  .apple-login-button {
-    background-color: #000;
+    padding: 12px 20px;
+    background-color: #6a11cb;
+    border: none;
     color: #fff;
-    border: 2px solid #000;
-  }
-  
-  .google-login-button {
-    border: 2px solid #747474;
-  }
-  
-  .apple-icon,
-      .google-icon {
-    font-size: 18px;
-    margin-bottom: 1px;
-  }
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .form-btn:hover {
+        background-color: #2575fc;
+    }
+
+/* Link Styles */
+.sign-up-label {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.sign-up-link {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .sign-up-link:hover {
+        text-decoration: underline;
+    }
