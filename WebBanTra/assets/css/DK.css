@@ -11,14 +11,15 @@
     box-sizing: border-box;
     padding: 12px 15px;
     margin: 0 auto;
-    border: 3px solid teal;
+    border: 3px solid;
+    border-color: #f094ac;
     margin-top: 80px !important
 }
 
 /* Form Title */
 .title {
     font-family: "Open Sans", sans-serif;
-    color: teal;
+    color: #f094ac;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -39,7 +40,7 @@
 }
 
     .input:focus {
-        border-color: mediumseagreen;
+        border-color: palevioletred;
         outline: none;
         box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
     }
@@ -48,7 +49,7 @@
 .form-btn {
     width: 100%;
     padding: 12px 20px;
-    background-color: teal;
+    background-color: #f094ac;
     border: none;
     color: #fff;
     border-radius: 5px;
@@ -58,12 +59,12 @@
 }
 
     .form-btn:hover {
-        background-color: mediumseagreen;
+        background-color: palevioletred;
     }
 
 /* Link Styles */
 .sign-up-label {
-    color: teal; 
+    color: #f094ac;
     text-decoration: none;
     text-align: center;
     margin-top: 20px;
@@ -71,8 +72,8 @@
 }
 
 .sign-up-link {
-    color: teal;
-    text-decoration: none;
+    color: #f094ac;
+    text-decoration: underline; 
     font-weight: bold;
 }
 
