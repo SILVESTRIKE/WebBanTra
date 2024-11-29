@@ -13,6 +13,7 @@
     <title>@ViewBag.Title - Web Ban Tra</title>
 
     <!-- CSS Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -25,14 +26,14 @@
 <body>  
     <main class="main">
         <div class="form-container">
-            <p class="title">Sign up your account</p>
+            <p class="title">Đăng ký tài khoản</p>
 
             @using (Html.BeginForm("DangKy", "DN", FormMethod.Post, new { @class = "form", novalidate = "true" }))
             {
                 @Html.AntiForgeryToken()
 
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.HoTen, new { @class = "input", placeholder = "Nhập họ tên người dùng" })
+                    @Html.TextBoxFor(m => m.HoTen, new { @class = "input", placeholder = "Nhập họ tên của bạn" })
                     @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
                 </div>
 
@@ -74,9 +75,9 @@
                 <button type="submit" class="btn form-btn">Đăng ký</button>
             }
 
-            <p class="sign-up-label">
-                <a href="/DN/DangNhap" class="sign-up-link">Đăng Nhập</a>
-            </p>
+        <p class="sign-up-label">
+            Đã có tài khoản ? <a href="/DN/DangNhap"><span class="sign-up-link">Đăng Nhập Ngay</span></a>
+        </p>
         </div>
     </main>
 
