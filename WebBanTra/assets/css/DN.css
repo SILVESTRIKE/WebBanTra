@@ -6,12 +6,13 @@
     box-sizing: border-box;
     padding: 12px 15px;
     margin: 0 auto;
-    border: 3px solid teal;
+    border: 3px solid;
+    border-color: #f094ac;
     margin-top: 80px !important;
 }
 
 .title {
-    color: teal;
+    color: #f094ac;
     text-align: center;
     font-family: "Open Sans", sans-serif;
     margin: 10px 0 30px 0;
@@ -38,7 +39,7 @@
 }
 
     .input:hover {
-        border-color: mediumseagreen;
+        border-color: hotpink;
         outline: none;
         box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
     }
@@ -68,7 +69,7 @@
     border-radius: 20px;
     border: 0 !important;
     outline: 0 !important;
-    background: teal;
+    background: #f094ac;
     color: white;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -91,8 +92,8 @@
     margin-left: 1px;
     font-size: 11px;
     text-decoration: underline;
-    text-decoration-color: teal;
-    color: teal;
+    text-decoration-color: #f094ac;
+    color: #f094ac;
     cursor: pointer;
     font-weight: 800;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
