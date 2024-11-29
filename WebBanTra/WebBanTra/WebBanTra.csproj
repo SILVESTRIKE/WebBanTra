@@ -425,7 +425,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DNController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -445,7 +449,7 @@
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="OOP\AppUser.cs" />
-    <Compile Include="OOP\CartDetails.cs" />
+    <Compile Include="OOP\CartDetail.cs" />
     <Compile Include="OOP\OrderDetail.cs" />
     <Compile Include="OOP\ProductDetailViewModel.cs" />
     <Compile Include="OOP\ProductViewModel.cs" />

@@ -129,11 +129,11 @@
     });
 
             function increaseCTSP() {
-                var quantityInput = $('#number-PDCTSP');
-                var quantity = parseInt(quantityInput.val());
+                var quantityInput = document.getElementById('number-PDCTSP');
+                var quantity = parseInt(quantityInput.value);
                 var limit = @max;
                 if (quantity < limit) {
-                    quantityInput.val(quantity + 1);
+                    quantityInput.value = quantity + 1;
                 }
                 else {
                     showNotificationFail();
@@ -141,10 +141,10 @@
             }
 
             function decreaseCTSP() {
-                var quantityInput = $('#number-PDCTSP');
-                var quantity = parseInt(quantityInput.val());
+                var quantityInput = document.getElementById('number-PDCTSP');
+                var quantity = parseInt(quantityInput.value);
                 if (quantity > 1) {
-                    quantityInput.val(quantity - 1);
+                    quantityInput.value = quantity + 1;
                 }
                 else {
                     showNotificationFail();
@@ -161,7 +161,7 @@
                         this.value = max;
                         showNotificationFail();
                     }
-                    else if (value < 0) {
+                    else if (value <= 0) {
                         this.value = 1;
                         showNotificationFail();
                     }
@@ -171,8 +171,6 @@
                     showNotificationFail();
                 }
             });
-
-
 
             function changeImage(image) {
                 var largeImage = document.getElementById('largeImage');

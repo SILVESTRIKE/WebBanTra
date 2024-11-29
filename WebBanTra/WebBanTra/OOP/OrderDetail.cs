@@ -11,12 +11,12 @@ namespace WebBanTra.OOP
     public class OrderDetail : KhachHang
     {
         public KhachHang khachHang { get; set; }
-        public List<CartDetails> listCart { get; set; }
+        public List<CartDetail> listCart { get; set; }
 
         public OrderDetail()
         {
             khachHang = new KhachHang();
-            listCart = new List<CartDetails>();
+            listCart = new List<CartDetail>();
         }
     }
 }

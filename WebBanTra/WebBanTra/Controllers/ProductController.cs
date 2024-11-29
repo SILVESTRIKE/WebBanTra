@@ -33,6 +33,7 @@ namespace WebBanTra.Controllers
 
             return View(productViewModels);
         }
+
         public ActionResult ChiTietSanPham(int id = 0)
         {
             using (db)
@@ -40,26 +41,36 @@ namespace WebBanTra.Controllers
                 ViewBag.limitQuantity = db.SanPhams.Where(sp => sp.MaSP == id).Select(sp => sp.SoLuongTon).FirstOrDefault();
                 List<Anh_SanPham> anh_SanPhams = db.AnhSanPhams.Where(a => a.MaSP == id).ToList();
                 List<MoTa_SanPham> moTa_SanPhams = db.MoTaSanPhams.Where(m => m.MaSP == id).ToList();
+
                 var product = db.SanPhams
                     .Where(sp => sp.MaSP == id)
-                    .Select(sp => new ProductDetailViewModel
+                    .Select(sp => new
                     {
-                        MaSP = id,
-                        TenSP = sp.TenSP,
-                        Gia = sp.Gia,
-                        Images = anh_SanPhams.Select(a => a.LinhAnh).ToList(),
-                        Descriptions = moTa_SanPhams.Select(m => m.MoTa).ToList(),
-                        DanhMuc = sp.DanhMuc.TenDM
-                    }).FirstOrDefault();
+                        sp.MaSP,
+                        sp.TenSP,
+                        sp.Gia,
+                        sp.DanhMuc.TenDM
+                    })
+                    .FirstOrDefault();
 
                 if (product == null)
                 {
                     return HttpNotFound();
                 }
-                return View(product);
+
+                var productDetail = new ProductDetailViewModel
+                {
+                    MaSP = product.MaSP,
+                    TenSP = product.TenSP,
+                    Gia = product.Gia,
+                    Images = anh_SanPhams.Select(a => a.LinhAnh).ToList(),
+                    Descriptions = moTa_SanPhams.Select(m => m.MoTa).ToList(),
+                    DanhMuc = product.TenDM
+                };
+
+                return View(productDetail);
             }
         }
-
 
         public ActionResult Search(string nameSP, int page = 1)
         {

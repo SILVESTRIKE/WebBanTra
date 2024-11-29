@@ -13,20 +13,20 @@ namespace WebBanTra.Controllers
         // GET: Cart
         public ActionResult Cart()
         {
-            List<CartDetails> listCart = GetCart();
+            List<CartDetail> listCart = GetCart();
             return View(listCart);
         }
 
-        public List<CartDetails> GetCart()
+        public List<CartDetail> GetCart()
         {
-            List<CartDetails> carts;
+            List<CartDetail> carts;
             if (Session["Cart"] == null)
             {
-                carts = new List<CartDetails>();
+                carts = new List<CartDetail>();
                 Session["Cart"] = carts;
-                return Session["Cart"] as List<CartDetails>;
+                return Session["Cart"] as List<CartDetail>;
             }
-            carts = Session["Cart"] as List<CartDetails>;
+            carts = Session["Cart"] as List<CartDetail>;
             return carts;
         }
 
@@ -34,9 +34,9 @@ namespace WebBanTra.Controllers
         public ActionResult UpdateCart(int id, int quantity)
         {
             DB_BanTraEntities db = new DB_BanTraEntities();
-            List<CartDetails> listCart = GetCart();
+            List<CartDetail> listCart = GetCart();
             List<SanPham> listSP = db.SanPhams.ToList();
-            CartDetails cart = listCart.Find(p => p.MaSP == id);
+            CartDetail cart = listCart.Find(p => p.MaSP == id);
 
             int limit = listSP.Where(r => r.MaSP == id).FirstOrDefault().SoLuongTon;
 
@@ -81,11 +81,11 @@ namespace WebBanTra.Controllers
             DB_BanTraEntities db = new DB_BanTraEntities();
             try
             {
-                List<CartDetails> listCart = GetCart();
+                List<CartDetail> listCart = GetCart();
                 if (db.SanPhams.Where(p => p.MaSP == maSP).Count() > 0 && listCart.All(r => r.MaSP != maSP))
                 {
                     SanPham sp = db.SanPhams.Find(maSP);
-                    CartDetails cart = new CartDetails();
+                    CartDetail cart = new CartDetail();
 
                     cart.MaSP = maSP;
                     cart.TenSP = sp.TenSP;
@@ -120,11 +120,11 @@ namespace WebBanTra.Controllers
             DB_BanTraEntities db = new DB_BanTraEntities();
             try
             {
-                List<CartDetails> listCart = GetCart();
+                List<CartDetail> listCart = GetCart();
                 if (db.SanPhams.Any(p => p.MaSP == maSP) && listCart.All(r => r.MaSP != maSP))
                 {
                     SanPham sp = db.SanPhams.Find(maSP);
-                    CartDetails cart = new CartDetails
+                    CartDetail cart = new CartDetail
                     {
                         MaSP = maSP,
                         TenSP = sp.TenSP,
@@ -139,7 +139,7 @@ namespace WebBanTra.Controllers
                 }
                 else if (listCart.Any(r => r.MaSP == maSP))
                 {
-                    CartDetails cart = listCart.Find(p => p.MaSP == maSP);
+                    CartDetail cart = listCart.Find(p => p.MaSP == maSP);
                     listCart.First(r => r.MaSP == maSP).SoLuong += soLuong;
                     return Json(new { success = true }, JsonRequestBehavior.AllowGet);
                 }
@@ -159,7 +159,7 @@ namespace WebBanTra.Controllers
 
         void removeProduct(int maSP)
         {
-            List<CartDetails> listCart = GetCart();
+            List<CartDetail> listCart = GetCart();
             listCart.RemoveAll(p => p.MaSP == maSP);
             Session["Cart"] = listCart;
         }
@@ -167,14 +167,14 @@ namespace WebBanTra.Controllers
         public ActionResult RemoveProduct(int maSP)
         {
             removeProduct(maSP);
-            return View("Cart", Session["Cart"] as List<CartDetails>);
+            return View("Cart", Session["Cart"] as List<CartDetail>);
         }
 
         public ActionResult DataCart()
         {
             DB_BanTraEntities db = new DB_BanTraEntities();
             ViewBag.listSP = db.SanPhams.ToList();
-            List<CartDetails> listCart = GetCart();
+            List<CartDetail> listCart = GetCart();
             return PartialView(listCart);
         }
 
@@ -206,14 +206,14 @@ namespace WebBanTra.Controllers
 
         public ActionResult DataOrder()
         {
-            List<CartDetails> listCart = GetCart();
+            List<CartDetail> listCart = GetCart();
             return PartialView(listCart);
         }
 
         public ActionResult CheckOut()
         {
             DB_BanTraEntities db = new DB_BanTraEntities();
-            List<CartDetails> listCart = GetCart();
+            List<CartDetail> listCart = GetCart();
             try
             {
                 ChiTietDH chiTietDH = new ChiTietDH();
@@ -235,7 +235,7 @@ namespace WebBanTra.Controllers
 
                 int maDH = db.DonHangs.ToList().LastOrDefault().MaDH;
 
-                foreach (CartDetails i in listCart)
+                foreach (CartDetail i in listCart)
                 {
                     chiTietDH = new ChiTietDH()
                     {
@@ -260,7 +260,7 @@ namespace WebBanTra.Controllers
                 db.SaveChanges();
 
                 Session["Cart"] = null;
-                listCart = new List<CartDetails>();
+                listCart = new List<CartDetail>();
                 return View("Cart", listCart);
             }
             catch
