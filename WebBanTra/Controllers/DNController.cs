@@ -90,6 +90,7 @@ namespace WebBanTra.Controllers
                     taiKhoan.TenDangNhap = user.TenDangNhap;
                     taiKhoan.MatKhau = user.MatKhau;
                     taiKhoan.VaiTro = "Khách hàng";
+                    taiKhoan.TrangThai = "Không Đăng Nhập";
                     db.TaiKhoans.Add(taiKhoan);
                     db.SaveChanges();
 

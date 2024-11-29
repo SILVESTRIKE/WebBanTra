@@ -55,7 +55,6 @@
                 if (!isNaN(element.value) || !(element.value).trim() === "") {
                     if (quantity > max) {
                         element.value = max; // Giới hạn giá trị bằng max
-                        showNotificationFail();
 
                     }
                     else if (quantity <= 0) {
@@ -65,9 +64,6 @@
                     else if (quantity != null) {
                         element.value = 1;
                         showNotificationFail();
-                    }
-                    else {
-                        showNotification(); // Gọi thông báo thành công
                     }
                 }
                 else {
@@ -90,7 +86,6 @@
             else {
                 quantityInput.value = quantity + 1;
                 quantity += 1;
-                showNotification();
             }
             return quantity;
         }
@@ -101,7 +96,6 @@
             if (quantity > 1) {
                 quantityInput.value = quantity + 1;
                 quantity = quantity - 1;
-                showNotification();
             }
             else {
                 quantityInput.value = quantity;
@@ -154,6 +148,7 @@
                         $('#tong-tien-gio-hang').html(
                             res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
                         );
+                        showNotification();
                     } else {
                         document.getElementById('numberPD-' + id).value = res.data.itemQuantity;
                         //$('#numberPD-' + id).value = res.data.itemQuantity.toLocaleString();
@@ -170,8 +165,7 @@
                     }
                 },
                 error: function (err) {
-                    alert("Lỗi không thể cập nhật sản phẩm");
-                    console.log(err);
+                    showNotificationFail();
                 }
             });
         }
@@ -185,7 +179,7 @@
             setTimeout(() => {
                 notification.classList.remove('show');
                 notification.classList.add('hide');
-            }, 3000);
+            }, 1000);
         }
 
         function showNotificationFail() {
@@ -197,7 +191,7 @@
             setTimeout(() => {
                 notification.classList.remove('show');
                 notification.classList.add('hide');
-            }, 3000);
+            }, 1000);
         }
     </script>
 
