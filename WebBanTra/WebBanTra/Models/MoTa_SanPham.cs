@@ -9,6 +9,7 @@ namespace WebBanTra.Models
     public class MoTa_SanPham
     {
         [Key, Column(Order = 0)] // MaMoTa là phần đầu tiên của Primary Key
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaMoTa { get; set; }
 
         [Key, Column(Order = 1)] // MaSP là phần thứ hai của Primary Key (phối hợp với MaMoTa)
@@ -19,6 +20,6 @@ namespace WebBanTra.Models
 
         // Navigation property
         [ForeignKey("MaSP")]
-        public SanPham SanPham { get; set; } // Quan hệ với bảng SanPham
+        public virtual SanPham SanPham { get; set; } // Quan hệ với bảng SanPham
     }
 }

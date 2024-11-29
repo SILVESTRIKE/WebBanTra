@@ -35,6 +35,6 @@ namespace WebBanTra.Models
 
         // Navigation property
         [ForeignKey("MaTK")]
-        public TaiKhoan TaiKhoan { get; set; } // Mối quan hệ với bảng TaiKhoan
+        public virtual TaiKhoan TaiKhoan { get; set; } // Mối quan hệ với bảng TaiKhoan
     }
 }

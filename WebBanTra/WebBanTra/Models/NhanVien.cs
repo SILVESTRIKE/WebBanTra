@@ -35,10 +35,10 @@ namespace WebBanTra.Models
 
         // Navigation property - Quan hệ với bảng NhanVien (Quản lý)
         [ForeignKey("MaQuanLy")]
-        public NhanVien QuanLy { get; set; } // Quản lý của nhân viên
+        public virtual NhanVien QuanLy { get; set; } // Quản lý của nhân viên
 
         // Navigation property - Quan hệ với bảng TaiKhoan
         [ForeignKey("MaTK")]
-        public TaiKhoan TaiKhoan { get; set; } // Tài khoản của nhân viên
+        public virtual TaiKhoan TaiKhoan { get; set; } // Tài khoản của nhân viên
     }
 }

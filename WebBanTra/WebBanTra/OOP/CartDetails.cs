@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebBanTra.OOP
 {
+    [NotMapped]
     public class CartDetails
     {
-        [Key]
         public int MaSP { get; set; }
         public string TenSP { get; set; }
         public decimal Gia { get; set; }

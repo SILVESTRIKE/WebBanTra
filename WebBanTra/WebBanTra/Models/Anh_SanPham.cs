@@ -9,7 +9,8 @@ namespace WebBanTra.Models
 {
     public class Anh_SanPham
     {
-        [Key, Column(Order = 0)] // MaAnh là phần đầu tiên của Primary Key
+        [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]// MaAnh là phần đầu tiên của Primary Key
         public int MaAnh { get; set; }
 
         [Key, Column(Order = 1)] // MaSP là phần thứ hai của Primary Key (phối hợp với MaAnh)
@@ -20,6 +21,6 @@ namespace WebBanTra.Models
 
         // Navigation property
         [ForeignKey("MaSP")]
-        public SanPham SanPham { get; set; } // Quan hệ với bảng SanPham
+        public virtual SanPham SanPham { get; set; } // Quan hệ với bảng SanPham
     }
 }

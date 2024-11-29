@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.title = "Admin";
+    List<WebBanTra.Models.Anh_SanPham> listAnhSP = ViewBag.listAnhSP;
 }
 
 
@@ -300,9 +301,9 @@
                                                     <td>@sanPham.MaSP</td>
                                                     <td>@sanPham.TenSP</td>
                                                     <td>
-                                                        @if (sanPham.Anh_SanPham.Any())
+                                                        @if (listAnhSP.Any(r => r.MaSP == sanPham.MaSP))
                                                         {
-                                                            <img src="@sanPham.Anh_SanPham.FirstOrDefault().LinhAnh" alt="Ảnh sản phẩm" width="100">
+                                                            <img src="@listAnhSP.Where(r => r.MaSP == sanPham.MaSP).FirstOrDefault().LinhAnh" alt="Ảnh sản phẩm" width="100">
                                                         }
                                                         else
                                                         {

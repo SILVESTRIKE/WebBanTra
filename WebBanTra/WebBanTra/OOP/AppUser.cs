@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebBanTra.OOP
 {
+    [NotMapped]
     public class AppUser : WebBanTra.Models.TaiKhoan
     {
         public AppUser() : base() { }

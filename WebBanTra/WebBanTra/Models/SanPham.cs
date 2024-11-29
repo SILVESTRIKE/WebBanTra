@@ -27,7 +27,7 @@ namespace WebBanTra.Models
 
         // Navigation property
         [ForeignKey("MaDM")]
-        public DanhMuc DanhMuc { get; set; } // Mối quan hệ với bảng DanhMuc
+        public virtual DanhMuc DanhMuc { get; set; } // Mối quan hệ với bảng DanhMuc
         public SanPham()
         {
             Gia = 0;

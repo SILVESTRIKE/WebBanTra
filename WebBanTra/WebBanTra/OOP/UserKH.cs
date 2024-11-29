@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebBanTra.Models;
 
 namespace WebBanTra.OOP
 {
+    [NotMapped]
     public class UserKH
     {
         public KhachHang KhachHang { get; set; }

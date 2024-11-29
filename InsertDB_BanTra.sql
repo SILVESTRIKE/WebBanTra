@@ -20,9 +20,9 @@ VALUES
 ('mimi', '1', N'Khách hàng', N'Không Đăng Nhập'),
 ('cung', '1', N'Khách hàng', N'Không Đăng Nhập');
 GO
-DBCC CHECKIDENT ('NhanVien', RESEED, 1);
+
 -- Chèn dữ liệu mẫu vào bảng NhanVien
-INSERT INTO NhanVien (MaTK, TenNV, SDT, Email, DiaChi, ChucVu, MaQuanLy)
+INSERT INTO NhanViens
 VALUES 
 (1, N'Nguyễn Mạnh Quân', '0987654321', 'quan@gmail.com', N'Bình Chánh, TP HCM', N'Quản lý', NULL),
 (2, N'Văn Trọng Dương', '0987654322', 'duong@gmail.com', N'Tân Phú, TP HCM', N'Quản lý', NULL),
@@ -40,9 +40,8 @@ VALUES
 (14, N'Cao Khánh Trí', '0987654334', 'tri@gmail.com', N'Tân Phú, TP HCM', N'Nhân viên', NULL);
 GO
 
-DBCC CHECKIDENT ('KhachHang', RESEED, 1);
 -- Chèn dữ liệu mẫu vào bảng KhachHang
-INSERT INTO KhachHang (MaTK, TenKH, GioiTinh, Email, SDT, DiaChi, NgaySinh)
+INSERT INTO KhachHangs
 VALUES 
 (15, N'Trần Đình Văn', N'Nam','van@gmail.com', '0123456789', N'123 Lê Lợi, Quận 1, TP HCM', '2000-01-01'),
 (16, N'Phạm Tinh Tú', N'Nữ', 'tu@gmail.com', '0123456790', N'Quận 5, TP HCM', '1999-02-15'),
@@ -51,7 +50,7 @@ VALUES
 (19, N'Đỗ Văn Cung', N'Nam', 'cung@gmail.com', '0123456793', N'Tân Phú, TP HCM', '2002-05-20');
 GO
 
-INSERT INTO DanhMuc (TenDM)
+INSERT INTO DanhMucs (TenDM)
 VALUES 
 (N'Trà'),
 (N'Bộ ấm trà'),
@@ -60,7 +59,7 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng SanPham
-INSERT INTO SanPham (TenSP, Gia, SoLuongTon,MaDM)
+INSERT INTO SanPhams (TenSP, Gia, SoLuongTon,MaDM)
 VALUES 
 (N'Trà Cỗ Thụ', 10000, 100, 1),
 (N'Trà Hoa Cúc', 15000, 50, 1),
@@ -193,15 +192,14 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng NhaCungCap
-INSERT INTO NhaCungCap (TenNCC, DiaChi, SDT, Email)
+INSERT INTO NhaCungCaps (TenNCC, DiaChi, SDT, Email)
 VALUES 
 ('Cong ty A', '123 Pho Hue, Ha Noi', '0212345678', 'contact@congtya.com'),
 ('Cong ty B', '456 Tran Phu, Da Nang', '0987654321', 'info@congtyb.com');
 GO
 
-DBCC CHECKIDENT ('DonHang', RESEED, 1);
 -- Thêm dữ liệu vào bảng DonHang
-INSERT INTO DonHang (MaKH, MaNV, NgayDat, TongTien, TrangThai)
+INSERT INTO DonHangs (MaKH, MaNV, NgayDat, TongTien, TrangThai)
 VALUES 
 (1, 2, '2024-11-01', 50000.00, N'Đã giao'),
 (2, 1, '2024-11-02', 30000.00, N'Đã giao'),
@@ -214,7 +212,7 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng ChiTietDH
-INSERT INTO ChiTietDH (MaDH, MaSP, SoLuongMua, YeuCau)
+INSERT INTO ChiTietDHs (MaDH, MaSP, SoLuongMua, YeuCau)
 VALUES 
 (1, 1, 2, NULL),
 (1, 2, 1, NULL),
@@ -228,14 +226,14 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng DonNhapHang
-INSERT INTO DonNhapHang (MaNCC, NgayDat, TongTien)
+INSERT INTO DonNhapHangs (MaNCC, NgayDat, TongTien)
 VALUES 
 (1, '2023-03-10', 100000.00),
 (2, '2023-03-11', 80000.00);
 GO
 
 -- Thêm dữ liệu vào bảng ChiTietDNH
-INSERT INTO ChiTietDNH (MaDNH, MaSP, SoLuongNhap, GiaNhap)
+INSERT INTO ChiTietDNHs (MaDNH, MaSP, SoLuongNhap, GiaNhap)
 VALUES 
 (1, 1, 50, 18000.00),
 (1, 2, 30, 22000.00),
@@ -243,7 +241,7 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng DanhGia
-INSERT INTO DanhGia (MaKH, MaCTDH, DiemDG, BinhLuan, NgayDG)
+INSERT INTO DanhGias (MaKH, MaCTDH, DiemDG, BinhLuan, NgayDG)
 VALUES 
 (1, 1, 5, 'San pham chat luong tot', '2023-03-15'),
 (2, 2, 4, 'Gia ca hop ly', '2023-03-16');

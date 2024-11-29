@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebBanTra.OOP
 {
+    [NotMapped]
     public class ProductViewModel
     {
         public List<WebBanTra.Models.SanPham> listProducts { get; set; }

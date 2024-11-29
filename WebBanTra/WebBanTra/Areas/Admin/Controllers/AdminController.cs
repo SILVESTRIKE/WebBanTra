@@ -22,6 +22,7 @@ namespace WebBanTra.Areas.Admin.Controllers
         public ActionResult Admin()
         {
             var list = _dbContext.SanPhams.ToList();
+            ViewBag.listAnhSP = _dbContext.AnhSanPhams.ToList();
             return View(list);
         }
 

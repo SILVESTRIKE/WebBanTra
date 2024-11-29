@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebBanTra.OOP
 {
+    [NotMapped]
     public class ProductDetailViewModel
     {
         public int MaSP { get; set; }
