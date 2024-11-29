@@ -5,17 +5,20 @@
     position: relative;
     z-index: 2;
     width: 350px;
-    max-width: 100%;
     background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
-    border-color: teal;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    margin: 20px auto;
+    box-sizing: border-box;
+    padding: 12px 15px;
+    margin: 0 auto;
+    border: 3px solid teal;
+    margin-top: 80px !important
 }
 
 /* Form Title */
 .title {
+    font-family: "Poppins", sans-serif; /* Font thay đổi */
+    color: teal;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -36,7 +39,7 @@
 }
 
     .input:focus {
-        border-color: #6a11cb;
+        border-color: mediumseagreen;
         outline: none;
         box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
     }
@@ -45,7 +48,7 @@
 .form-btn {
     width: 100%;
     padding: 12px 20px;
-    background-color: #6a11cb;
+    background-color: teal;
     border: none;
     color: #fff;
     border-radius: 5px;
@@ -55,18 +58,20 @@
 }
 
     .form-btn:hover {
-        background-color: #2575fc;
+        background-color: mediumseagreen;
     }
 
 /* Link Styles */
 .sign-up-label {
+    color: teal; 
+    text-decoration: none;
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
 }
 
 .sign-up-link {
-    color: #6a11cb;
+    color: teal;
     text-decoration: none;
     font-weight: bold;
 }
