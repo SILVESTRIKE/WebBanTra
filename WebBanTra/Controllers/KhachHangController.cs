@@ -39,7 +39,7 @@ namespace WebBanTra.Controllers
                     {
                         KhachHang kh = db.KhachHangs.Where(r => r.MaKH == maKH).FirstOrDefault();
                         List<ChiTietDH> ctdh = new List<ChiTietDH>();
-                        List<DonHang> dh = db.DonHangs.Where(r => r.MaKH == maKH && r.TrangThai == "Chưa giao").ToList();
+                        List<DonHang> dh = db.DonHangs.Where(r => r.MaKH == maKH && r.TrangThai == "Chưa giao" || r.TrangThai == "Chờ xác nhận").ToList();
                         foreach (DonHang d in dh)
                         {
                             List<ChiTietDH> ct = db.ChiTietDHs.Where(r => r.MaDH == d.MaDH).ToList();
@@ -53,6 +53,7 @@ namespace WebBanTra.Controllers
                             Anh_SanPham a = db.Anh_SanPham.Where(r => r.SanPham.MaSP == i.SanPham.MaSP).FirstOrDefault();
                             userKH.listAnhSP.Add(a);
                         }
+                        ctdh.OrderBy(r => r.SanPham.MaDM).GroupBy(r => r.SanPham.MaDM);
                         userKH.KhachHang = kh;
                         userKH.ListChiTietDonHang = ctdh;
                         userKH.listDonHang = dh;

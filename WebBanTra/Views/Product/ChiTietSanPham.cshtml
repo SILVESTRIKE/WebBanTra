@@ -3,7 +3,13 @@
 
 @{
     ViewBag.Title = "ChiTietSanPham";
+    var max = ViewBag.limitQuantity;
 }
+@if (Session["TenDangNhap"] == null)
+{
+    Response.Redirect("/DN/DangNhap");
+}
+
 
 @if (Model.TenSP != null)
 {
@@ -45,6 +51,7 @@
                     </nav>
 
                     <h1 class="h4">@Model.TenSP</h1>
+                    <div>Sản phẩm còn: <span style="color: red;">@max</span></div>
                     <h2 class="text-danger fw-bold">@Model.Gia VNĐ</h2>
 
                     <ul class="list-unstyled mt-4">
@@ -106,25 +113,65 @@
             </div>
         </div>
         <script>
+
+                document.addEventListener('DOMContentLoaded', function () {
+        var max = @max; // Razor sẽ thay thế giá trị này bằng giá trị thực
+        var link = document.getElementById('ctsp-a');
+
+        if (max === 0) {
+            link.style.pointerEvents = 'none'; // Ngăn chặn sự kiện nhấp chuột
+            link.style.opacity = '0.5'; // Tạo hiệu ứng mờ
+            link.style.cursor = 'not-allowed'; // Thay đổi con trỏ chuột
+            link.onclick = function (event) {
+                event.preventDefault(); // Ngăn chặn chuyển hướng
+            };
+        }
+    });
+
             function increaseCTSP() {
-                var input = $('#number-PDCTSP');
                 var quantityInput = $('#number-PDCTSP');
                 var quantity = parseInt(quantityInput.val());
-                quantityInput.val(quantity + 1);
-                quantity = quantity + 1;
-                input.value = quantity;
+                var limit = @max;
+                if (quantity < limit) {
+                    quantityInput.val(quantity + 1);
+                }
+                else {
+                    showNotificationFail();
+                }
             }
 
             function decreaseCTSP() {
-                var input = $('#number-PDCTSP');
                 var quantityInput = $('#number-PDCTSP');
                 var quantity = parseInt(quantityInput.val());
                 if (quantity > 1) {
                     quantityInput.val(quantity - 1);
-                    quantity = quantity - 1;
                 }
-                input.value = quantity;
+                else {
+                    showNotificationFail();
+                }
+
+
             }
+
+            document.getElementById('number-PDCTSP').addEventListener('input', function () {
+                var max = @max;
+                var value = parseInt(this.value);
+                if (!isNaN(this.value) || (this.value).trim() === "") {
+                    if (value > max) {
+                        this.value = max;
+                        showNotificationFail();
+                    }
+                    else if (value < 0) {
+                        this.value = 1;
+                        showNotificationFail();
+                    }
+                }
+                else {
+                    this.value = 1;
+                    showNotificationFail();
+                }
+            });
+
 
 
             function changeImage(image) {
@@ -155,7 +202,7 @@
                     },
                     success: function (res) {
                         if (res.success) {
-                            alert("Thêm sản phẩm thành công!")       
+                            showNotification();
                         } else {
                             alert("Thêm sản phẩm không thành công!");
                         }
@@ -165,7 +212,30 @@
                         console.log(err);
                     }
                 });
+            }
 
+            function showNotification() {
+                const notification = document.getElementById('notification');
+                notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+                notification.classList.add('show'); // Thêm lớp hiển thị
+
+                // Sau 3 giây, ẩn thông báo
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.classList.add('hide');
+                }, 3000);
+            }
+
+            function showNotificationFail() {
+                const notification = document.getElementById('notification-fail');
+                notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+                notification.classList.add('show'); // Thêm lớp hiển thị
+
+                // Sau 3 giây, ẩn thông báo
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    notification.classList.add('hide');
+                }, 3000);
             }
         </script>
     </main>

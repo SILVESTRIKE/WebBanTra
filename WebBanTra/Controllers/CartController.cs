@@ -33,19 +33,46 @@ namespace WebBanTra.Controllers
         [HttpPost]
         public ActionResult UpdateCart(int id, int quantity)
         {
+            DB_BanTraEntities db = new DB_BanTraEntities();
             List<CartDetail> listCart = GetCart();
+            List<SanPham> listSP = db.SanPhams.ToList();
             CartDetail cart = listCart.Find(p => p.MaSP == id);
-            listCart.Find(p => p.MaSP == id).SoLuong = quantity;
-            Session["Cart"] = listCart;
-            return Json(new
+
+            int limit = listSP.Where(r => r.MaSP == id).FirstOrDefault().SoLuongTon;
+
+            if (quantity > limit)
             {
-                success = true,
-                data = new
+                listCart.Find(p => p.MaSP == id).SoLuong = limit;
+                return Json(new
                 {
-                    itemPrice = cart.TongTien, // Tổng tiền của toàn giỏ hàng
-                    totalPrice = listCart.Sum(r=>r.TongTien) // Tổng thành tiền của 1 sản phẩm
-                }
-            });
+                    success = false,
+                    data = new
+                    {
+                        itemQuantity = limit, // Số lượng tồn kho của sản phẩm
+                        itemPrice = cart.TongTien, // Tổng tiền của toàn giỏ hàng
+                        totalPrice = listCart.Sum(r => r.TongTien) // Tổng thành tiền của 1 sản phẩm
+                    }
+                });
+            }
+            else if (quantity > 0 && quantity <= limit)
+            {
+                
+                listCart.Find(p => p.MaSP == id).SoLuong = quantity;
+                Session["Cart"] = listCart;
+                return Json(new
+                {
+                    success = true,
+                    data = new
+                    {
+                        itemPrice = cart.TongTien, // Tổng tiền của toàn giỏ hàng
+                        totalPrice = listCart.Sum(r => r.TongTien) // Tổng thành tiền của 1 sản phẩm
+                    }
+                });
+            }
+            else
+            {
+                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+            }
 
         }
 
@@ -145,6 +172,8 @@ namespace WebBanTra.Controllers
 
         public ActionResult DataCart()
         {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            ViewBag.listSP = db.SanPhams.ToList();
             List<CartDetail> listCart = GetCart();
             return PartialView(listCart);
         }
@@ -187,11 +216,11 @@ namespace WebBanTra.Controllers
             List<CartDetail> listCart = GetCart();
             try
             {
-                
                 ChiTietDH chiTietDH = new ChiTietDH();
                 DonHang donHang = new DonHang();
                 int maTK = Convert.ToInt32(Session["MaTK"]);
                 int maKH = db.KhachHangs.Where(p => p.MaTK == maTK).FirstOrDefault().MaKH;
+               
 
                 donHang = new DonHang()
                 {
@@ -199,7 +228,7 @@ namespace WebBanTra.Controllers
                     MaNV = null,
                     NgayDat = DateTime.Now,
                     TongTien = listCart.Sum(r => r.TongTien),
-                    TrangThai = "Chưa giao"
+                    TrangThai = "Chờ xác nhận"
                 };
                 db.DonHangs.Add(donHang);
                 db.SaveChanges();
@@ -214,9 +243,21 @@ namespace WebBanTra.Controllers
                         MaSP = i.MaSP,
                         SoLuongMua = i.SoLuong,
                     };
+                    int soLuong = db.SanPhams.Where(r => r.MaSP == i.MaSP).FirstOrDefault().SoLuongTon;
+                    db.SanPhams.Where(r => r.MaSP == i.MaSP).FirstOrDefault().SoLuongTon = soLuong - i.SoLuong;
                     db.ChiTietDHs.Add(chiTietDH);
                     db.SaveChanges();
                 }
+
+                HoaDon hoaDon = new HoaDon()
+                {
+                    MaDH = maDH,
+                    TrangThaiThanhToan = "Đã thanh toán",
+                    NgayLap = DateTime.Now
+                };
+
+                db.HoaDons.Add(hoaDon);
+                db.SaveChanges();
 
                 Session["Cart"] = null;
                 listCart = new List<CartDetail>();

@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "QuanLyHoaDon";
+    Layout  = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@model List<WebBanTra.Models.HoaDon>
+
+<div class="card-body" style="margin-top: 100px;">
+    <!-- Quản lý hóa đơn -->
+    <h4 class="mt-5" style="font-size:30px; font-weight: bolder;">Quản lý Đơn Hàng>Quản lý Hóa Đơn</h4>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã Hóa Đơn</th>
+                <th>Mã Đơn Hàng</th>
+                <th>Ngày Tạo</th>
+                <th>Trạng Thái</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop for invoices -->
+            @foreach (var hoaDon in Model)
+            {
+                <tr>
+                    <td>@hoaDon.MaHD</td>
+                    <td>@hoaDon.MaDH</td>
+                    <td>@hoaDon.NgayLap</td>
+                    @*<td>@hoaDon.TrangThaiThanhToan.ToString("C")</td>*@
+                    <td>@hoaDon.TrangThaiThanhToan.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="btn-group">
+        <a href="/Admin/Admin/Admin" class="cta-btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Quay về</a>
+    </div>
+</div>

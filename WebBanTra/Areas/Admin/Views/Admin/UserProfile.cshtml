@@ -1,7 +1,7 @@
-﻿
+﻿@model WebBanTra.Models.NhanVien
 @{
     ViewBag.Title = "UserProfile";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <main id="main" class="main">
@@ -10,8 +10,7 @@
         <h1>Profile</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item">Users</li>
+                <li class="breadcrumb-item"><a href="/Admin/Admin/Admin">Home</a></li>
                 <li class="breadcrumb-item active">Profile</li>
             </ol>
         </nav>
@@ -23,19 +22,24 @@
 
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                        <img src="~/Images/profile-icon-design-free-vector.jpg" alt="Profile" class="rounded-circle" />
 
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <h2>Kevin Anderson</h2>
-                        <h3>Web Designer</h3>
+                        @if (Session["TenDangNhap"] != null)
+                        {
+                            <h2>@Model.TenNV</h2>
+                        }
+                        <h3>@Model.ChucVu</h3>
                         <div class="social-links mt-2">
-                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            @*<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>*@
                         </div>
                     </div>
                 </div>
-
+                <div class="btn-group">
+                    <a href="/Admin/Admin/Admin" class="cta-btn align-middle" style="box-shadow: 1px 0px 1px rgb(103, 103, 103); background-color: white; color: black; border-radius: 10px; padding: 10px 25px; text-align: center; font-size: 20px;">Quay về</a>
+                </div>
             </div>
 
             <div class="col-xl-8">
@@ -49,7 +53,7 @@
                                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
                             </li>
 
-                            <li class="nav-item">
+                            @*<li class="nav-item">
                                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
                             </li>
 
@@ -59,50 +63,61 @@
 
                             <li class="nav-item">
                                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
-                            </li>
+                            </li>*@
 
                         </ul>
                         <div class="tab-content pt-2">
+                            
 
                             <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                <h5 class="card-title">About</h5>
-                                <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
+                                <h5 class="card-title">Thông tin nhân viên cửa hàng SereniTea</h5>
+                                <p class="small fst-italic">Thanh tịnh - tao nhã</p>
 
-                                <h5 class="card-title">Profile Details</h5>
+                                <h5 class="card-title">Chi tiết thông tin nhân viên</h5>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                    <div class="col-lg-9 col-md-8">Kevin Anderson</div>
+                                    <div class="col-lg-3 col-md-4 label">Mã nhân viên</div>
+                                    <div class="col-lg-9 col-md-8">@Model.MaNV</div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Company</div>
-                                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
+                                    <div class="col-lg-3 col-md-4 label ">Họ và tên</div>
+                                    <div class="col-lg-9 col-md-8">@Model.TenNV</div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Job</div>
-                                    <div class="col-lg-9 col-md-8">Web Designer</div>
+                                    <div class="col-lg-3 col-md-4 label">Chức vụ</div>
+                                    <div class="col-lg-9 col-md-8">@Model.ChucVu</div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Country</div>
-                                    <div class="col-lg-9 col-md-8">USA</div>
+                                    <div class="col-lg-3 col-md-4 label">Địa chỉ</div>
+                                    <div class="col-lg-9 col-md-8">@Model.DiaChi</div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Address</div>
-                                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                                    <div class="col-lg-9 col-md-8">(436) 486-3538 x29071</div>
+                                    <div class="col-lg-3 col-md-4 label">Số điện thoại</div>
+                                    <div class="col-lg-9 col-md-8">@Model.SDT</div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 label">Email</div>
-                                    <div class="col-lg-9 col-md-8">k.anderson@example.com</div>
+                                    <div class="col-lg-9 col-md-8">@Model.Email</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Nhân viên đang quản lý</div>
+
+                                    <div class="col-lg-9 col-md-8">
+                                        @if (Model.MaQuanLy != null)
+                                        {
+                                            @Model.NhanVien2.TenNV;
+                                        }
+                                        else
+                                        {
+                                            <sapn>"Không có"</sapn>
+                                        }
+                                    </div>
                                 </div>
 
                             </div>

@@ -29,41 +29,108 @@
 </head>
 
 <body>
+    <style>
+        #notification {
+            position: fixed;
+            top: 100px;
+            right: -300px;
+            border: 3px solid rgb(0, 255, 33);
+            color: rgb(0, 255, 33);
+            padding: 2px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(0, 255, 33);
+            font-size: 16px;
+            z-index: 1000; /* Nằm trên cùng */
+            transition: transform 0.5s ease, right 0.5s ease;
+            transform: translateX(0);
+        }
+
+            #notification div {
+                border: 3px solid rgb(0, 255, 33);
+                padding: 20px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            /* Khi hiển thị thông báo */
+            #notification.show {
+                right: 20px; /* Di chuyển vào màn hình */
+                transform: translateX(0);
+            }
+
+            /* Khi ẩn thông báo */
+            #notification.hide {
+                transform: translateX(100%);
+            }
+
+        #notification-fail {
+            position: fixed;
+            top: 100px;
+            right: -300px;
+            border: 3px solid rgba(216, 34, 83, 255);
+            color: rgba(216, 34, 83, 255);
+            padding: 2px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(216, 34, 83, 255);
+            font-size: 16px;
+            z-index: 1000; /* Nằm trên cùng */
+            transition: transform 0.5s ease, right 0.5s ease;
+            transform: translateX(0);
+        }
+
+            #notification-fail div {
+                border: 3px solid rgba(216, 34, 83, 255);
+                padding: 20px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            /* Khi hiển thị thông báo */
+            #notification-fail.show {
+                right: 20px; /* Di chuyển vào màn hình */
+                transform: translateX(0);
+            }
+
+            /* Khi ẩn thông báo */
+            #notification-fail.hide {
+                transform: translateX(100%);
+            }
+    </style>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="/Home/Home" class="logo d-flex align-items-center">
+            <a href="/Admin/Admin/Admin" class="logo d-flex align-items-center">
                 <img src="~/Images/logo_no_Back_Ground.png" alt="logo">
                 <span class="d-none d-lg-block">SERENITEA</span>
             </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
+            @*<i class="bi bi-list toggle-sidebar-btn"></i>*@
         </div><!-- End Logo -->
 
-        <div class="search-bar">
+        <!--<div class="search-bar">
             <form class="search-form d-flex align-items-center" method="POST" action="#">
                 <input type="text" name="query" placeholder="Search" title="Enter search keyword">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
-        </div><!-- End Search Bar -->
+        </div>--><!-- End Search Bar -->
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
 
-                <li class="nav-item d-block d-lg-none">
+                <!--<li class="nav-item d-block d-lg-none">
                     <a class="nav-link nav-icon search-bar-toggle " href="#">
                         <i class="bi bi-search"></i>
                     </a>
-                </li><!-- End Search Icon-->
+                </li>--><!-- End Search Icon-->
 
-                <li class="nav-item dropdown">
+                <!--<li class="nav-item dropdown">
 
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-bell"></i>
                         <span class="badge bg-primary badge-number">4</span>
-                    </a><!-- End Notification Icon -->
+                    </a>--><!-- End Notification Icon -->
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                    <!--<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
                         <li class="dropdown-header">
                             You have 4 new notifications
                             <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
@@ -127,18 +194,18 @@
                             <a href="#">Show all notifications</a>
                         </li>
 
-                    </ul><!-- End Notification Dropdown Items -->
+                    </ul>--><!-- End Notification Dropdown Items -->
 
-                </li><!-- End Notification Nav -->
+                <!--</li>--><!-- End Notification Nav -->
 
-                <li class="nav-item dropdown">
+                <!--<li class="nav-item dropdown">
 
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-chat-left-text"></i>
                         <span class="badge bg-success badge-number">3</span>
-                    </a><!-- End Messages Icon -->
+                    </a>--><!-- End Messages Icon -->
 
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                    <!--<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
                         <li class="dropdown-header">
                             You have 3 new messages
                             <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
@@ -193,28 +260,40 @@
                             <a href="#">Show all messages</a>
                         </li>
 
-                    </ul><!-- End Messages Dropdown Items -->
+                    </ul>--><!-- End Messages Dropdown Items -->
 
-                </li><!-- End Messages Nav -->
+                <!--</li>--><!-- End Messages Nav -->
 
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <img src="~/Images/profile-icon-design-free-vector.jpg" alt="Profile" class="rounded-circle"/>
+                        <span class="d-none d-md-block dropdown-toggle ps-2">
+                            Hello 
+                            @if (Session["TenDangNhap"] != null)
+                            {
+                                @Session["TenDangNhap"].ToString()
+                            }
+                            else
+                            {
+                                Response.Redirect(Url.Action("DangNhap", "DN", new {area = ""}));
+                            }
+                        </span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Web Designer</span>
+                            @if (Session["TenDangNhap"] != null)
+                            {
+                                <h6>@Session["TenDangNhap"].ToString()</h6>
+                            }
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("UserProfile", "Admin", new {area = "Admin", })">
                                 <i class="bi bi-person"></i>
                                 <span>Danh thiếp của tôi</span>
                             </a>
@@ -224,7 +303,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("DangXuat", "DN")">
+                            <a class="dropdown-item d-flex align-items-center" href="@Url.Action("DangXuat", "DN", new {area = ""})">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Đăng xuất</span>
                             </a>
@@ -235,7 +314,16 @@
 
             </ul>
         </nav><!-- End Icons Navigation -->
-
+        <div id="notification">
+            <div>
+                Thao tác thành công
+            </div>
+        </div>
+        <div id="notification-fail">
+            <div>
+                Thao tác thất bại
+            </div>
+        </div>
     </header><!-- End Header -->
 
     @RenderBody()

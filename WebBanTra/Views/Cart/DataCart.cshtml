@@ -1,6 +1,7 @@
 ﻿@model List<WebBanTra.OOP.CartDetail>
-<script src="~/assets/js/TaskWork.js"></script>
-
+@{ 
+     List<WebBanTra.Models.SanPham> lsp = ViewBag.listSP;
+}
 @if (Model.Count > 0)
 {
     <table class="table">
@@ -26,13 +27,13 @@
                         <div class="btn-group">
                             <div class="input-group-text inputgroup">
                                 <button id="btnDown" onclick="decrementQuantity(@item.MaSP)">-</button>
-                                <input type="text" name="number" value="@item.SoLuong" id="numberPD-@item.MaSP" />
+                                <input type="text" name="number" value="@item.SoLuong" title="@lsp.Where(r => r.MaSP == item.MaSP).FirstOrDefault().SoLuongTon" id="numberPD-@item.MaSP" />
                                 <button id="btnUp" onclick="incrementQuantity(@item.MaSP)">+</button>
                             </div>
                         </div>
                     </td>
                     <td><p style="text-align:center;" id="tong-tien-@item.MaSP">@item.TongTien.ToString() VNĐ</p></td>
-                    <td><a href="@Url.Action("RemoveProduct", "Cart", new {maSP = item.MaSP})"><i class="fa-solid fa-trash" style="color: #b0b0b0;"></i></a></td>
+                    <td><a onclick="showNotification()" href="@Url.Action("RemoveProduct", "Cart", new {maSP = item.MaSP})"><i class="fa-solid fa-trash" style="color: #b0b0b0;"></i></a></td>
                 </tr>
             }
         }
@@ -43,29 +44,73 @@
     </div>
 
     <script>
+        var elements = document.querySelectorAll('[id*="numberPD-"]');
+
+        // Duyệt qua các phần tử và hiển thị thông tin (nếu cần)
+        elements.forEach(function (element) {
+            element.addEventListener('input', function () {
+                var max = parseInt(element.title, 10); // Lấy giá trị max từ thuộc tính title
+                var quantity = parseInt(element.value, 10); // Lấy giá trị nhập vào
+
+                if (!isNaN(element.value) || !(element.value).trim() === "") {
+                    if (quantity > max) {
+                        element.value = max; // Giới hạn giá trị bằng max
+                        showNotificationFail();
+
+                    }
+                    else if (quantity <= 0) {
+                        element.value = 1;
+                        showNotificationFail();
+                    }
+                    else if (quantity != null) {
+                        element.value = 1;
+                        showNotificationFail();
+                    }
+                    else {
+                        showNotification(); // Gọi thông báo thành công
+                    }
+                }
+                else {
+                    element.value = 1;
+                    showNotificationFail();
+                }
+            });
+        });
+
+
         let timeoutIdCart;
         function increasement(idInput) {
-            var input = $(idInput);
-            var quantityInput = $(idInput);
-            var quantity = parseInt(quantityInput.val());
-            quantityInput.val(quantity + 1);
-            quantity = quantity + 1;
-            input.value = quantity;
+            var quantityInput = document.getElementById(idInput);
+            var quantity = parseInt(quantityInput.value);
+            var max = parseInt(quantityInput.title);
+            if (quantity > max) {
+                quantity.value = max;
+                showNotificationFail();
+            }
+            else {
+                quantityInput.value = quantity + 1;
+                quantity += 1;
+                showNotification();
+            }
             return quantity;
         }
         function decreasement(idInput) {
-            var input = $(idInput);
-            var quantityInput = $(idInput);
-            var quantity = parseInt(quantityInput.val());
+            var quantityInput = document.getElementById(idInput);
+            var quantity = parseInt(quantityInput.value);
+            var max = parseInt(quantityInput.title);
             if (quantity > 1) {
-                quantityInput.val(quantity - 1);
+                quantityInput.value = quantity + 1;
                 quantity = quantity - 1;
+                showNotification();
             }
-            input.value = quantity;
+            else {
+                quantityInput.value = quantity;
+                showNotificationFail();
+            }
             return quantity;
         }
         function decrementQuantity(productId) {
-            var IdInput = ('#numberPD-' + productId);
+            var IdInput = ('numberPD-' + productId);
             var quantity = parseInt(decreasement(IdInput));
 
             if (timeoutIdCart) {
@@ -74,12 +119,11 @@
 
             timeoutIdCart = setTimeout(() => {
                 updateProduct(parseInt(productId), quantity);
-                alert("Cập nhật thành công!");
-            }, 1000);
+            }, 300);
         }
 
         function incrementQuantity(productId) {
-            var IdInput = ('#numberPD-' + productId);
+            var IdInput = ('numberPD-' + productId);
             var quantity = parseInt(increasement(IdInput));
 
             if (timeoutIdCart) {
@@ -88,8 +132,7 @@
 
             timeoutIdCart = setTimeout(() => {
                 updateProduct(parseInt(productId), quantity);
-                alert("Cập nhật thành công!");
-            }, 1000);
+            }, 300);
         }
 
         function updateProduct(id, quantity) {
@@ -111,9 +154,19 @@
                         $('#tong-tien-gio-hang').html(
                             res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
                         );
-                        alert("Cập nhật thành công!");
                     } else {
-                        alert("Cập nhật số lượng không thành công!");
+                        document.getElementById('numberPD-' + id).value = res.data.itemQuantity;
+                        //$('#numberPD-' + id).value = res.data.itemQuantity.toLocaleString();
+
+                        $('#tong-tien-' + id).html(
+                            res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
+
+                        // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
+                        $('#tong-tien-gio-hang').html(
+                            res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
+                        
                     }
                 },
                 error: function (err) {
@@ -121,6 +174,30 @@
                     console.log(err);
                 }
             });
+        }
+
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+            notification.classList.add('show'); // Thêm lớp hiển thị
+
+            // Sau 3 giây, ẩn thông báo
+            setTimeout(() => {
+                notification.classList.remove('show');
+                notification.classList.add('hide');
+            }, 3000);
+        }
+
+        function showNotificationFail() {
+            const notification = document.getElementById('notification-fail');
+            notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+            notification.classList.add('show'); // Thêm lớp hiển thị
+
+            // Sau 3 giây, ẩn thông báo
+            setTimeout(() => {
+                notification.classList.remove('show');
+                notification.classList.add('hide');
+            }, 3000);
         }
     </script>
 

@@ -37,6 +37,7 @@ namespace WebBanTra.Controllers
         {
             using (db)
             {
+                ViewBag.limitQuantity = db.SanPhams.Where(sp => sp.MaSP == id).Select(sp => sp.SoLuongTon).FirstOrDefault();
                 var product = db.SanPhams
                     .Where(sp => sp.MaSP == id)
                     .Select(sp => new ProductDetailViewModel

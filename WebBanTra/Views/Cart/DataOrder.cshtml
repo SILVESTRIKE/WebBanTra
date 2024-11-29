@@ -34,29 +34,69 @@
 
     </table>
     <script>
+        var elements = document.querySelectorAll('[id*="numberPD-"]');
+
+        // Duyệt qua các phần tử và hiển thị thông tin (nếu cần)
+        elements.forEach(function (element) {
+            element.addEventListener('input', function () {
+                var max = parseInt(element.title, 10); // Lấy giá trị max từ thuộc tính title
+                var quantity = parseInt(element.value, 10); // Lấy giá trị nhập vào
+
+                if (!isNaN(element.value) || !(element.value).trim() === "") {
+                    if (quantity > max) {
+                        element.value = max; // Giới hạn giá trị bằng max
+                        showNotificationFail();
+
+                    }
+                    else if (quantity <= 0) {
+                        element.value = 1;
+                        showNotificationFail();
+                    }
+                    else if (quantity != null) {
+                        element.value = 1;
+                        showNotificationFail();
+                    }
+                    else {
+                        showNotification(); // Gọi thông báo thành công
+                    }
+                }
+                else {
+                    element.value = 1;
+                    showNotificationFail();
+                }
+            });
+        });
+
         let timeoutIdCart;
         function increasement(idInput) {
-            var input = $(idInput);
-            var quantityInput = $(idInput);
-            var quantity = parseInt(quantityInput.val());
-            quantityInput.val(quantity + 1);
-            quantity = quantity + 1;
-            input.value = quantity;
+            var quantityInput = document.getElementById(idInput);
+            var quantity = parseInt(quantityInput.value);
+            var max = parseInt(quantityInput.title);
+            if (quantity > max) {
+                quantityInput.value = quantity + 1;
+                quantity += 1;
+                showNotification();
+            }
+            else {
+                showNotificationFail();
+            }
             return quantity;
+            
         }
         function decreasement(idInput) {
-            var input = $(idInput);
-            var quantityInput = $(idInput);
-            var quantity = parseInt(quantityInput.val());
+            var quantityInput = document.getElementById(idInput);
+            var quantity = parseInt(quantityInput.value);
             if (quantity > 1) {
-                quantityInput.val(quantity - 1);
-                quantity = quantity - 1;
+                quantityInput.value = quantity + 1;
+                showNotification();
             }
-            input.value = quantity;
+            else {
+                showNotificationFail();
+            }
             return quantity;
         }
         function decrementQuantity(productId) {
-            var IdInput = ('#numberPD-' + productId);
+            var IdInput = ('numberPD-' + productId);
             var quantity = parseInt(decreasement(IdInput));
 
             if (timeoutIdCart) {
@@ -65,12 +105,11 @@
 
             timeoutIdCart = setTimeout(() => {
                 updateProduct(parseInt(productId), quantity);
-                alert("Cập nhật thành công!");
             }, 1000);
         }
 
         function incrementQuantity(productId) {
-            var IdInput = ('#numberPD-' + productId);
+            var IdInput = ('numberPD-' + productId);
             var quantity = parseInt(increasement(IdInput));
 
             if (timeoutIdCart) {
@@ -79,7 +118,6 @@
 
             timeoutIdCart = setTimeout(() => {
                 updateProduct(parseInt(productId), quantity);
-                alert("Cập nhật thành công!");
             }, 1000);
         }
 
@@ -110,8 +148,27 @@
                         $('#tong-tien-thanh-toan').html(
                             (res.data.totalPrice + (res.data.totalPrice * 0.08)).toLocaleString("vi-VN", { style: "currency", currency: "VND" })
                         );
+                        
                     } else {
-                        alert("Cập nhật số lượng không thành công!");
+                        
+                        document.getElementById('numberPD-' + id).value = res.data.itemQuantity;
+
+                        $('#tong-tien-' + id).html(
+                            res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
+
+                        // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
+                        $('#tong-tien-gio-hang').html(
+                            res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
+
+                        $('#VAT').html(
+                            (res.data.totalPrice * 0.08).toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
+
+                        $('#tong-tien-thanh-toan').html(
+                            (res.data.totalPrice + (res.data.totalPrice * 0.08)).toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
                     }
                 },
                 error: function (err) {
@@ -119,6 +176,29 @@
                     console.log(err);
                 }
             });
+        }
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+            notification.classList.add('show'); // Thêm lớp hiển thị
+
+            // Sau 3 giây, ẩn thông báo
+            setTimeout(() => {
+                notification.classList.remove('show');
+                notification.classList.add('hide');
+            }, 3000);
+        }
+
+        function showNotificationFail() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+            notification.classList.add('show'); // Thêm lớp hiển thị
+
+            // Sau 3 giây, ẩn thông báo
+            setTimeout(() => {
+                notification.classList.remove('show');
+                notification.classList.add('hide');
+            }, 3000);
         }
     </script>
 }

@@ -161,7 +161,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DNController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -460,6 +461,7 @@
     <Content Include="Images\ND\Trà_Ô_Long\Trà_Ô_Long_info.txt" />
     <Content Include="Images\ND\Trà_Ô_Long_Nhân_Sâm\Trà_Ô_Long_Nhân_Sâm_info.txt" />
     <Content Include="Images\paypal_logo.png" />
+    <Content Include="Images\profile-icon-design-free-vector.jpg" />
     <Content Include="Images\qr_zalo.png" />
     <Content Include="Images\san_pham_kem_theo\anh1.jpg" />
     <Content Include="Images\san_pham_kem_theo\anh10.jpg" />
@@ -574,6 +576,14 @@
     <Content Include="Models\DB_BanTra.edmx.diagram">
       <DependentUpon>DB_BanTra.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Admin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\QuanLyDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\QuanLyHoaDon.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UpdateSanPham.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\UserProfile.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -602,13 +612,8 @@
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\ChiTietSanPham.cshtml" />
-    <Content Include="Views\Admin\Admin.cshtml" />
-    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Admin\UserProfile.cshtml" />
     <Content Include="Views\Product\DanhMuc.cshtml" />
     <Content Include="Views\Cart\DataCart.cshtml" />
-    <Content Include="Views\Admin\CreateSanPham.cshtml" />
-    <Content Include="Views\Admin\UpdateSanPham.cshtml" />
     <Content Include="Views\Product\SanPham.cshtml" />
     <Content Include="Views\Cart\Order.cshtml" />
     <Content Include="Views\Cart\DataOrder.cshtml" />
@@ -616,6 +621,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

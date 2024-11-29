@@ -2,10 +2,21 @@
 
 @{
     Layout = null;
-    ViewBag.Title = "DangKy";
+    ViewBag.Title = "Đăng Ký";
 }
-<header>
-    <!-- Vendor CSS Files -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Web Ban Tra</title>
+
+    <!-- CSS Links -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -13,74 +24,78 @@
     <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="~/assets/css/DK.css" rel="stylesheet" />
-</header>
+</head>
+
 <body>
-    <div class="form-container" style="margin-top: 80px;">
-        <p class="title">Welcome back</p>
-        @using (Html.BeginForm("DangKy", "DN", FormMethod.Post, new { @class = "form" }))
-        {
-            @Html.AntiForgeryToken()
+    <main class="main">
 
-            <div class="form-group">
-                @Html.TextBoxFor(m => m.HoTen, new { @class = "input", placeholder = "Nhập Họ tên người dùng" })
-                <br />
-                @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
-            </div>
+        <div class="brand-title">
+            SENERITEA <i class="fas fa-leaf"></i>
+        </div>
 
-            <div class="form-group">
-                @Html.TextBoxFor(m => m.Email, new { @class = "input", placeholder = "Nhập Email" })
-                <br />
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-            </div>
+        <div class="form-container">
 
-            <div class="form-group">
-                @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "input", placeholder = "Nhập Số điện thoại" })
-                <br />
-                @Html.ValidationMessageFor(m => m.SoDienThoai, "", new { @class = "text-danger" })
-            </div>
+            <p class="title">Đăng ký tài khoản</p>
 
-            <div class="form-group">
-                @Html.TextBoxFor(m => m.DiaChi, new { @class = "input", placeholder = "Nhập Địa chỉ" })
-                <br />
-                @Html.ValidationMessageFor(m => m.DiaChi, "", new { @class = "text-danger" })
-            </div>
+            @using (Html.BeginForm("DangKy", "DN", FormMethod.Post, new { @class = "form", novalidate = "true" }))
+            {
+                @Html.AntiForgeryToken()
 
-            <div class="form-group">
-                @Html.TextBoxFor(m => m.DiaChi, new { @class = "input", @type = "date", placeholder = "Nhập Ngày sinh" })
-                <br />
-                @Html.ValidationMessageFor(m => m.DiaChi, "", new { @class = "text-danger" })
-            </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.HoTen, new { @class = "input", placeholder = "Nhập họ tên của bạn" })
+                    @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
+                </div>
 
-            <div class="form-group">
-                @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "input", placeholder = "Nhập tên đăng nhập" })
-                <br />
-                @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { @class = "text-danger" })
-            </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "input", placeholder = "Nhập Email" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
 
-            <div class="form-group">
-                @Html.PasswordFor(m => m.MatKhau, new { @class = "input", placeholder = "Nhập mật khẩu" })
-                <br />
-                @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
-            </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "input", placeholder = "Nhập số điện thoại" })
+                    @Html.ValidationMessageFor(m => m.SoDienThoai, "", new { @class = "text-danger" })
+                </div>
 
-            <div class="form-group">
-                @Html.PasswordFor(m => m.confirmMatKhau, new { @class = "input", placeholder = "Nhập lại mật khẩu" })
-                <br />
-                @Html.ValidationMessageFor(m => m.confirmMatKhau, "", new { @class = "text-danger" })
-            </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.DiaChi, new { @class = "input", placeholder = "Nhập địa chỉ" })
+                    @Html.ValidationMessageFor(m => m.DiaChi, "", new { @class = "text-danger" })
+                </div>
 
-            <button type="submit" class="btn form-btn align-items-center">Đăng ký</button>
-        }
-        <p class="sign-up-label">
-            <a href="/DN/DangNhap"><span class="sign-up-link">Đăng Nhập</span></a>
-        </p>
-    </div>
-    <!-- Vendor JS Files -->
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.NgaySinh, new { @class = "input", @type = "date", placeholder = "Nhập ngày sinh" })
+                    @Html.ValidationMessageFor(m => m.NgaySinh, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.TenDangNhap, new { @class = "input", placeholder = "Nhập tên đăng nhập" })
+                    @Html.ValidationMessageFor(m => m.TenDangNhap, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.MatKhau, new { @class = "input", placeholder = "Nhập mật khẩu" })
+                    @Html.ValidationMessageFor(m => m.MatKhau, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.confirmMatKhau, new { @class = "input", placeholder = "Nhập lại mật khẩu" })
+                    @Html.ValidationMessageFor(m => m.confirmMatKhau, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="btn form-btn">Đăng ký</button>
+            }
+
+            <p class="sign-up-label">
+                Đã có tài khoản ? <a href="/DN/DangNhap"><span class="sign-up-link">Đăng Nhập Ngay</span></a>
+            </p>
+        </div>
+        <div class="form-wrapper"></div>
+        <div class="form-wrapper-left"></div>
+    </main>
+
+
+    <!-- JS Links -->
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/assets/vendor/php-email-form/validate.js"></script>
-    <script src="~/assets/vendor/aos/aos.js"></script>
-    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+
 </body>
+</html>

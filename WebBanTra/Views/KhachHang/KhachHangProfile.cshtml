@@ -42,9 +42,11 @@
     <div class="container">
 
         <div class="row">
-            <h1 style="color: black; font-size: 50px; font-weight: bold;">Đặt hàng</h1>
+            <h1 style="color: black; font-size: 50px; font-weight: bold;">Thông tin khách hàng</h1>
             <div class="col-lg-6">
-
+                <div class="btn-group">
+                    <a href="/DN/DangXuat" class="cta-btn align-middle" style="margin-top:20px; background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Đăng xuất</a>
+                </div>
                 <section id="blog-details" class="blog-details section">
                     <div class="container">
                         <form action="/KhachHang/ChangeProfile" method="post">
@@ -85,7 +87,7 @@
                             <div class="input-group">
                                 <label for="Email" class="form-control-plaintext">Email <span>(*)</span></label>
                                 <div class="input-order" style="border-radius: 50px !important; background-color: rgb(202, 202, 202);">
-                                    <input type="text" name="Email" placeholder="Email" value="@Model.KhachHang.Email" disabled/>
+                                    <input type="text" name="Email" placeholder="Email" value="@Model.KhachHang.Email" disabled />
                                 </div>
 
                             </div>
@@ -93,7 +95,7 @@
                             <div class="input-group">
                                 <label for="SDT" class="form-control-plaintext">Số điện thoại <span>(*)</span></label>
                                 <div class="input-order" style="border-radius: 50px !important; background-color: rgb(202, 202, 202);">
-                                    <input type="text" name="SDT" placeholder="Số điện thoại" value="@Model.KhachHang.SDT" disabled/>
+                                    <input type="text" name="SDT" placeholder="Số điện thoại" value="@Model.KhachHang.SDT" disabled />
                                 </div>
 
                             </div>
@@ -118,8 +120,8 @@
                         </form>
                     </div>
                     @*<div class="btn-group">
-                        <a href="#" class="cta-btn" onclick="changeData()" id="btn-change" style="all: unset; cursor: pointer; margin-top: 20px;  background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Sửa thông tin</a>
-                    </div>*@
+                <a href="#" class="cta-btn" onclick="changeData()" id="btn-change" style="all: unset; cursor: pointer; margin-top: 20px;  background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Sửa thông tin</a>
+            </div>*@
                     <div class="btn-group">
                         <a href="/Home/Home" class="cta-btn align-middle" style="margin-top:20px; background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Quay về cửa hàng</a>
                     </div>
@@ -144,7 +146,7 @@
                                         <th>Sản phẩm</th>
                                         <th>Số lượng</th>
                                         <th>Thành tiền</th>
-                                        <th></th>
+                                        <th>Tình trạng</th>
                                     </tr>
 
                                     @foreach (WebBanTra.Models.ChiTietDH item in Model.ListChiTietDonHang)
@@ -159,18 +161,19 @@
                                             </td>
                                             <td style="width: 20%">@item.SoLuongMua</td>
                                             <td style="width: 30%">@Convert.ToString(item.SanPham.Gia * item.SoLuongMua)</td>
+                                            <td style="width: 30%">@Model.listDonHang.Where(r=> r.MaDH == item.MaDH).FirstOrDefault().TrangThai</td>
                                             @*<td style="width: 20%">
-                    @if (item.TrangThai == "Đã giao")
-                    {
-                        <button >class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;</button>
-                        <a href="#" class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
-                    }
-                    else
-                    {
-                        <a href="#" class="btn align-middle" disabled style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
-                    }
+            @if (item.TrangThai == "Đã giao")
+            {
+                <button >class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;</button>
+                <a href="#" class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
+            }
+            else
+            {
+                <a href="#" class="btn align-middle" disabled style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
+            }
 
-                </td>*@
+        </td>*@
                                         </tr>
                                     }
 

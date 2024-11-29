@@ -125,7 +125,7 @@
                                         <p>@listMoTaSPBanChay.Find(r => r.MaSP == item.MaSP).MoTa</p>
                                         <br />
                                         <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="padding-right: 90px;">Mua Ngay</a>
-                                        <a href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="padding-left: 70px; border-left: 2px solid black;">Thêm vào giỏ hàng</a>
+                                        <a onclick="showNotification()" href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-get-started animate__animated animate__fadeInUp scrollto" style="padding-left: 70px; border-left: 2px solid black;">Thêm vào giỏ hàng</a>
                                         <a href="@listAnhSPBanChay.Find(r=>r.MaSP == item.MaSP).LinhAnh" title="@item.TenSP" data-gallery="portfolio-gallery-@styleDM" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                         <a href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
@@ -291,8 +291,8 @@
                                 <h4>@item.Gia <sup>VNĐ</sup></h4>
                             </div>
                             <div style="height: 10%; width: 100%;">
-                                <a style="padding-right: 50px;"href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-buy">Mua Ngay</a>
-                                <a style="padding-left: 40px; border-left: 1px solid black;" href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-buy">Thêm vào giỏ hàng</a>
+                                <a onclick="showNotification()" style="padding-right: 50px;"href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-buy">Mua Ngay</a>
+                                <a onclick="showNotification()" style="padding-left: 40px; border-left: 1px solid black;" href="@Url.Action("AddProduct", "Cart", new {maSP = item.MaSP})" class="btn-buy">Thêm vào giỏ hàng</a>
                             </div>
                         </div><!-- End Pricing Item -->
                     }
@@ -753,6 +753,17 @@
                         h3Element.textContent = text.substring(0, 30) + '...';
                     }
                 });
+                function showNotification() {
+                    const notification = document.getElementById('notification');
+                    notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+                    notification.classList.add('show'); // Thêm lớp hiển thị
+
+                    // Sau 3 giây, ẩn thông báo
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                        notification.classList.add('hide');
+                    }, 3000);
+                }
             </script>
         </div>
         

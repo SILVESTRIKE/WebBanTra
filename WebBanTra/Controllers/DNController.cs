@@ -36,16 +36,18 @@ namespace WebBanTra.Controllers
                             Session["MaTK"] = user.MaTK;
                             Session["TenDangNhap"] = user.TenDangNhap;
                             Session["VaiTro"] = user.VaiTro;
-
-                            switch(user.VaiTro)
+                            db.TaiKhoans.Where(r => r.MaTK == user.MaTK).FirstOrDefault().TrangThai = "Đang Đăng Nhập";
+                            db.SaveChanges();
+                            switch (user.VaiTro)
                             {
                                 case "Admin":
-                                    return RedirectToAction("Admin", "Admin");
+                                    return RedirectToAction("Admin", "Admin", new { area = "Admin" });
                                 case "Nhân viên":
-                                    return RedirectToAction("Admin", "Admin");
+                                    return RedirectToAction("Admin", "Admin", new { area = "Admin" });
                                 default:
                                     return RedirectToAction("Home", "Home");
                             } 
+                            
                         }
                         else
                         {
@@ -116,6 +118,9 @@ namespace WebBanTra.Controllers
 
         public ActionResult DangXuat()
         {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            int maTK = (int)Session["MaTK"];
+            db.TaiKhoans.Where(r => r.MaTK == maTK).FirstOrDefault().TrangThai = "Không Đăng Nhập";
             Session.Clear();
             return RedirectToAction("DangNhap", "DN");
         }

@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     ViewBag.title = "Admin";
 }
 
@@ -20,21 +20,21 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-bar-chart"></i><span>Quản lý</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
-                        <i class="bi bi-circle"></i><span>Chart.js</span>
+                    <a href="/Admin/Admin/QuanLyDonHang">
+                        <i class="bi bi-circle"></i><span>ĐƠN HÀNG</span>
                     </a>
                 </li>
                 <li>
-                    <a href="charts-apexcharts.html">
-                        <i class="bi bi-circle"></i><span>ApexCharts</span>
+                    <a href="/Admin/Admin/QuanLyHoaDon">
+                        <i class="bi bi-circle"></i><span>HÓA ĐƠN</span>
                     </a>
                 </li>
                 <li>
-                    <a href="charts-echarts.html">
+                    <a href="Admin/Admin/QuanLyNhanVien">
                         <i class="bi bi-circle"></i><span>ECharts</span>
                     </a>
                 </li>
@@ -45,7 +45,7 @@
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="/Admin/UserProfile">
+            <a class="nav-link collapsed" href="/Admin/Admin/UserProfile">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
@@ -61,7 +61,7 @@
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href=/Admin/Admin/Admin/>Home</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </nav>
@@ -320,12 +320,12 @@
                                             }
                                         }
                                         <tr>
-                                            @Html.ActionLink("Thêm sản phẩm", "CreateSanPham", "Admin", new { @class = "btn btn-primary m-3" })
+                                            <div style="margin-top:20px;">
+                                                @Html.ActionLink("Thêm sản phẩm", "CreateSanPham", "Admin", new { @class = "btn btn-primary m-3" })
+                                            </div>
                                         </tr>
                                     </tbody>
                                 </table>
-
-
                             </div>
 
                         </div>
@@ -372,3 +372,4 @@
         confirmDeleteButton.setAttribute('href', deleteUrl.replace('__productId__', productId));
     });
 </script>
+
