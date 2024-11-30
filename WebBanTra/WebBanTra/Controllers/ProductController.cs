@@ -73,7 +73,7 @@ namespace WebBanTra.Controllers
         }
 
         public ActionResult Search(string nameSP, int page = 1)
-        {
+         {
             ProductViewModel productViewModels;
             if (nameSP == null)
             {

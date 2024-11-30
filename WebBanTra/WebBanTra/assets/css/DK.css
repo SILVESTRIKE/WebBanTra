@@ -11,9 +11,7 @@
 
 body {
     background: linear-gradient(to bottom, #ffffff, #fbd2e0);
-    height: 100vh;
     margin: 0;
-    overflow: hidden; /* ??m b?o không có thanh cu?n */
 }
 
 /* Form Container Styles */

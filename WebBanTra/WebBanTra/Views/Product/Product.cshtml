@@ -21,7 +21,7 @@
     <!-- Blog Posts Section -->
     <section id="blog-posts" class="blog-posts section">
         <div class="container">
-            <div class="row gy-4 align-items-center">
+            @*<div class="row gy-4 align-items-center">
                 <h5 class="text-center mt-4">Lọc trong khoảng giá</h5>
                 <div class="price-slider">
                     <input type="range" id="priceRange" min="98000" max="9999000" step="1000" value="5000000">
@@ -29,34 +29,41 @@
                         Giá: <span id="priceValue">5.000.000 VND</span>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <div class="row gy-4">
 
-                @foreach (WebBanTra.Models.SanPham item in Model.listProducts)
+                @if (Model.listProducts.Count > 0)
                 {
-                    if (item != null)
+                    foreach (WebBanTra.Models.SanPham item in Model.listProducts)
                     {
-                        <div class="col-lg-4">
-                            <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })">
-                                <article>
-                                    <div class="post-img">
-                                        <img src="@Model.listAnhSP.Find(r => r.MaSP == item.MaSP).LinhAnh" alt="@item.TenSP" class="img-fluid">
-                                    </div>
+                        if (item != null)
+                        {
+                            <div class="col-lg-4">
+                                <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })">
+                                    <article>
+                                        <div class="post-img">
+                                            <img src="@Model.listAnhSP.Where(r => r.MaSP == item.MaSP).FirstOrDefault().LinhAnh" alt="@item.TenSP" class="img-fluid">
+                                        </div>
 
-                                    <h2 class="title">@item.TenSP</h2>
-                                    <p>Danh mục: <a href="@Url.Action("SearchDM", "Product", new {nameDM = item.MaDM})" style="color: rgba(216, 34, 83, 0.8);">@item.DanhMuc.TenDM</a></p>
-                                    <div>
-                                        Giá sản phẩm: 
-                                        <span class="post-category" id="current-ctsp-@item.MaSP" style="margin-right: 10px; color:red; font-size: 20px; font-weight: 500">@item.Gia  </span>
-                                        <span id="current-gg-@item.MaSP" style="text-decoration: line-through; color: rgb(186, 186, 186);">@Convert.ToInt32(item.Gia * 1.2)</span>
-                                    </div>
-                                   
-                                    
-                                </article>
-                            </a>
-                        </div>
+                                        <h2 class="title">@item.TenSP</h2>
+                                        <p>Danh mục: <a href="@Url.Action("SearchDM", "Product", new {nameDM = item.MaDM})" style="color: rgba(216, 34, 83, 0.8);">@item.DanhMuc.TenDM</a></p>
+                                        <div>
+                                            Giá sản phẩm:
+                                            <span class="post-category" id="current-ctsp-@item.MaSP" style="margin-right: 10px; color:red; font-size: 20px; font-weight: 500">@item.Gia  </span>
+                                            <span id="current-gg-@item.MaSP" style="text-decoration: line-through; color: rgb(186, 186, 186);">@Convert.ToInt32(item.Gia * 1.2)</span>
+                                        </div>
+
+
+                                    </article>
+                                </a>
+                            </div>
+                        }
                     }
                 }
+else
+            {
+                <p style=" text-align: center; font-size: 30px;">Không có sản phẩm nào</p>
+            }
 
 
             </div>
