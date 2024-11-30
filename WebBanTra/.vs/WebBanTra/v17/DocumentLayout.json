@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\createnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\updatenhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\updatenhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -15,12 +19,8 @@
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\quanlyhoadon.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlyhoadon.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|c:\\users\\admin\\desktop\\hoc ki 1 nam 3\\ltw\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\createsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,15 +58,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "QuanLyNhanVien.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-30T05:21:13.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "UpdateNhanVien.cshtml",
               "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateNhanVien.cshtml",
               "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateNhanVien.cshtml",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateNhanVien.cshtml",
               "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateNhanVien.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAYwEEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T04:48:30.225Z",
+              "WhenOpened": "2024-11-30T05:15:06.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateNhanVien.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateNhanVien.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateNhanVien.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateNhanVien.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateNhanVien.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-30T05:14:23.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateSanPham.cshtml",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-30T05:13:14.383Z",
               "EditorCaption": ""
             },
             {
@@ -77,48 +116,9 @@
               "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
               "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAgBAAAAAAAAAAASwBABAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAPgAAAAAAAAAAADwvwcBAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T03:45:14.164Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "QuanLyNhanVien.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACMAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T04:30:31.622Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Admin.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T03:51:53.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "QuanLyHoaDon.cshtml",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
-              "ToolTip": "C:\\Users\\ADMIN\\Desktop\\hoc ki 1 nam 3\\ltw\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAuwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-30T03:51:45.701Z",
+              "WhenOpened": "2024-11-30T05:11:38.264Z",
               "EditorCaption": ""
             }
           ]

@@ -411,6 +411,7 @@
     <Content Include="Areas\Admin\Views\_ViewStartAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\QuanLyNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\UpdateNhanVien.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateNhanVien.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

@@ -236,6 +236,47 @@ namespace WebBanTra.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult CreateNhanVien()
+        {
+            ViewBag.Nhanviens = _dbContext.NhanViens.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateNhanVien(NhanVien model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    List<NhanVien> lstNhanVien = _dbContext.NhanViens.ToList();
+                    foreach (NhanVien item in lstNhanVien)
+                    {
+                        if (item.SDT == model.SDT)
+                        {
+                            ModelState.AddModelError("", "Số điện thoại của nhân viên đã tồn tại.");
+                            return View(model);
+                        }
+                        if (item.Email == model.Email)
+                        {
+                            ModelState.AddModelError("", "Email của nhân viên đã tồn tại.");
+                            return View(model);
+                        }
+                    }
+                    _dbContext.NhanViens.Add(model);
+                    _dbContext.SaveChanges();
+                    return RedirectToAction("QuanLyNhanVien");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Lỗi khi thêm Nhân viên: " + ex.Message);
+                }
+            }
+
+            ViewBag.NhanViens = _dbContext.NhanViens.ToList();
+            return View(model);
+        }
+
         public ActionResult UpdateNhanVien(int id)
         {
             NhanVien model = _dbContext.NhanViens.Find(id);
