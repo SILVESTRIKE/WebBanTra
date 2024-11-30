@@ -52,7 +52,7 @@
 
                     <h1 class="h4">@Model.TenSP</h1>
                     <div>Sản phẩm còn: <span style="color: red;">@max</span></div>
-                    <h2 class="text-danger fw-bold">@Model.Gia VNĐ</h2>
+                    <h2 class="text-danger fw-bold" id="currently-ct-@Model.MaSP">@Model.Gia</h2>
 
                     <ul class="list-unstyled mt-4">
                         @foreach (var description in Model.Descriptions)
@@ -113,20 +113,37 @@
             </div>
         </div>
         <script>
+            //document.addEventListener('DOMContentLoaded', function () {
+            //    // Chọn tất cả các thẻ <h4> có id chứa chuỗi "currently-"
+            //    var gias = document.querySelectorAll('[id*="currently-ct-"]');
 
-                document.addEventListener('DOMContentLoaded', function () {
-        var max = @max; // Razor sẽ thay thế giá trị này bằng giá trị thực
-        var link = document.getElementById('ctsp-a');
+            //    // Duyệt qua từng thẻ <h4> và cập nhật giá trị tiền tệ
+            //    gias.forEach(function (gia) {
+            //        // Lấy giá trị số từ nội dung của thẻ <h4>
+            //        var giaValue = parseFloat(gia.textContent.trim());
 
-        if (max === 0) {
-            link.style.pointerEvents = 'none'; // Ngăn chặn sự kiện nhấp chuột
-            link.style.opacity = '0.5'; // Tạo hiệu ứng mờ
-            link.style.cursor = 'not-allowed'; // Thay đổi con trỏ chuột
-            link.onclick = function (event) {
-                event.preventDefault(); // Ngăn chặn chuyển hướng
-            };
-        }
-    });
+            //        // Kiểm tra giá trị hợp lệ và cập nhật nếu cần
+            //        if (!isNaN(giaValue)) {
+            //            // Định dạng lại giá trị và gán lại vào thẻ <h4>
+            //            gia.textContent = giaValue.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+            //        }
+            //    });
+            //});
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var max = @max; // Razor sẽ thay thế giá trị này bằng giá trị thực
+                var link = document.getElementById('ctsp-a');
+
+                if (max === 0) {
+                    link.style.pointerEvents = 'none'; // Ngăn chặn sự kiện nhấp chuột
+                    link.style.opacity = '0.5'; // Tạo hiệu ứng mờ
+                    link.style.cursor = 'not-allowed'; // Thay đổi con trỏ chuột
+                    link.onclick = function (event) {
+                        event.preventDefault(); // Ngăn chặn chuyển hướng
+                    }
+                }
+                
+            });
 
             function increaseCTSP() {
                 var quantityInput = document.getElementById('number-PDCTSP');

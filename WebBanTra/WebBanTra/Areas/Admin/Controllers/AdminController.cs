@@ -190,9 +190,17 @@ namespace WebBanTra.Areas.Admin.Controllers
                 {
                     return RedirectToAction("DangNhap", "DN"); // Kiểm tra nhân viên có tồn tại
                 }
-                donHang.TrangThai = "Chưa giao";
-                donHang.MaNV = nhanVien.MaNV; // Lưu mã nhân viên xử lý đơn hàng
-                _dbContext.SaveChanges();
+                if(donHang.TrangThai == "Chờ xác nhận")
+                {
+                    donHang.TrangThai = "Chưa giao";
+                    donHang.MaNV = nhanVien.MaNV;
+                    _dbContext.SaveChanges();
+                }
+                else
+                {
+                    donHang.TrangThai = "Đã giao";
+                    _dbContext.SaveChanges();
+                }    
 
                 return RedirectToAction("QuanLyDonHang");
             }
@@ -219,6 +227,105 @@ namespace WebBanTra.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult QuanLyNhanVien()
+        {
+            using (_dbContext)
+            {
+                List<NhanVien> listNhanVien = _dbContext.NhanViens.ToList();
+                return View(listNhanVien);
+            }
+        }
+
+        public ActionResult UpdateNhanVien(int id)
+        {
+            NhanVien model = _dbContext.NhanViens.Find(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.lstNhanVien = _dbContext.NhanViens.Where(r => r.MaNV != id).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateNhanVien(NhanVien model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    NhanVien existingStaff = _dbContext.NhanViens.Where(r =>r.MaNV == model.MaNV).FirstOrDefault();
+                    if (existingStaff == null)
+                    {
+                        ModelState.AddModelError("", "Sản phẩm không tồn tại.");
+                        return View(model);
+                    }
+
+                    existingStaff.TenNV = model.TenNV;
+                    existingStaff.ChucVu = model.ChucVu;
+                    existingStaff.DiaChi= model.DiaChi;
+                    existingStaff.Email= model.Email;
+                    existingStaff.SDT = model.SDT;
+                    existingStaff.MaQuanLy= model.MaQuanLy;
+
+                    _dbContext.SaveChanges();
+
+                    return RedirectToAction("QuanLyNhanVien");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.DanhMucs = _dbContext.DanhMucs.ToList();
+                    ModelState.AddModelError("", "Đã xảy ra lỗi: " + ex.Message);
+                }
+            }
+
+            ViewBag.DanhMucs = _dbContext.DanhMucs.ToList();
+            return View(model);
+        }
+
+        public ActionResult DeleteStaff(int id)
+        {
+            try
+            {
+                NhanVien model = _dbContext.NhanViens.Find(id);
+                if (model != null)
+                {
+                    List<DonHang> lstDH = _dbContext.DonHangs.Where(r => r.MaNV == id).ToList();
+                    List<TaiKhoan> lstCTDNH = _dbContext.TaiKhoans.Where(r => r.MaTK == model.MaTK).ToList();
+                    List<NhanVien> lstNhanVien = _dbContext.NhanViens.Where(r=>r.MaQuanLy == model.MaNV).ToList();
+                    foreach (DonHang item in lstDH)
+                    {
+                        if (item != null)
+                        {
+                            _dbContext.DonHangs.Where(r => r.MaNV == model.MaNV).FirstOrDefault().MaNV = 1;
+                        }
+                    }
+                    foreach (TaiKhoan item in lstCTDNH)
+                    {
+                        if (item != null)
+                        {
+                            _dbContext.TaiKhoans.Remove(item);
+                        }
+                    }
+                    foreach (NhanVien item in lstNhanVien)
+                    {
+                        if (item != null)
+                        {
+                            _dbContext.NhanViens.Where(r => r.MaQuanLy == model.MaNV).FirstOrDefault().MaQuanLy = null;
+                        }
+                    }
+
+                    _dbContext.NhanViens.Remove(model);
+                    _dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Lỗi khi xóa sản phẩm: " + ex.Message;
+            }
+
+            return RedirectToAction("QuanLyNhanVien");
+        }
     }
 
 }

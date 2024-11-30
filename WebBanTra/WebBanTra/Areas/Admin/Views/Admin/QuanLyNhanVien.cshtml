@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Quản lý nhân viên";
+}
+
+@model List<WebBanTra.Models.NhanVien>
+
+<div class="container" style="margin-top: 70px;">
+    <h1>Quản lý nhân viên</h1>
+    <table class="table table-borderless datatable">
+        <thead class="table-success">
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Chức vụ</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var nhanVien in Model)
+                {
+                    <tr style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.35), /* Bóng tối nhạt */ -10px -10px 20px rgba(255, 255, 255, 0.8); /* Bóng sáng nhẹ */">
+                        <td>@nhanVien.MaNV</td>
+                        <td>@nhanVien.TenNV</td>
+                        <td>@nhanVien.SDT</td>
+                        <td>@nhanVien.Email</td>
+                        <td>@nhanVien.DiaChi</td>
+                        <td>@nhanVien.ChucVu</td>
+                        <td>
+                            @Html.ActionLink("Cập nhật", "UpdateNhanVien", "Admin", new { id = nhanVien.MaNV }, new { @class = "btn btn-outline-success btn-sm w-100" })
+                            <button class="btn btn-danger btn-sm w-100" data-bs-toggle="modal" data-bs-target="#confirmDeleteStaff" data-staffid="@nhanVien.MaNV" data-staffname="@nhanVien.TenNV">Xóa</button>
+                        </td>
+                    </tr>
+                }
+            }
+        <tr>
+            <span style="margin-top:20px;">
+                @Html.ActionLink("Thêm nhân viên mới", "CreateNhanVien", "Admin", new { @class = "btn btn-primary m-3" })
+            </span>
+            <span class="btn-group">
+                <a href="/Admin/Admin/Admin" class="cta-btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Quay về</a>
+            </span>
+        </tr>
+        </tbody>
+    </table>
+    <div class="modal fade" id="confirmDeleteStaff" tabindex="-1" aria-labelledby="confirmDeleteStaffLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteStaffLabel">Xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc muốn xóa <span id="staffName"></span> (ID: <span id="staffId"></span>)?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <a id="confirmDeleteButtonStaff" class="btn btn-danger" href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var confirmDeleteModal = document.getElementById('confirmDeleteStaff');
+    confirmDeleteModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+        var staffId = button.getAttribute('data-staffid');
+        var staffName = button.getAttribute('data-staffname');
+        var modalStaffName = confirmDeleteModal.querySelector('#staffName');
+        var modalStaffId = confirmDeleteModal.querySelector('#staffId');
+        modalStaffName.textContent = staffName;
+        modalStaffId.textContent = staffId;
+        var confirmDeleteButtonStaff = confirmDeleteStaff.querySelector('#confirmDeleteButtonStaff');
+        var deleteUrl = '@Url.Action("DeleteStaff", "Admin", new { id = "__StaffId__" })';
+        confirmDeleteButtonStaff.setAttribute('href', deleteUrl.replace('__StaffId__', staffId));
+    });
+</script>

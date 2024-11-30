@@ -45,7 +45,7 @@ namespace WebBanTra.Controllers
                 listCart.Find(p => p.MaSP == id).SoLuong = limit;
                 return Json(new
                 {
-                    success = false,
+                    success = true,
                     data = new
                     {
                         itemQuantity = limit, // Số lượng tồn kho của sản phẩm
@@ -71,7 +71,7 @@ namespace WebBanTra.Controllers
             }
             else
             {
-                return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+                return Json(new { error = true }, JsonRequestBehavior.AllowGet);
             }
 
         }
@@ -206,7 +206,9 @@ namespace WebBanTra.Controllers
 
         public ActionResult DataOrder()
         {
+            DB_BanTraEntities dB_BanTraEntities = new DB_BanTraEntities();
             List<CartDetail> listCart = GetCart();
+            ViewBag.listSP = dB_BanTraEntities.SanPhams.ToList();
             return PartialView(listCart);
         }
 

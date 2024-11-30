@@ -45,7 +45,13 @@
 
                                     <h2 class="title">@item.TenSP</h2>
                                     <p>Danh mục: <a href="@Url.Action("SearchDM", "Product", new {nameDM = item.MaDM})" style="color: rgba(216, 34, 83, 0.8);">@item.DanhMuc.TenDM</a></p>
-                                    <p class="post-category">@item.Gia VNĐ</p>
+                                    <div>
+                                        Giá sản phẩm: 
+                                        <span class="post-category" id="current-ctsp-@item.MaSP" style="margin-right: 10px; color:red; font-size: 20px; font-weight: 500">@item.Gia  </span>
+                                        <span id="current-gg-@item.MaSP" style="text-decoration: line-through; color: rgb(186, 186, 186);">@Convert.ToInt32(item.Gia * 1.2)</span>
+                                    </div>
+                                   
+                                    
                                 </article>
                             </a>
                         </div>

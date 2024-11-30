@@ -169,7 +169,7 @@
                                                 </a>
                                             </td>
                                             <td style="width: 20%">@item.SoLuongMua</td>
-                                            <td style="width: 30%">@Convert.ToString(item.SanPham.Gia * item.SoLuongMua)</td>
+                                            <td id="current-" style="width: 30%">@Convert.ToString(item.SanPham.Gia * item.SoLuongMua)</td>
                                             <td style="width: 30%">@Model.listDonHang.Where(r=> r.MaDH == item.MaDH).FirstOrDefault().TrangThai</td>
                                             @*<td style="width: 20%">
             @if (item.TrangThai == "Đã giao")

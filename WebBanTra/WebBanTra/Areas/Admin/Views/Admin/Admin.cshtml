@@ -34,11 +34,19 @@
                         <i class="bi bi-circle"></i><span>HÓA ĐƠN</span>
                     </a>
                 </li>
-                <li>
-                    <a href="Admin/Admin/QuanLyNhanVien">
-                        <i class="bi bi-circle"></i><span>ECharts</span>
-                    </a>
-                </li>
+                @if (Session["VaiTro"] == null)
+                {
+                    Response.Redirect(Url.Action("DangNhap", "DN", new { area = "" }));
+                }
+                else if (Session["VaiTro"].ToString() == "Admin")
+                {
+                    <li>
+                        <a href="/Admin/Admin/QuanLyNhanVien">
+                            <i class="bi bi-circle"></i><span>Nhân viên</span>
+                        </a>
+                    </li>
+                }
+
             </ul>
         </li><!-- End Charts Nav -->
 
@@ -297,7 +305,7 @@
                                         {
                                             foreach (var sanPham in Model)
                                             {
-                                                <tr>
+                                                <tr style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.35), /* Bóng tối nhạt */ -10px -10px 20px rgba(255, 255, 255, 0.8); /* Bóng sáng nhẹ */">
                                                     <td>@sanPham.MaSP</td>
                                                     <td>@sanPham.TenSP</td>
                                                     <td>
@@ -310,7 +318,7 @@
                                                             <span>Chưa có ảnh</span>
                                                         }
                                                     </td>
-                                                    <td>@sanPham.Gia</td>
+                                                    <td id="current-admin-@sanPham.MaSP">@sanPham.Gia</td>
                                                     <td>@sanPham.SoLuongTon</td>
                                                     <td>@sanPham.DanhMuc.TenDM</td>
                                                     <td>

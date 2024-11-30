@@ -288,7 +288,7 @@
                                 </a>
                             </div>
                             <div style="height: 10%; width: 100%;">
-                                <h4>@item.Gia <sup>VNĐ</sup></h4>
+                                <h4 style="color:red;" id="current-@item.MaSP">@item.Gia</h4>
                             </div>
                             <div style="height: 10%; width: 100%;">
                                 <a onclick="showNotification()" style="padding-right: 50px;"href="@Url.Action("ChiTietSanPham", "Product", new {id = item.MaSP})" class="btn-buy">Mua Ngay</a>
@@ -745,6 +745,23 @@
 
             </div>
             <script>
+                //document.addEventListener('DOMContentLoaded', function () {
+                //    // Chọn tất cả các thẻ <h4> có id chứa chuỗi "currently-"
+                //    var gias = document.querySelectorAll('[id*="currently-"]');
+
+                //    // Duyệt qua từng thẻ <h4> và cập nhật giá trị tiền tệ
+                //    gias.forEach(function (gia) {
+                //        // Lấy giá trị số từ nội dung của thẻ <h4>
+                //        var giaValue = parseFloat(gia.textContent.trim());
+
+                //        // Kiểm tra giá trị hợp lệ và cập nhật nếu cần
+                //        if (!isNaN(giaValue)) {
+                //            // Định dạng lại giá trị và gán lại vào thẻ <h4>
+                //            gia.textContent = giaValue.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                //        }
+                //    });
+                //});
+
                 document.addEventListener('DOMContentLoaded', function () {
                     var h3Element = document.getElementById('dynamicTruncate');
                     var text = h3Element.textContent;

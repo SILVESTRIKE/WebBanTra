@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </td>
-                    <td><p style="text-align:center;" id="tong-tien-@item.MaSP">@item.TongTien.ToString() VNĐ</p></td>
+                    <td><p style="text-align:center;" id="current-tong-tien-@item.MaSP">@item.TongTien.ToString() VNĐ</p></td>
                     <td><a onclick="showNotification()" href="@Url.Action("RemoveProduct", "Cart", new {maSP = item.MaSP})"><i class="fa-solid fa-trash" style="color: #b0b0b0;"></i></a></td>
                 </tr>
             }
@@ -140,19 +140,23 @@
                 success: function (res) {
                     if (res.success) {
                         // Cập nhật thành tiền của sản phẩm
-                        $('#tong-tien-' + id).value = res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        $('#current-tong-tien-' + id).html(
+                            res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
 
                         // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
-                        document.getElementById('tong-tien-gio-hang').value = res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        $('#current-tong-tien-gio-hang').html(
+                            res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
                         showNotification();
                     } else {
-                        document.getElementById('numberPD-' + id).value = res.data.itemQuantity;
-                        //$('#numberPD-' + id).value = res.data.itemQuantity.toLocaleString();
+                        $('#numberPD-' + id).html(res.data.itemQuantity);
 
-                        document.getElementById('#tong-tien-' + id).value = res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật giá trị tiền tệ (tính theo định dạng VND)
+                        $('#current-tong-tien-' + id).html(res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
 
-                        // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
-                        document.getElementById('tong-tien-gio-hang').value = res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật tổng tiền giỏ hàng
+                        $('#current-tong-tien-gio-hang').html(res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
                     }
                 },
                 error: function (err) {

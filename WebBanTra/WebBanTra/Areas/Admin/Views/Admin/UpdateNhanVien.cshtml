@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "UpdateNhanVien";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    List<WebBanTra.Models.NhanVien> lstNhanVien = (List<WebBanTra.Models.NhanVien>)ViewBag.lstNhanVien;
+}
+
+
+@model WebBanTra.Models.NhanVien
+
+<div class="d-flex flex-column justify-content-center m-3 container" style="margin: 85px 0 auto">
+    @using (Html.BeginForm("UpdateNhanVien", "Admin", FormMethod.Post, new { area = "Admin", @class = "w-50 form d-flex flex-column gap-2" }))
+    {
+        <h3 class="text-primary">CHỈNH SỬA NHÂN VIÊN</h3>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(x => x.MaNV, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.MaNV, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.MaNV, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.TenNV, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.TenNV, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.TenNV, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.ChucVu, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.ChucVu, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.ChucVu, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.DiaChi, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.DiaChi, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.DiaChi, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group" style="pointer-events: none; cursor: not-allowed; opacity: 0.5;">
+            @Html.LabelFor(x => x.Email, new { @class = "form-label" })
+            @Html.TextAreaFor(x => x.Email, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.SDT, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group" style="pointer-events: none; cursor: not-allowed; opacity: 0.5;">
+            @Html.LabelFor(x => x.SDT, new { @class = "form-label" })
+            @Html.TextAreaFor(x => x.SDT, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.SDT, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="MaQuanLy">Quản lý</label>
+            <select name="MaDM" class="form-control">
+                <optgroup label="Danh mục">
+                    @foreach (var item in lstNhanVien)
+                    {
+                        <option value="@item.MaNV">@item.TenNV</option>
+                    }
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="mt-3">
+            @Html.ActionLink("Cancel", "Admin", "Admin", new { area = "Admin", @class = "btn btn-secondary" })
+            <button onclick="showNotification()" class="btn btn-success">Submit</button>
+        </div>
+    }
+</div>
+<script>
+
+    function showNotification() {
+        const notification = document.getElementById('notification');
+        notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+        notification.classList.add('show'); // Thêm lớp hiển thị
+
+        // Sau 3 giây, ẩn thông báo
+        setTimeout(() => {
+            notification.classList.remove('show');
+            notification.classList.add('hide');
+        }, 3000);
+    }
+
+    function showNotificationFail() {
+        const notification = document.getElementById('notification');
+        notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+        notification.classList.add('show'); // Thêm lớp hiển thị
+
+        // Sau 3 giây, ẩn thông báo
+        setTimeout(() => {
+            notification.classList.remove('show');
+            notification.classList.add('hide');
+        }, 3000);
+    }
+</script>
+
+

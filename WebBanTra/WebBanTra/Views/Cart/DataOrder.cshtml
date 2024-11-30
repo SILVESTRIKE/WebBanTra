@@ -1,5 +1,8 @@
 ﻿@model List<WebBanTra.OOP.CartDetail>
 <link href="~/assets/css/cart.css" rel="stylesheet" />
+@{ 
+    List<WebBanTra.Models.SanPham> lsp = ViewBag.listSP;
+}
 @if (Model.Count > 0)
 {
     <table class="table">
@@ -17,17 +20,17 @@
                         <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })"><img style="width: 100px" src="@item.LinkAnh" alt="Alternate Text" /></a>
                     </td>
                     <td>
-                        <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })"><p>@item.TenSP</p></a>
+                        <a href="@Url.Action("ChiTietSanPham", "Product", new { id = item.MaSP })"><p style="text-align:center;">@item.TenSP</p></a>
                         
                         <div class="btn-group">
                             <div class="input-group-text inputgroup">
                                 <button id="btnDown" onclick="decrementQuantity(@item.MaSP)">-</button>
-                                <input type="text" name="number" value="@item.SoLuong" id="numberPD-@item.MaSP" />
+                                <input type="text" name="number" title="@lsp.Where(r=>r.MaSP == item.MaSP).FirstOrDefault().SoLuongTon" value="@item.SoLuong" id="numberPD-@item.MaSP" />
                                 <button id="btnUp" onclick="incrementQuantity(@item.MaSP)">+</button>
                             </div>
                         </div>
                     </td>
-                    <td><p style="text-align:center; margin-top: 30%;" id="tong-tien-@item.MaSP">@item.TongTien.ToString() VNĐ</p></td>
+                    <td><p style="text-align:center; margin-top: 30%;" id="current-tong-tien-@item.MaSP">@item.TongTien.ToString() VNĐ</p></td>
                 </tr>
             }
         }
@@ -72,10 +75,9 @@
             var quantityInput = document.getElementById(idInput);
             var quantity = parseInt(quantityInput.value);
             var max = parseInt(quantityInput.title);
-            if (quantity > max) {
+            if (quantity < max) {
                 quantityInput.value = quantity + 1;
-                quantity += 1;
-                showNotification();
+                quantity = quantity + 1;
             }
             else {
                 showNotificationFail();
@@ -87,8 +89,8 @@
             var quantityInput = document.getElementById(idInput);
             var quantity = parseInt(quantityInput.value);
             if (quantity > 1) {
-                quantityInput.value = quantity + 1;
-                showNotification();
+                quantityInput.value = quantity - 1;
+                quantity = quantity + 1;
             }
             else {
                 showNotificationFail();
@@ -131,29 +133,40 @@
                 },
                 success: function (res) {
                     if (res.success) {
-                        // Cập nhật thành tiền của sản phẩm
-                        // Cập nhật thành tiền của sản phẩm
-                        document.getElementById('tong-tien-' + id).value = res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật giá trị tiền tệ của sản phẩm
+                        $('#current-tong-tien-' + id).html(
+                            res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
 
-                        // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
-                        document.getElementById('tong-tien-gio-hang').value = res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật tổng tiền giỏ hàng
+                        $('#current-tong-tien-gio-hang').html(
+                            res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        );
 
-                        document.getElementById('VAT').value = (res.data.totalPrice * 0.08).toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật giá trị VAT
+                        $('#current-VAT').html((res.data.totalPrice * 0.08).toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
 
-                        document.getElementById('tong-tien-thanh-toan').value = (res.data.totalPrice + (res.data.totalPrice * 0.08)).toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật tổng tiền thanh toán
+                        $('#current-tong-tien-thanh-toan').html((res.data.totalPrice + (res.data.totalPrice * 0.08)).toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
+                        showNotification();
                         
                     } else {
                         
-                        document.getElementById('numberPD-' + id).value = res.data.itemQuantity;
+                        // Cập nhật số lượng sản phẩm
+                        $('#numberPD-' + id).html(res.data.itemQuantity);
 
-                        document.getElementById('tong-tien-' + id).value = res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        // Cập nhật giá trị tiền tệ của sản phẩm
+                        $('#current-tong-tien-' + id).html(res.data.itemPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
 
-                        // Cập nhật tổng tiền giỏ hàng (giá trị đúng cần trả về từ backend)
-                        document.getElementById('tong-tien-gio-hang').value = res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật tổng tiền giỏ hàng
+                        $('#current-tong-tien-gio-hang').html(res.data.totalPrice.toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
 
-                        document.getElementById('VAT').value = (res.data.totalPrice * 0.08).toLocaleString("vi-VN", { style: "currency", currency: "VND" });
+                        // Cập nhật giá trị VAT
+                        $('#current-VAT').html((res.data.totalPrice * 0.08).toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
 
-                        document('tong-tien-thanh-toan').value = (res.data.totalPrice + (res.data.totalPrice * 0.08)).toLocaleString("vi-VN", { style: "currency", currency: "VND" })
+                        // Cập nhật tổng tiền thanh toán
+                        $('#current-tong-tien-thanh-toan').html((res.data.totalPrice + (res.data.totalPrice * 0.08)).toLocaleString("vi-VN", { style: "currency", currency: "VND" }));
+
                     }
                 },
                 error: function (err) {

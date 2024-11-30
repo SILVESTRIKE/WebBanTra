@@ -1,14 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "QuanLyDonHang";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "QuanLyDonHang";
 }
 @model IEnumerable<WebBanTra.Models.DonHang>
 
 
 <div class="card-body" style="margin-top: 100px;">
     <!-- Quản lý đơn hàng -->
-    <h4 style="font-size:30px; font-weight: bolder;">Quản lý Đơn Hàng</h4>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -28,7 +27,7 @@
                     <td>@donHang.MaDH</td>
                     <td>@donHang.KhachHang.TenKH</td>
                     <td>@donHang.NgayDat</td>
-                    <td>@donHang.TongTien</td>
+                    <td id="current-tt-@donHang.MaDH">@donHang.TongTien</td>
                     <td>@donHang.TrangThai</td>
                     <td>
                         @if (donHang.TrangThai == "Chờ xác nhận")
@@ -36,6 +35,13 @@
                             <form method="post" action="/Admin/Admin/XacNhanDonHang">
                                 <input type="hidden" name="maDonHang" value="@donHang.MaDH" />
                                 <button class="btn btn-success btn-sm">Xác nhận</button>
+                            </form>
+                        }
+                        else if(donHang.TrangThai == "Chưa giao")
+                        {
+                            <form method="post" action="/Admin/Admin/XacNhanDonHang">
+                                <input type="hidden" name="maDonHang" value="@donHang.MaDH" />
+                                <button class="btn btn-success btn-sm">Xác nhận đã giao hàng</button>
                             </form>
                         }
                         else
