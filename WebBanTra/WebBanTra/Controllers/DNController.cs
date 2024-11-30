@@ -97,6 +97,7 @@ namespace WebBanTra.Controllers
                     khachHang.TenKH = user.HoTen;
                     khachHang.Email = user.Email;
                     khachHang.SDT = user.SoDienThoai;
+                    khachHang.NgaySinh = Convert.ToDateTime(user.NgaySinh);
                     khachHang.DiaChi = user.DiaChi;
                     khachHang.MaTK = db.TaiKhoans.Where(r => r.TenDangNhap == user.TenDangNhap).FirstOrDefault().MaTK;
                     db.KhachHangs.Add(khachHang);
@@ -122,7 +123,10 @@ namespace WebBanTra.Controllers
             DB_BanTraEntities db = new DB_BanTraEntities();
             int maTK = (int)Session["MaTK"];
             db.TaiKhoans.Where(r => r.MaTK == maTK).FirstOrDefault().TrangThai = "Không Đăng Nhập";
-            Session.Clear();
+            db.SaveChanges();
+            Session["TenDangNhap"] = null;
+            Session["VaiTro"] = null;
+            Session["MaTK"] = null;
             return RedirectToAction("DangNhap", "DN");
         }
     }

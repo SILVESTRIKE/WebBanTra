@@ -40,7 +40,7 @@ namespace WebBanTra.Controllers
                     {
                         KhachHang kh = db.KhachHangs.Where(r => r.MaKH == maKH).FirstOrDefault();
                         List<ChiTietDH> ctdh = new List<ChiTietDH>();
-                        List<DonHang> dh = db.DonHangs.Where(r => r.MaKH == maKH && r.TrangThai == "Chưa giao" || r.TrangThai == "Chờ xác nhận").ToList();
+                        List<DonHang> dh = db.DonHangs.Where(r => r.MaKH == maKH && (r.TrangThai == "Chưa giao" || r.TrangThai == "Chờ xác nhận")).ToList();
                         foreach (DonHang d in dh)
                         {
                             List<ChiTietDH> ct = db.ChiTietDHs.Where(r => r.MaDH == d.MaDH).ToList();

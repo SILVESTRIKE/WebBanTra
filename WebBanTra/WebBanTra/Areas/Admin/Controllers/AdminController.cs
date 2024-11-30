@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using WebBanTra.Models;
 using System.Data.Entity;
+using WebBanTra.OOP;
+using System.IO;
+using System.Web.Configuration;
 
 namespace WebBanTra.Areas.Admin.Controllers
 {
@@ -32,26 +35,111 @@ namespace WebBanTra.Areas.Admin.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult CreateSanPham(DetailProduct model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _dbContext.SanPhams.Add(model);
+        //            _dbContext.SaveChanges();
+        //            return RedirectToAction("Admin");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ModelState.AddModelError("", "Lỗi khi thêm sản phẩm: " + ex.Message);
+        //        }
+        //    }
+
+        //    ViewBag.DanhMucs = _dbContext.DanhMucs.ToList();
+        //    return View(model);
+        //}
+
         [HttpPost]
-        public ActionResult CreateSanPham(SanPham model)
+        public ActionResult CreateSanPham(DetailProduct model, HttpPostedFileBase hinhanh)
         {
             if (ModelState.IsValid)
             {
-                try
+                using (var transaction = _dbContext.Database.BeginTransaction())
                 {
-                    _dbContext.SanPhams.Add(model);
-                    _dbContext.SaveChanges();
-                    return RedirectToAction("Admin");
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", "Lỗi khi thêm sản phẩm: " + ex.Message);
+                    try
+                    {
+                        // 1. Tạo sản phẩm mới
+                        var sanPham = new SanPham
+                        {
+                            TenSP = model.TenSP,
+                            Gia = model.Gia,
+                            SoLuongTon = model.SoLuongTon,
+                            MaDM = model.MaDM
+                        };
+                        _dbContext.SanPhams.Add(sanPham);
+                        _dbContext.SaveChanges(); // Lưu để lấy MaSP
+
+                        int maSP = _dbContext.SanPhams.OrderByDescending(r=>r.MaSP).FirstOrDefault().MaSP;
+
+                        // 2. Xử lý hình ảnh nếu có
+                        if (hinhanh != null && hinhanh.ContentLength > 0)
+                        {
+                            var fileName = Path.GetFileNameWithoutExtension(hinhanh.FileName);
+                            var extension = Path.GetExtension(hinhanh.FileName);
+                            var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
+                            var uploadPath = Server.MapPath("~/images/");
+
+                            if (!Directory.Exists(uploadPath))
+                            {
+                                Directory.CreateDirectory(uploadPath);
+                            }
+
+                            var path = Path.Combine(uploadPath, uniqueFileName);
+                            hinhanh.SaveAs(path);
+
+                            model.hinhanh = $"/images/{uniqueFileName}";
+                        }
+
+                        // 3. Lưu mô tả sản phẩm
+                        var moTaSanPham = new MoTa_SanPham
+                        {
+                            MaSP = maSP,
+                            MoTa = model.mota
+                        };
+                        _dbContext.MoTaSanPhams.Add(moTaSanPham);
+                        if(model.hinhanh != null)
+                        {
+                            var anhSanPham = new Anh_SanPham
+                            {
+                                LinhAnh = model.hinhanh,
+                                MaSP = maSP
+                            };
+                            _dbContext.AnhSanPhams.Add(anhSanPham);
+                        }
+                        else
+                        {
+                            var anhSanPham = new Anh_SanPham
+                            {
+                                LinhAnh = "/Images/no-image.jpg",
+                                MaSP = maSP
+                            };
+                            _dbContext.AnhSanPhams.Add(anhSanPham);
+                        }
+                        _dbContext.SaveChanges();
+
+                        transaction.Commit();
+                        return RedirectToAction("Admin");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        ModelState.AddModelError("", "Lỗi khi thêm sản phẩm: " + ex.Message);
+                    }
                 }
             }
 
+            // Nếu thất bại, hiển thị lại form
             ViewBag.DanhMucs = _dbContext.DanhMucs.ToList();
             return View(model);
         }
+
 
         public ActionResult UpdateSanPham(int id)
         {

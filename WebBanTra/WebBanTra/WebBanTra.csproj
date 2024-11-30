@@ -330,6 +330,7 @@
     <Content Include="Images\ND\Trà_Vối\Trà_Vối_info.txt" />
     <Content Include="Images\ND\Trà_Ô_Long\Trà_Ô_Long_info.txt" />
     <Content Include="Images\ND\Trà_Ô_Long_Nhân_Sâm\Trà_Ô_Long_Nhân_Sâm_info.txt" />
+    <Content Include="Images\no-image.jpg" />
     <Content Include="Images\paypal_logo.png" />
     <Content Include="Images\profile-icon-design-free-vector.jpg" />
     <Content Include="Images\qr_zalo.png" />
@@ -459,6 +460,7 @@
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="OOP\AppUser.cs" />
     <Compile Include="OOP\CartDetail.cs" />
+    <Compile Include="OOP\DetailProduct.cs" />
     <Compile Include="OOP\OrderDetail.cs" />
     <Compile Include="OOP\ProductDetailViewModel.cs" />
     <Compile Include="OOP\ProductViewModel.cs" />

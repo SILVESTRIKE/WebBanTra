@@ -4,50 +4,54 @@
     List<WebBanTra.Models.DanhMuc> listDanhMuc = ViewBag.DanhMucs as List<WebBanTra.Models.DanhMuc>;
 }
 
-@model WebBanTra.Models.SanPham
+@model WebBanTra.OOP.DetailProduct
 
 <div class="d-flex flex-column justify-content-center m-3 container">
-    @using (Html.BeginForm("CreateSanPham", "Admin", FormMethod.Post, new { area = "Admin",@class = "w-50 form d-flex flex-column gap-2" }))
+    @using (Html.BeginForm("CreateSanPham", "Admin", FormMethod.Post, new { area = "Admin", @class = "w-50 form d-flex flex-column gap-2" }))
     {
-    <h3 class="text-primary">THÊM MỚI SẢN PHẨM</h3>
+        <h3 class="text-primary">THÊM MỚI SẢN PHẨM</h3>
 
-    <div class="form-group">
-        @Html.LabelFor(x => x.TenSP, new { @class = "form-label" })
-        @Html.TextBoxFor(x => x.TenSP, new { @class = "form-control", required = "required" })
-        @Html.ValidationMessageFor(x => x.TenSP, "", new { @class = "text-danger" })
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.TenSP, "Tên sản phẩm",new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.TenSP, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.TenSP, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        @Html.LabelFor(x => x.Gia, new { @class = "form-label" })
-        @Html.TextBoxFor(x => x.Gia, new { @class = "form-control", required = "required", type = "number" })
-        @Html.ValidationMessageFor(x => x.Gia, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(x => x.SoLuongTon, new { @class = "form-label" })
-        @Html.TextBoxFor(x => x.SoLuongTon, new { @class = "form-control", required = "required", type = "number" })
-        @Html.ValidationMessageFor(x => x.SoLuongTon, "", new { @class = "text-danger" })
-    </div>
-    @*<div class="form-group">
-        @Html.LabelFor(x => x.MoTa_SanPham, new { @class = "form-label" })
-        @Html.TextAreaFor(x => x.MoTa_SanPham, new { @class = "form-control", rows = "4" })
-        @Html.ValidationMessageFor(x => x.MoTa_SanPham, "", new { @class = "text-danger" })
-    </div>*@
+        <div class="form-group">
+            @Html.LabelFor(x => x.Gia, "Giá",new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.Gia, new { @class = "form-control", required = "required", type = "number" })
+            @Html.ValidationMessageFor(x => x.Gia, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.SoLuongTon, "Số lượng",new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.SoLuongTon, new { @class = "form-control", required = "required", type = "number" })
+            @Html.ValidationMessageFor(x => x.SoLuongTon, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.mota, "Mô tả", new { @class = "form-label" })
+            @Html.TextAreaFor(x => x.mota, new { @class = "form-control", rows = "4" })
+            @Html.ValidationMessageFor(x => x.mota, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="hinhanh">Hình Ảnh</label>
+            <input type="file" name="hinhanh" value="" />
+        </div>
 
-    <div class="form-group">
-        <label for="MaDM">Danh mục</label>
-        <select name="MaDM" class="form-control">
-            <optgroup label="Danh mục">
-                @foreach (var item in listDanhMuc)
-                {
-                    <option value="@item.MaDM">@item.TenDM</option>
-                }
-            </optgroup>
-        </select>
-    </div>
+        <div class="form-group">
+            <label for="MaDM">Danh mục</label>
+            <select name="MaDM" class="form-control">
+                <optgroup label="Danh mục">
+                    @foreach (var item in listDanhMuc)
+                    {
+                        <option value="@item.MaDM">@item.TenDM</option>
+                    }
+                </optgroup>
+            </select>
+        </div>
 
-    <div class="mt-3">
-        @Html.ActionLink("Cancel", "Admin", "Admin", new { area = "Admin", @class = "btn btn-secondary" })
-        <button class="btn btn-success">Submit</button>
-    </div>
+        <div class="mt-3">
+            @Html.ActionLink("Cancel", "Admin", "Admin", new { area = "Admin", @class = "btn btn-secondary" })
+            <button class="btn btn-success">Submit</button>
+        </div>
     }
 </div>
