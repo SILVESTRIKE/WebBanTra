@@ -53,7 +53,7 @@
                 <section id="blog-details" class="blog-details section">
                     <div class="container">
                         <form action="/KhachHang/ChangeProfile" method="post">
-                            <div class="input-group" hidden>
+                            <div class="input-group" hidden>      
                                 <label for="MaKH" class="form-control-plaintext">Họ và tên khách hàng <span>(*)</span></label>
                                 <div class="input-order" style="border-radius: 50px !important;">
                                     <input type="text" name="MaKH" placeholder="Họ và tên khách hàng" value="@Model.KhachHang.MaKH" id="input-inf-1" />
@@ -74,20 +74,17 @@
                                             @if (Model.KhachHang.GioiTinh == "Nam")
                                             {
                                                 <option value="Nam" selected>Nam</option>
-                                                <option value="Nam">Nữ</option>
+                                                <option value="Nữ">Nữ</option>
                                             }
                                             else if (Model.KhachHang.GioiTinh == "Nữ")
                                             {
                                                 <option value="Nam">Nam</option>
-                                                <option value="Nam" selected>Nữ</option>
+                                                <option value="Nữ" selected>Nữ</option>
                                             }
                                             else
                                             {
-                                                <option value="Nam" selected>Không có</option>
+                                                <option value="Không có" selected>Không có</option>
                                             }
-                                            <option value="Nam">Nam</option>
-                                            <option value="Nam">Nữ</option>
-                                            <option value="Nam">Không có</option>
                                         </optgroup>
                                     </select>
                                 </div>
@@ -128,9 +125,9 @@
                             </div>
                         </form>
                     </div>
-                    @*<div class="btn-group">
+                    <div class="btn-group">
                         <a href="#" class="cta-btn" onclick="changeData()" id="btn-change" style="all: unset; cursor: pointer; margin-top: 20px;  background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Sửa thông tin</a>
-                    </div>*@
+                    </div>
                     <div class="btn-group">
                         <a href="/Home/Home" class="cta-btn align-middle" style="margin-top:20px; background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Quay về cửa hàng</a>
                     </div>
@@ -205,24 +202,29 @@
     </div>
     <script>
         function changeData() {
+            // Hiển thị nút Save, ẩn nút Change
             document.getElementById('btn-save').style.display = 'block';
             document.getElementById('btn-change').style.display = 'none';
+
+            // Chọn tất cả các input có id chứa 'input-inf-'
             var inputs = document.querySelectorAll('[id*="input-inf-"]');
             inputs.forEach(function (input) {
-                input.pointerEvents = 'all';
-                input.opacity = 1;
-                input.cursor = 'pointer';
+                input.style.pointerEvents = 'auto'; // Cho phép tương tác với input
+                input.style.opacity = 1;            // Thiết lập độ mờ 100% (hiển thị)
+                input.style.cursor = 'pointer';    // Hiển thị con trỏ chuột dạng 'pointer'
             });
         }
+
 
         function saveData() {
             document.getElementById('btn-save').style.display = 'none';
             document.getElementById('btn-change').style.display = 'block';
-            var inputs = document.querySelectorAll('[id*="input-inf"]')
+
+            var inputs = document.querySelectorAll('[id*="input-inf-"]');
             inputs.forEach(function (input) {
-                input.pointerEvents = 'none';
-                input.opacity = 0.5;
-                input.cursor = 'not-allowed';
+                input.style.pointerEvents = 'none'; // Cho phép tương tác với input
+                input.style.opacity = 0.5;            // Thiết lập độ mờ 100% (hiển thị)
+                input.style.cursor = 'not-allowed';    // Hiển thị con trỏ chuột dạng 'pointer'
             });
         }
     </script>

@@ -9,6 +9,7 @@ namespace WebBanTra.Models
     public class DanhGia
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]// MaAnh là phần đầu tiên của Primary Key
         public int MaDG { get; set; } // Khóa chính (Primary Key)
 
         [ForeignKey("KhachHang")]

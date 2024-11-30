@@ -437,6 +437,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202411301314394_initialDataBase.cs" />
+    <Compile Include="Migrations\202411301314394_initialDataBase.Designer.cs">
+      <DependentUpon>202411301314394_initialDataBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Anh_SanPham.cs" />
     <Compile Include="Models\ChiTietDH.cs" />
     <Compile Include="Models\ChiTietDNH.cs" />
@@ -542,6 +547,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202411301314394_initialDataBase.resx">
+      <DependentUpon>202411301314394_initialDataBase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

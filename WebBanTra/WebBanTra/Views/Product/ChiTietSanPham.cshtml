@@ -52,7 +52,7 @@
 
                     <h1 class="h4">@Model.TenSP</h1>
                     <div>Sản phẩm còn: <span style="color: red;">@max</span></div>
-                    <h2 class="text-danger fw-bold" id="currently-ct-@Model.MaSP">@Model.Gia</h2>
+                    <h2 class="text-danger fw-bold" id="current-ct-@Model.MaSP">@Model.Gia</h2>
 
                     <ul class="list-unstyled mt-4">
                         @foreach (var description in Model.Descriptions)
@@ -161,7 +161,7 @@
                 var quantityInput = document.getElementById('number-PDCTSP');
                 var quantity = parseInt(quantityInput.value);
                 if (quantity > 1) {
-                    quantityInput.value = quantity + 1;
+                    quantityInput.value = quantity - 1;
                 }
                 else {
                     showNotificationFail();

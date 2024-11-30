@@ -90,7 +90,7 @@
             var quantity = parseInt(quantityInput.value);
             if (quantity > 1) {
                 quantityInput.value = quantity - 1;
-                quantity = quantity + 1;
+                quantity = quantity - 1;
             }
             else {
                 showNotificationFail();

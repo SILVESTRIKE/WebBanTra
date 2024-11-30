@@ -81,3 +81,5 @@ C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\WebBanTra\obj\Debu
 C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.Up2Date
 C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.dll
 C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.pdb
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.Migrations.initialDataBase.resources
+C:\Users\ADMIN\Desktop\hoc ki 1 nam 3\ltw\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.GenerateResource.cache
