@@ -455,6 +455,59 @@ namespace WebBanTra.Areas.Admin.Controllers
 
             return RedirectToAction("QuanLyNhanVien");
         }
-    }
+        public ActionResult CreateDonNhapHang()
+        {
+            ViewBag.NhaCungCaps = _dbContext.NhaCungCaps.ToList();
+            ViewBag.SanPhams = _dbContext.SanPhams.ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateDonNhapHang(DonNhapHang model, List<ChiTietDNH> chiTietDonNhap)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var transaction = _dbContext.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        // Tạo đơn nhập hàng mới
+                        model.NgayDat = DateTime.Now;
+                        _dbContext.DonNhapHangs.Add(model);
+                        _dbContext.SaveChanges(); // Lưu để lấy MaDNH
 
+                        // Lấy mã đơn nhập hàng vừa tạo
+                        int maDNH = model.MaDNH;
+
+                        // Kiểm tra và khởi tạo chiTietDonNhap nếu nó là null
+                        if (chiTietDonNhap == null)
+                        {
+                            chiTietDonNhap = new List<ChiTietDNH>();
+                        }
+
+                        // Thêm chi tiết đơn nhập hàng
+                        foreach (var item in chiTietDonNhap)
+                        {
+                            item.MaDNH = maDNH;
+                            _dbContext.ChiTietDNHs.Add(item);
+                        }
+
+                        _dbContext.SaveChanges();
+                        transaction.Commit();
+                        return RedirectToAction("Admin");
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        ModelState.AddModelError("", "Lỗi khi tạo đơn nhập hàng: " + ex.Message);
+                    }
+                }
+            }
+
+            // Nếu thất bại, hiển thị lại form
+            ViewBag.NhaCungCaps = _dbContext.NhaCungCaps.ToList();
+            ViewBag.SanPhams = _dbContext.SanPhams.ToList();
+            return View(model);
+        }
+
+    }
 }

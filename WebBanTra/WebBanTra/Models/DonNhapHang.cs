@@ -20,7 +20,14 @@ namespace WebBanTra.Models
         [Range(0.01, double.MaxValue, ErrorMessage = "Tổng tiền phải lớn hơn 0.")]
         public decimal TongTien { get; set; } // Tổng tiền
 
-        // Navigation property
+        // Thuộc tính mới
+        public bool TrangThai { get; set; } // Trạng thái (Boolean)
+
+        [ForeignKey("NhanVien")]
+        public int MaNV { get; set; } // Mã nhân viên
+
+        // Navigation properties
         public virtual NhaCungCap NhaCungCap { get; set; } // Quan hệ với bảng NhaCungCap
+        public virtual NhanVien NhanVien { get; set; } // Quan hệ với bảng NhanVien
     }
 }

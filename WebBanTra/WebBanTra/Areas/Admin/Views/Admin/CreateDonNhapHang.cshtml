@@ -1,0 +1,113 @@
+﻿@model WebBanTra.Models.DonNhapHang
+
+@{
+    ViewBag.Title = "CreateDonNhapHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create DonNhapHang</h2>
+
+@using (Html.BeginForm("CreateDonNhapHang", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Đơn Nhập Hàng</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaNCC, "Nhà Cung Cấp", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MaNCC, new SelectList(ViewBag.NhaCungCaps, "MaNCC", "TenNCC"), "Chọn nhà cung cấp", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaNCC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h5>Sản Phẩm</h5>
+            <table class="table table-borderless datatable">
+                <thead class="table-success">
+                    <tr>
+                        <th>Mã Sản Phẩm</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá Bán</th>
+                        <th>Giá Nhập (70%)</th>
+                        <th>Số Lượng Nhập</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    @foreach (var sanPham in ViewBag.SanPhams)
+                    {
+                        <tr>
+                            <td>@sanPham.MaSP</td>
+                            <td>@sanPham.TenSP</td>
+                            <td>@sanPham.Gia</td>
+                            <td><input type="text" class="form-control" id="giaNhap_@sanPham.MaSP" value="@Math.Round(sanPham.Gia * 0.7, 2)" readonly></td>
+                            <td>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity(@sanPham.MaSP)">-</button>
+                                    <input type="number" class="form-control text-center" name="chiTietDonNhap[@sanPham.MaSP].SoLuongNhap" id="quantity_@sanPham.MaSP" value="0" min="0" data-price="@Math.Round(sanPham.Gia * 0.7, 2)" onchange="updateTotal()">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity(@sanPham.MaSP)">+</button>
+                                </div>
+                                <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].MaSP" value="@sanPham.MaSP">
+                                <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].GiaNhap" id="hiddenGiaNhap_@sanPham.MaSP" value="@Math.Round(sanPham.Gia * 0.7, 2)">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TongTien, "Tổng Tiền", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TongTien, new { @class = "form-control", @readonly = "readonly", id = "totalAmount" })
+                @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo Đơn Nhập Hàng" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+    function increaseQuantity(productId) {
+        var quantityInput = document.getElementById("quantity_" + productId);
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+        updateTotal();
+    }
+
+    function decreaseQuantity(productId) {
+        var quantityInput = document.getElementById("quantity_" + productId);
+        if (quantityInput.value > 0) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+        updateTotal();
+    }
+
+    function updateTotal() {
+        var rows = document.querySelectorAll("#productTable tr");
+        var total = 0;
+
+        rows.forEach(row => {
+            var quantityInput = row.querySelector('input[type="number"]');
+            var quantity = parseInt(quantityInput.value);
+            var price = parseFloat(quantityInput.getAttribute("data-price"));
+
+            if (quantity > 0) {
+                total += quantity * price;
+            }
+        });
+
+        document.getElementById("totalAmount").value = total.toFixed(2);
+    }
+</script>
