@@ -91,7 +91,7 @@ namespace WebBanTra.Controllers
                     cart.TenSP = sp.TenSP;
                     cart.Gia = sp.Gia;
                     cart.SoLuong = soLuong;
-                    cart.LinkAnh = db.AnhSanPhams.FirstOrDefault(p => p.MaSP == maSP).LinhAnh;
+                    cart.LinkAnh = db.Anh_SanPham.FirstOrDefault(p => p.MaSP == maSP).LinhAnh;
                     listCart.Add(cart);
                     Session["Cart"] = listCart;
 
@@ -130,7 +130,7 @@ namespace WebBanTra.Controllers
                         TenSP = sp.TenSP,
                         Gia = sp.Gia,
                         SoLuong = soLuong,
-                        LinkAnh = db.AnhSanPhams.FirstOrDefault(p => p.MaSP == maSP)?.LinhAnh
+                        LinkAnh = db.Anh_SanPham.FirstOrDefault(p => p.MaSP == maSP)?.LinhAnh
                     };
                     listCart.Add(cart);
                     Session["Cart"] = listCart;

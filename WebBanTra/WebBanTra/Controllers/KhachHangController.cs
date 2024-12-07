@@ -51,7 +51,7 @@ namespace WebBanTra.Controllers
                         }
                         foreach (ChiTietDH i in ctdh)
                         {
-                            Anh_SanPham a = db.AnhSanPhams.Where(r => r.SanPham.MaSP == i.SanPham.MaSP).FirstOrDefault();
+                            Anh_SanPham a = db.Anh_SanPham.Where(r => r.SanPham.MaSP == i.SanPham.MaSP).FirstOrDefault();
                             userKH.listAnhSP.Add(a);
                         }
                         ctdh.OrderBy(r => r.SanPham.MaDM).GroupBy(r => r.SanPham.MaDM);
@@ -109,7 +109,7 @@ namespace WebBanTra.Controllers
                         }
                         foreach (ChiTietDH i in ctdh)
                         {
-                            Anh_SanPham a = db.AnhSanPhams.Where(r => r.SanPham.MaSP == i.SanPham.MaSP).FirstOrDefault();
+                            Anh_SanPham a = db.Anh_SanPham.Where(r => r.SanPham.MaSP == i.SanPham.MaSP).FirstOrDefault();
                             userKH.listAnhSP.Add(a);
                         }
                         ctdh.OrderBy(r => r.SanPham.MaDM).GroupBy(r => r.SanPham.MaDM);

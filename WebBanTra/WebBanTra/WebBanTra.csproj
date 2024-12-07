@@ -58,6 +58,8 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,10 +110,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DB_BanTraEntities.mdf" />
-    <Content Include="App_Data\DB_BanTraEntities_log.ldf">
-      <DependentUpon>DB_BanTraEntities.mdf</DependentUpon>
-    </Content>
     <Content Include="assets\css\cart.css" />
     <Content Include="assets\css\DK.css" />
     <Content Include="assets\css\DN.css" />
@@ -395,6 +393,16 @@
     <Content Include="Images\tra\tra_shantuyet\link sp.txt" />
     <Content Include="Images\Visa-Logo.png" />
     <Content Include="Images\zalo.jpg" />
+    <Content Include="Models\DB_BanTraEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
+      <LastGenOutput>DB_BanTraEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DB_BanTraEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
+      <LastGenOutput>DB_BanTraEntities.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -414,6 +422,13 @@
     <Content Include="Areas\Admin\Views\Admin\UpdateNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CreateNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CreateDonNhapHang.cshtml" />
+    <EntityDeploy Include="Models\DB_BanTraEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DB_BanTraEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DB_BanTraEntities.edmx.diagram">
+      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -439,26 +454,66 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202411301314394_initialDataBase.cs" />
-    <Compile Include="Migrations\202411301314394_initialDataBase.Designer.cs">
-      <DependentUpon>202411301314394_initialDataBase.cs</DependentUpon>
+    <Compile Include="Models\Anh_SanPham.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Anh_SanPham.cs" />
-    <Compile Include="Models\ChiTietDH.cs" />
-    <Compile Include="Models\ChiTietDNH.cs" />
-    <Compile Include="Models\DanhGia.cs" />
-    <Compile Include="Models\DanhMuc.cs" />
-    <Compile Include="Models\DB_BanTraEntities.cs" />
-    <Compile Include="Models\DonHang.cs" />
-    <Compile Include="Models\DonNhapHang.cs" />
-    <Compile Include="Models\HoaDon.cs" />
-    <Compile Include="Models\KhachHang.cs" />
-    <Compile Include="Models\MoTa_SanPham.cs" />
-    <Compile Include="Models\NhaCungCap.cs" />
-    <Compile Include="Models\NhanVien.cs" />
-    <Compile Include="Models\SanPham.cs" />
-    <Compile Include="Models\TaiKhoan.cs" />
+    <Compile Include="Models\ChiTietDH.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChiTietDNH.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DanhGia.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DanhMuc.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB_BanTraEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BanTraEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB_BanTraEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DB_BanTraEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonHang.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonNhapHang.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HoaDon.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MoTa_SanPham.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhaCungCap.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NhanVien.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SanPham.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TaiKhoan.cs">
+      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="OOP\AppUser.cs" />
     <Compile Include="OOP\CartDetail.cs" />
     <Compile Include="OOP\DetailProduct.cs" />
@@ -546,15 +601,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202411301314394_initialDataBase.resx">
-      <DependentUpon>202411301314394_initialDataBase.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

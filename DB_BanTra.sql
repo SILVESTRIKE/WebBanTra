@@ -90,9 +90,11 @@ CREATE TABLE NhaCungCap (
     TenNCC NVARCHAR(255),
     DiaChi VARCHAR(255),
     SDT VARCHAR(10),
-    Email VARCHAR(100)
+    Email VARCHAR(100),
+    
 );
 GO
+
 
 -- Bảng DonHang (nối với NhanVien qua MaNV)
 CREATE TABLE DonHang (
@@ -136,6 +138,9 @@ CREATE TABLE DonNhapHang (
     MaNCC INT,
     NgayDat DATE,
     TongTien DECIMAL(10, 2) CHECK(TongTien>0),
+    TrangThai BIT,
+    MaNV INT,
+    CONSTRAINT FK_DonNhapHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
     FOREIGN KEY (MaNCC) REFERENCES NhaCungCap(MaNCC) 
 );
 GO

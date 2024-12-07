@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "CreateDonNhapHang";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    List<WebBanTra.Models.SanPham> sanPhams = ViewBag.SanPhams as List<WebBanTra.Models.SanPham>;
 }
 
 <h2>Create DonNhapHang</h2>
@@ -37,21 +38,21 @@
                     </tr>
                 </thead>
                 <tbody id="productTable">
-                    @foreach (var sanPham in ViewBag.SanPhams)
+                    @foreach (WebBanTra.Models.SanPham sanPham in sanPhams)
                     {
                         <tr>
                             <td>@sanPham.MaSP</td>
                             <td>@sanPham.TenSP</td>
                             <td>@sanPham.Gia</td>
-                            <td><input type="text" class="form-control" id="giaNhap_@sanPham.MaSP" value="@Math.Round(sanPham.Gia * 0.7, 2)" readonly></td>
+                            <td><input type="text" class="form-control" id="giaNhap_@sanPham.MaSP" value="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)" readonly></td>
                             <td>
                                 <div class="input-group">
                                     <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity(@sanPham.MaSP)">-</button>
-                                    <input type="number" class="form-control text-center" name="chiTietDonNhap[@sanPham.MaSP].SoLuongNhap" id="quantity_@sanPham.MaSP" value="0" min="0" data-price="@Math.Round(sanPham.Gia * 0.7, 2)" onchange="updateTotal()">
+                                    <input type="number" class="form-control text-center" name="chiTietDonNhap[@sanPham.MaSP].SoLuongNhap" id="quantity_@sanPham.MaSP" value="0" min="0" data-price="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)" onchange="updateTotal()">
                                     <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity(@sanPham.MaSP)">+</button>
                                 </div>
                                 <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].MaSP" value="@sanPham.MaSP">
-                                <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].GiaNhap" id="hiddenGiaNhap_@sanPham.MaSP" value="@Math.Round(sanPham.Gia * 0.7, 2)">
+                                <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].GiaNhap" id="hiddenGiaNhap_@sanPham.MaSP" value="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)">
                             </td>
                         </tr>
                     }

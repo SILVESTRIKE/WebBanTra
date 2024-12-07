@@ -50,7 +50,7 @@
                                         <div>
                                             Giá sản phẩm:
                                             <span class="post-category" id="current-ctsp-@item.MaSP" style="margin-right: 10px; color:red; font-size: 20px; font-weight: 500">@item.Gia  </span>
-                                            <span id="current-gg-@item.MaSP" style="text-decoration: line-through; color: rgb(186, 186, 186);">@Convert.ToInt32(item.Gia * 1.2)</span>
+                                            <span id="current-gg-@item.MaSP" style="text-decoration: line-through; color: rgb(186, 186, 186);">@Convert.ToInt32(Convert.ToDouble(item.Gia) * 1.2)</span>
                                         </div>
 
 

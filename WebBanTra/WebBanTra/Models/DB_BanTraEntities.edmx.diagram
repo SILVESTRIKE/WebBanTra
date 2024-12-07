@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="112a07e6d03f4a829debc6fb644072af" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_BanTraModel.Anh_SanPham" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.ChiTietDH" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.ChiTietDNH" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.DanhGia" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.DanhMuc" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.DonHang" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.DonNhapHang" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.HoaDon" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.KhachHang" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.MoTa_SanPham" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.NhaCungCap" Width="1.5" PointX="3.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.NhanVien" Width="1.5" PointX="3.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.SanPham" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_BanTraModel.TaiKhoan" Width="1.5" PointX="1.5" PointY="19.875" IsExpanded="true" />
+        <AssociationConnector Association="DB_BanTraModel.FK_Anh_SanPham_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDH__MaDH__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDH__MaSP__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DanhGia__MaCTDH__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDN__MaDNH__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDNH__MaSP__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DanhGia__MaKH__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK_SanPham_DanhMuc" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DonHang__MaKH__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DonHang__MaNV__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__HoaDon__MaDH__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DonNhapHa__MaNCC__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK_DonNhapHang_NhanVien" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__KhachHang__MaTK__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK_MoTa_SanPham_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__NhanVien__MaQuan__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__NhanVien__MaTK__5629CD9C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

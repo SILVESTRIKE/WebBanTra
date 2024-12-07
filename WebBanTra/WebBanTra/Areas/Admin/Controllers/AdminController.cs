@@ -25,7 +25,7 @@ namespace WebBanTra.Areas.Admin.Controllers
         public ActionResult Admin()
         {
             var list = _dbContext.SanPhams.ToList();
-            ViewBag.listAnhSP = _dbContext.AnhSanPhams.ToList();
+            ViewBag.listAnhSP = _dbContext.Anh_SanPham.ToList();
             return View(list);
         }
 
@@ -103,7 +103,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                             MaSP = maSP,
                             MoTa = model.mota
                         };
-                        _dbContext.MoTaSanPhams.Add(moTaSanPham);
+                        _dbContext.MoTa_SanPham.Add(moTaSanPham);
                         if(model.hinhanh != null)
                         {
                             var anhSanPham = new Anh_SanPham
@@ -111,7 +111,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                                 LinhAnh = model.hinhanh,
                                 MaSP = maSP
                             };
-                            _dbContext.AnhSanPhams.Add(anhSanPham);
+                            _dbContext.Anh_SanPham.Add(anhSanPham);
                         }
                         else
                         {
@@ -120,7 +120,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                                 LinhAnh = "/Images/no-image.jpg",
                                 MaSP = maSP
                             };
-                            _dbContext.AnhSanPhams.Add(anhSanPham);
+                            _dbContext.Anh_SanPham.Add(anhSanPham);
                         }
                         _dbContext.SaveChanges();
 
@@ -197,20 +197,20 @@ namespace WebBanTra.Areas.Admin.Controllers
                     List<ChiTietDH> lstCTDH = _dbContext.ChiTietDHs.Where(r => r.MaSP == id).ToList();
                     List<ChiTietDNH> lstCTDNH = _dbContext.ChiTietDNHs.Where(r => r.MaSP == id).ToList();
 
-                    List<Anh_SanPham> lstASp = _dbContext.AnhSanPhams.Where(r => r.MaSP == id).ToList();
-                    List<MoTa_SanPham> lstMoTa = _dbContext.MoTaSanPhams.Where(r => r.MaSP == id).ToList();
+                    List<Anh_SanPham> lstASp = _dbContext.Anh_SanPham.Where(r => r.MaSP == id).ToList();
+                    List<MoTa_SanPham> lstMoTa = _dbContext.MoTa_SanPham.Where(r => r.MaSP == id).ToList();
                     foreach (Anh_SanPham item in lstASp)
                     {
                         if (item != null)
                         {
-                            _dbContext.AnhSanPhams.Remove(item);
+                            _dbContext.Anh_SanPham.Remove(item);
                         }
                     }
                     foreach (MoTa_SanPham item in lstMoTa)
                     {
                         if (item != null)
                         {
-                            _dbContext.MoTaSanPhams.Remove(item);
+                            _dbContext.MoTa_SanPham.Remove(item);
                         }
                     }
                     foreach (ChiTietDNH ctDN in lstCTDNH)

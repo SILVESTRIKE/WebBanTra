@@ -162,8 +162,6 @@ D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\bin\System.Web.Helpers.xml
 D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\bin\System.Web.Mvc.xml
 D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.AssemblyReference.cache
-D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.Migrations.initialDataBase.resources
-D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.GenerateResource.cache
 D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.CoreCompileInputs.cache
 D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.csproj.Up2Date
 D:\hufi\hk5\LaptrinhWeb\WebBanTra\WebBanTra\WebBanTra\obj\Debug\WebBanTra.dll

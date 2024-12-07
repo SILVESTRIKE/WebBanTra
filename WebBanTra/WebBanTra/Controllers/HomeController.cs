@@ -24,8 +24,8 @@ namespace WebBanTra.Controllers
             foreach (var item in spbc)
             {
                 sp.Add(db.SanPhams.Find(item.MaSP));
-                asp.Add(db.AnhSanPhams.FirstOrDefault(r => r.MaSP == item.MaSP));
-                mtsp.Add(db.MoTaSanPhams.FirstOrDefault(r => r.MaSP == item.MaSP));
+                asp.Add(db.Anh_SanPham.FirstOrDefault(r => r.MaSP == item.MaSP));
+                mtsp.Add(db.MoTa_SanPham.FirstOrDefault(r => r.MaSP == item.MaSP));
             } 
 
             ViewBag.SanPhamBanChay = sp;
