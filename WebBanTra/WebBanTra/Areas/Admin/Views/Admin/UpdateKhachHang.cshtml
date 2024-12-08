@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "UpdateKhachHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    List<WebBanTra.Models.KhachHang> lstKhachHang = (List<WebBanTra.Models.KhachHang>)ViewBag.lstKhachHang;
+
+}
+
+@model WebBanTra.Models.KhachHang
+
+<div class="d-flex flex-column justify-content-center m-3 container" style="margin: 85px 0 auto">
+    @using (Html.BeginForm("UpdateKhachHang", "Admin", FormMethod.Post, new { area = "Admin", @class = "w-50 form d-flex flex-column gap-2" }))
+    {
+        <h3 class="text-primary">CHỈNH SỬA KHÁCH HÀNG</h3>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(x => x.MaKH, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.MaKH, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.MaKH, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.TenKH, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.TenKH, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.TenKH, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.DiaChi, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.DiaChi, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.DiaChi, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group" style="pointer-events: none; cursor: not-allowed; opacity: 0.5;">
+            @Html.LabelFor(x => x.Email, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group" style="pointer-events: none; cursor: not-allowed; opacity: 0.5;">
+            @Html.LabelFor(x => x.SDT, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.SDT, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.SDT, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.NgaySinh, new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.NgaySinh, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(x => x.NgaySinh, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.GioiTinh, new { @class = "form-label" })
+            @Html.DropDownListFor(x => x.GioiTinh, new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Nam", Value = "Nam" },
+                new SelectListItem { Text = "Nữ", Value = "Nữ" }
+            }, "Chọn giới tính", new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.GioiTinh, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mt-3">
+            @Html.ActionLink("Cancel", "QuanLyKhachHang", "Admin", new { area = "Admin", @class = "btn btn-secondary" })
+            <button onclick="showNotification()" class="btn btn-success">Submit</button>
+        </div>
+    }
+</div>
+<script>
+    function showNotification() {
+        const notification = document.getElementById('notification');
+        notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+        notification.classList.add('show'); // Thêm lớp hiển thị
+
+        // Sau 3 giây, ẩn thông báo
+        setTimeout(() => {
+            notification.classList.remove('show');
+            notification.classList.add('hide');
+        }, 3000);
+    }
+
+    function showNotificationFail() {
+        const notification = document.getElementById('notification');
+        notification.classList.remove('hide'); // Xóa lớp ẩn nếu có
+        notification.classList.add('show'); // Thêm lớp hiển thị
+
+        // Sau 3 giây, ẩn thông báo
+        setTimeout(() => {
+            notification.classList.remove('show');
+            notification.classList.add('hide');
+        }, 3000);
+    }
+</script>
+
+

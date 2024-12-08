@@ -756,16 +756,158 @@ namespace WebBanTra.Areas.Admin.Controllers
                 return PartialView("_TotalIncome", totalIncome);
             }
         }
-        public int SLDH()
+        public ActionResult QuanLyKhachHang()
         {
-            return _dbContext.DonHangs.Count();
+            using (_dbContext)
+            {
+                List<KhachHang> listKhachHang = _dbContext.KhachHangs.ToList();
+                return View(listKhachHang);
+            }
         }
-        public ActionResult Dashboard()
+        public ActionResult CreateKhachHang()
         {
-            
-
+            // Nếu cần truyền danh sách khách hàng vào ViewBag
+            ViewBag.KhachHang = _dbContext.KhachHangs.ToList();
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CreateKhachHang(KhachHang model)
+        {
+            try
+            {
+                // Kiểm tra các trường bắt buộc
+                if (string.IsNullOrWhiteSpace(model.TenKH) || string.IsNullOrWhiteSpace(model.SDT) || string.IsNullOrWhiteSpace(model.Email))
+                {
+                    ModelState.AddModelError("TenKH", "Hãy nhập đầy đủ trường thông tin");
+                    return View(model);
+                }
+
+                // Kiểm tra số điện thoại, email và tài khoản đã tồn tại
+                if (_dbContext.KhachHangs.Any(kh => kh.SDT == model.SDT))
+                {
+                    ModelState.AddModelError("", "Số điện thoại của khách hàng đã tồn tại.");
+                    return View(model);
+                }
+                if (_dbContext.KhachHangs.Any(kh => kh.Email == model.Email))
+                {
+                    ModelState.AddModelError("", "Email của khách hàng đã tồn tại.");
+                    return View(model);
+                }
+                if (_dbContext.KhachHangs.Any(kh => kh.TaiKhoan == model.TaiKhoan))
+                {
+                    ModelState.AddModelError("", "Tài khoản của khách hàng đã tồn tại.");
+                    return View(model);
+                }
+
+                // Thêm khách hàng mới vào cơ sở dữ liệu
+                _dbContext.KhachHangs.Add(model);
+                _dbContext.SaveChanges();
+
+                // Chuyển hướng đến trang quản lý khách hàng sau khi lưu thành công
+                return RedirectToAction("QuanLyKhachHang");
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi và thêm thông báo lỗi vào ModelState
+                ModelState.AddModelError("", "Lỗi khi thêm Khách hàng: " + ex.Message);
+            }
+
+            // Trả về view cùng với ViewBag để hiển thị danh sách khách hàng
+            ViewBag.KhachHang = _dbContext.KhachHangs.ToList();
+            return View(model);
+        }
+
+
+        public ActionResult UpdateKhachHang(int id)
+        {
+            KhachHang model = _dbContext.KhachHangs.Find(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.lstKhachHang = _dbContext.KhachHangs.Where(r => r.MaKH != id).ToList();
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult UpdateKhachHang(KhachHang model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    KhachHang existingCustomer = _dbContext.KhachHangs.Where(r => r.MaKH == model.MaKH).FirstOrDefault();
+                    if (existingCustomer == null)
+                    {
+                        ModelState.AddModelError("", "Khách hàng không tồn tại.");
+                        return View(model);
+                    }
+
+                    existingCustomer.TenKH = model.TenKH;
+                    existingCustomer.NgaySinh = model.NgaySinh;
+                    existingCustomer.DiaChi = model.DiaChi;
+                    existingCustomer.Email = model.Email;
+                    existingCustomer.SDT = model.SDT;
+                    existingCustomer.GioiTinh = model.GioiTinh;
+
+                    _dbContext.SaveChanges();
+
+                    return RedirectToAction("QuanLyKhachHang");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.lstKhachHang = _dbContext.KhachHangs.ToList();
+                    ModelState.AddModelError("", "Đã xảy ra lỗi: " + ex.Message);
+                }
+            }
+
+            ViewBag.lstKhachHang = _dbContext.KhachHangs.ToList();
+            return View(model);
+        }
+
+
+        public ActionResult DeleteKhachHang(int id)
+        {
+            try
+            {
+                KhachHang model = _dbContext.KhachHangs.Find(id);
+                if (model != null)
+                {
+                    // Xóa các đơn hàng của khách hàng
+                    List<DonHang> lstDH = _dbContext.DonHangs.Where(r => r.MaKH == id).ToList();
+                    foreach (DonHang item in lstDH)
+                    {
+                        if (item != null)
+                        {
+                            // Nếu cần thiết, có thể cập nhật thông tin trước khi xóa
+                            _dbContext.DonHangs.Remove(item);
+                        }
+                    }
+
+                    // Xóa tài khoản của khách hàng
+                    TaiKhoan tk = _dbContext.TaiKhoans.FirstOrDefault(r => r.MaTK == model.MaTK);
+                    if (tk != null)
+                    {
+                        _dbContext.TaiKhoans.Remove(tk);
+                    }
+
+                    // Xóa khách hàng
+                    _dbContext.KhachHangs.Remove(model);
+
+                    _dbContext.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Lỗi khi xóa khách hàng: " + ex.Message;
+            }
+
+            return RedirectToAction("QuanLyKhachHang");
+        }
+
+
 
 
 
