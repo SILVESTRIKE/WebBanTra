@@ -76,7 +76,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                         _dbContext.SanPhams.Add(sanPham);
                         _dbContext.SaveChanges(); // Lưu để lấy MaSP
 
-                        int maSP = _dbContext.SanPhams.OrderByDescending(r=>r.MaSP).FirstOrDefault().MaSP;
+                        int maSP = _dbContext.SanPhams.OrderByDescending(r => r.MaSP).FirstOrDefault().MaSP;
 
                         // 2. Xử lý hình ảnh nếu có
                         if (hinhanh != null && hinhanh.ContentLength > 0)
@@ -104,7 +104,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                             MoTa = model.mota
                         };
                         _dbContext.MoTa_SanPham.Add(moTaSanPham);
-                        if(model.hinhanh != null)
+                        if (model.hinhanh != null)
                         {
                             var anhSanPham = new Anh_SanPham
                             {
@@ -278,7 +278,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                 {
                     return RedirectToAction("DangNhap", "DN"); // Kiểm tra nhân viên có tồn tại
                 }
-                if(donHang.TrangThai == "Chờ xác nhận")
+                if (donHang.TrangThai == "Chờ xác nhận")
                 {
                     donHang.TrangThai = "Chưa giao";
                     donHang.MaNV = nhanVien.MaNV;
@@ -288,7 +288,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                 {
                     donHang.TrangThai = "Đã giao";
                     _dbContext.SaveChanges();
-                }    
+                }
 
                 return RedirectToAction("QuanLyDonHang");
             }
@@ -311,6 +311,7 @@ namespace WebBanTra.Areas.Admin.Controllers
             using (_dbContext)
             {
                 List<HoaDon> danhSachHoaDon = _dbContext.HoaDons.ToList();
+                ViewBag.TotalIncome = _dbContext.HoaDons.Sum(hd => hd.DonHang.TongTien ?? 0);
                 return View(danhSachHoaDon);
             }
         }
@@ -383,7 +384,7 @@ namespace WebBanTra.Areas.Admin.Controllers
             {
                 try
                 {
-                    NhanVien existingStaff = _dbContext.NhanViens.Where(r =>r.MaNV == model.MaNV).FirstOrDefault();
+                    NhanVien existingStaff = _dbContext.NhanViens.Where(r => r.MaNV == model.MaNV).FirstOrDefault();
                     if (existingStaff == null)
                     {
                         ModelState.AddModelError("", "Sản phẩm không tồn tại.");
@@ -392,10 +393,10 @@ namespace WebBanTra.Areas.Admin.Controllers
 
                     existingStaff.TenNV = model.TenNV;
                     existingStaff.ChucVu = model.ChucVu;
-                    existingStaff.DiaChi= model.DiaChi;
-                    existingStaff.Email= model.Email;
+                    existingStaff.DiaChi = model.DiaChi;
+                    existingStaff.Email = model.Email;
                     existingStaff.SDT = model.SDT;
-                    existingStaff.MaQuanLy= model.MaQuanLy;
+                    existingStaff.MaQuanLy = model.MaQuanLy;
 
                     _dbContext.SaveChanges();
 
@@ -421,7 +422,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                 {
                     List<DonHang> lstDH = _dbContext.DonHangs.Where(r => r.MaNV == id).ToList();
                     List<TaiKhoan> lstCTDNH = _dbContext.TaiKhoans.Where(r => r.MaTK == model.MaTK).ToList();
-                    List<NhanVien> lstNhanVien = _dbContext.NhanViens.Where(r=>r.MaQuanLy == model.MaNV).ToList();
+                    List<NhanVien> lstNhanVien = _dbContext.NhanViens.Where(r => r.MaQuanLy == model.MaNV).ToList();
                     foreach (DonHang item in lstDH)
                     {
                         if (item != null)
@@ -459,8 +460,23 @@ namespace WebBanTra.Areas.Admin.Controllers
         {
             ViewBag.NhaCungCaps = _dbContext.NhaCungCaps.ToList();
             ViewBag.SanPhams = _dbContext.SanPhams.ToList();
+
+            int maTK = (int)Session["MaTK"];
+            var nhanVien = _dbContext.NhanViens.FirstOrDefault(nv => nv.MaTK == maTK);
+
+            if (nhanVien == null)
+            {
+                // Xử lý trường hợp không tìm thấy nhân viên
+                ModelState.AddModelError("", "Không tìm thấy nhân viên.");
+                return View();
+            }
+
+            ViewBag.MaNV = nhanVien.MaNV; // Lấy giá trị Mã Nhân Viên từ session
+            ViewBag.TenNV = nhanVien.TenNV;
             return View();
         }
+
+
         [HttpPost]
         public ActionResult CreateDonNhapHang(DonNhapHang model, List<ChiTietDNH> chiTietDonNhap)
         {
@@ -470,6 +486,20 @@ namespace WebBanTra.Areas.Admin.Controllers
                 {
                     try
                     {
+                        // Lấy Mã Nhân Viên từ session và gán vào model
+                        int maTK = (int)Session["MaTK"];
+                        var nhanVien = _dbContext.NhanViens.FirstOrDefault(nv => nv.MaTK == maTK);
+
+                        if (nhanVien == null)
+                        {
+                            // Xử lý trường hợp không tìm thấy nhân viên
+                            ModelState.AddModelError("", "Không tìm thấy nhân viên.");
+                            return View(model);
+                        }
+
+                        model.MaNV = nhanVien.MaNV;
+                        model.NhanVien = nhanVien; // Gán đối tượng nhanVien vào model.NhanVien
+
                         // Tạo đơn nhập hàng mới
                         model.NgayDat = DateTime.Now;
                         _dbContext.DonNhapHangs.Add(model);
@@ -498,7 +528,8 @@ namespace WebBanTra.Areas.Admin.Controllers
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        ModelState.AddModelError("", "Lỗi khi tạo đơn nhập hàng: " + ex.Message);
+                        // Ghi log lỗi hoặc hiển thị chi tiết inner exception
+                        ModelState.AddModelError("", "Lỗi khi tạo đơn nhập hàng: " + ex.InnerException?.Message ?? ex.Message);
                     }
                 }
             }
@@ -508,6 +539,195 @@ namespace WebBanTra.Areas.Admin.Controllers
             ViewBag.SanPhams = _dbContext.SanPhams.ToList();
             return View(model);
         }
+        //public ActionResult AddToCart(int maSP, int soLuong)
+        //{
+        //    List<CartForNCC> cart = Session["Cart"] as List<CartForNCC> ?? new List<CartForNCC>();
+
+        //    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
+        //    CartForNCC item = cart.FirstOrDefault(c => c.MaSP == maSP);
+        //    if (item != null)
+        //    {
+        //        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
+        //        item.SoLuong += soLuong;
+        //    }
+        //    else
+        //    {
+        //        // Nếu sản phẩm chưa tồn tại, thêm sản phẩm mới vào giỏ hàng
+        //        var sanPham = _dbContext.SanPhams.FirstOrDefault(sp => sp.MaSP == maSP);
+        //        if (sanPham != null)
+        //        {
+        //            cart.Add(new CartForNCC
+        //            {
+        //                MaSP = sanPham.MaSP,
+        //                TenSP = sanPham.TenSP,
+        //                Gia = sanPham.Gia,
+        //                SoLuong = soLuong,
+
+        //            });
+        //        }
+        //    }
+
+        //    // Lưu giỏ hàng vào session
+        //    Session["Cart"] = cart;
+
+        //    return RedirectToAction("Admin");
+        //}
+
+        private List<CartForNCC> GetCart()
+        {
+            // Lấy giỏ hàng từ session
+            List<CartForNCC> cart = Session["Cart"] as List<CartForNCC>;
+
+            // Kiểm tra nếu giỏ hàng rỗng hoặc không tồn tại
+            if (cart == null)
+            {
+                cart = new List<CartForNCC>();
+            }
+
+            // Lấy các sản phẩm có số lượng lớn hơn 0
+            return cart.Where(c => c.SoLuong > 0).ToList();
+        }
+
+        [HttpPost]
+        public ActionResult CheckOutDNH(DonNhapHang model, FormCollection form)
+        {
+            DB_BanTraEntities db = new DB_BanTraEntities();
+            List<ChiTietDNH> chiTietDonNhap = new List<ChiTietDNH>();
+
+            var sanPhams = db.SanPhams.ToList();
+            foreach (var sanPham in sanPhams)
+            {
+                int soLuong;
+                if (int.TryParse(form["chiTietDonNhap[" + sanPham.MaSP + "].SoLuongNhap"], out soLuong) && soLuong > 0)
+                {
+                    chiTietDonNhap.Add(new ChiTietDNH
+                    {
+                        MaSP = sanPham.MaSP,
+                        SoLuongNhap = soLuong,
+                        GiaNhap = Math.Round(Convert.ToDecimal(sanPham.Gia) * 0.7m, 2)
+
+                    });
+                }
+            }
+
+            if (!chiTietDonNhap.Any())
+            {
+                ModelState.AddModelError("", "Giỏ hàng của bạn trống. Vui lòng thêm sản phẩm vào giỏ hàng trước khi thanh toán.");
+                ViewBag.NhaCungCaps = db.NhaCungCaps.ToList();
+                ViewBag.SanPhams = db.SanPhams.ToList();
+                return View("CreateDonNhapHang", model);
+            }
+
+            try
+            {
+                int maTK = Convert.ToInt32(Session["MaTK"]);
+                int maNV = db.NhanViens.FirstOrDefault(p => p.MaTK == maTK).MaNV;
+
+                model.MaNV = maNV;
+                model.NgayDat = DateTime.Now;
+                model.TongTien = chiTietDonNhap.Sum(r => r.SoLuongNhap * r.GiaNhap);
+                model.TrangThai = false;
+
+                db.DonNhapHangs.Add(model);
+                db.SaveChanges();
+
+                int maDNH = model.MaDNH;
+
+                foreach (var item in chiTietDonNhap)
+                {
+                    item.MaDNH = maDNH;
+                    db.ChiTietDNHs.Add(item);
+                }
+                db.SaveChanges();
+
+                Session["Cart"] = null;
+                return RedirectToAction("QuanLyDonNhapHang");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Lỗi khi tạo đơn nhập hàng: " + ex.Message);
+                ViewBag.NhaCungCaps = db.NhaCungCaps.ToList();
+                ViewBag.SanPhams = db.SanPhams.ToList();
+                return View("CreateDonNhapHang", model);
+            }
+        }
+
+
+
+        public ActionResult QuanLyDonNhapHang()
+        {
+            using (_dbContext)
+            {
+                var danhSachNhapDonHang = _dbContext.DonNhapHangs
+                                                         .Include(dnh => dnh.NhanVien)
+                                                         .Include(dnh => dnh.NhaCungCap)
+                                                         .ToList();
+                return View(danhSachNhapDonHang);
+            }
+        }
+        [HttpPost]
+        public ActionResult XacNhanDonNhapHang(int madonNhapHang)
+        {
+            if (Session["MaTK"] == null)
+            {
+                return RedirectToAction("DangNhap", "DN"); // Chuyển hướng nếu chưa đăng nhập
+            }
+
+            using (var transaction = _dbContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    var donNhapHang = _dbContext.DonNhapHangs
+                                                .Include(dnh => dnh.ChiTietDNHs)
+                                                .FirstOrDefault(dnh => dnh.MaDNH == madonNhapHang);
+                    if (donNhapHang == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    int maTK = (int)Session["MaTK"];
+                    var nhanVien = _dbContext.NhanViens.FirstOrDefault(nv => nv.MaTK == maTK);
+                    if (nhanVien == null)
+                    {
+                        return RedirectToAction("DangNhap", "DN"); // Kiểm tra nhân viên có tồn tại
+                    }
+
+                    if (donNhapHang.TrangThai == false)
+                    {
+                        foreach (var chiTiet in donNhapHang.ChiTietDNHs)
+                        {
+                            var sanPham = _dbContext.SanPhams.FirstOrDefault(s => s.MaSP == chiTiet.MaSP);
+                            if (sanPham != null)
+                            {
+                                sanPham.SoLuongTon += chiTiet.SoLuongNhap ?? 0; // Chuyển đổi tường minh từ int? sang int
+                            }
+                        }
+
+                        donNhapHang.TrangThai = true; // Cập nhật trạng thái đơn nhập hàng thành đã xử lý
+                        donNhapHang.MaNV = nhanVien.MaNV;
+                        _dbContext.SaveChanges();
+                        transaction.Commit();
+                    }
+
+                    return RedirectToAction("QuanLyDonNhapHang");
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    ModelState.AddModelError("", "Lỗi khi xác nhận đơn nhập hàng: " + ex.Message);
+                    return RedirectToAction("QuanLyDonNhapHang");
+                }
+            }
+        }
+        public ActionResult GetTotalIncome()
+        {
+            using (_dbContext)
+            {
+                var totalIncome = _dbContext.HoaDons.Sum(hd => hd.DonHang.TongTien ?? 0); 
+                return PartialView("_TotalIncome", totalIncome);
+            }
+        }
+
 
     }
 }

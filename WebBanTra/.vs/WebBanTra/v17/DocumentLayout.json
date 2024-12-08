@@ -3,24 +3,104 @@
   "WorkspaceRootPath": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\quanlyhoadon.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlyhoadon.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\createnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\_totalincome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\_totalincome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\areas\\admin\\views\\admin\\quanlydonnhaphang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlydonnhaphang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\createdonnhaphang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createdonnhaphang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\createnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createnhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\quanlydonhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlydonhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\oop\\cartforncc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\oop\\cartforncc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\oop\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\oop\\cartdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\createsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.DonHang.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.HoaDon.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\models\\db_bantraentities.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\models\\db_bantraentities.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|d:\\hufi\\hk5\\laptrinhweb\\webbantra\\webbantra\\webbantra\\models\\db_bantraentities.tt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\models\\db_bantraentities.tt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\quanlynhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\views\\cart\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\cart\\order.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\views\\cart\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\views\\cart\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\oop\\detailproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\oop\\detailproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\oop\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\oop\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.TaiKhoan.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.ChiTietDNH.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,32 +127,12 @@
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\createsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\createsanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\userprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\admin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\updatenhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\updatenhanvien.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\areas\\admin\\views\\admin\\updatesanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\areas\\admin\\views\\admin\\updatesanpham.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF7AECBE-EA3E-4AFC-8BA7-112E91A94A30}|WebBanTra\\WebBanTra.csproj|solutionrelative:webbantra\\controllers\\dncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,24 +142,90 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "QuanLyNhanVien.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADEAAAAQAAAA",
+              "DocumentIndex": 7,
+              "Title": "Admin.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAlwHkAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T15:18:33.328Z",
+              "WhenOpened": "2024-12-07T08:05:37.391Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_TotalIncome.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\_TotalIncome.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\_TotalIncome.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\_TotalIncome.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\_TotalIncome.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-08T05:34:30.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuanLyDonNhapHang.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonNhapHang.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonNhapHang.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonNhapHang.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonNhapHang.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAABAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-08T03:39:23.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuanLyHoaDon.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyHoaDon.cshtml",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T20:03:46.718Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAACwBAAAAAAAAAAAUwDQBAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T09:09:12.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreateDonNhapHang.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAABUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T10:25:00.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "CreateNhanVien.cshtml",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateNhanVien.cshtml",
               "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateNhanVien.cshtml",
@@ -112,19 +238,233 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DanhMuc.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Product\\DanhMuc.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Views\\Product\\DanhMuc.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Product\\DanhMuc.cshtml",
-              "RelativeToolTip": "WebBanTra\\Views\\Product\\DanhMuc.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 6,
+              "Title": "QuanLyDonHang.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonHang.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonHang.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonHang.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyDonHang.cshtml",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAABkAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T14:47:13.041Z"
+              "WhenOpened": "2024-12-07T20:03:43.138Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AQIAADYBAAAAAAAAAAAlwEYBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T15:38:54.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\CartController.cs",
+              "RelativeToolTip": "WebBanTra\\Controllers\\CartController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAIAwwBMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T14:44:49.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CartForNCC.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\CartForNCC.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\OOP\\CartForNCC.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\CartForNCC.cs",
+              "RelativeToolTip": "WebBanTra\\OOP\\CartForNCC.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:44:44.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CartDetail.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\CartDetail.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\OOP\\CartDetail.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\CartDetail.cs",
+              "RelativeToolTip": "WebBanTra\\OOP\\CartDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:38:17.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CreateSanPham.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABsAAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T10:20:11.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DNController.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\DNController.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
+              "RelativeToolTip": "WebBanTra\\Controllers\\DNController.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAuwH8AAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T09:10:06.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "dbo.DonHang [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.DonHang.sql",
+              "ToolTip": "dbo.DonHang [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-07T19:35:30.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "dbo.HoaDon [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.HoaDon.sql",
+              "ToolTip": "dbo.HoaDon [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-08T03:46:41.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DB_BanTraEntities.edmx [Diagram1]",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Models\\DB_BanTraEntities.edmx",
+              "RelativeDocumentMoniker": "WebBanTra\\Models\\DB_BanTraEntities.edmx",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Models\\DB_BanTraEntities.edmx [Diagram1]",
+              "RelativeToolTip": "WebBanTra\\Models\\DB_BanTraEntities.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-12-08T03:41:24.945Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DB_BanTraEntities.tt",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Models\\DB_BanTraEntities.tt",
+              "RelativeDocumentMoniker": "WebBanTra\\Models\\DB_BanTraEntities.tt",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Models\\DB_BanTraEntities.tt",
+              "RelativeToolTip": "WebBanTra\\Models\\DB_BanTraEntities.tt",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-08T03:41:29.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "QuanLyNhanVien.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\QuanLyNhanVien.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAADEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T15:18:33.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Order.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Cart\\Order.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Views\\Cart\\Order.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Cart\\Order.cshtml",
+              "RelativeToolTip": "WebBanTra\\Views\\Cart\\Order.cshtml",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAAAJ0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T14:52:23.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DetailProduct.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\DetailProduct.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\OOP\\DetailProduct.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\DetailProduct.cs",
+              "RelativeToolTip": "WebBanTra\\OOP\\DetailProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:44:52.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "WebBanTra\\OOP\\OrderDetail.cs",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\OOP\\OrderDetail.cs",
+              "RelativeToolTip": "WebBanTra\\OOP\\OrderDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-07T19:58:53.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Cart\\Cart.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Views\\Cart\\Cart.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Cart\\Cart.cshtml",
+              "RelativeToolTip": "WebBanTra\\Views\\Cart\\Cart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T19:59:05.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "dbo.TaiKhoan [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.TaiKhoan.sql",
+              "ToolTip": "dbo.TaiKhoan [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-07T15:36:35.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "dbo.ChiTietDNH [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/LIEM_PHONG_THCSDL/DB_BanTra/True/SqlTable/dbo.ChiTietDNH.sql",
+              "ToolTip": "dbo.ChiTietDNH [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-12-07T19:32:13.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UserProfile.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
+              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAewHEAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T10:20:07.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "Product.cshtml",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Product\\Product.cshtml",
               "RelativeDocumentMoniker": "WebBanTra\\Views\\Product\\Product.cshtml",
@@ -136,7 +476,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 28,
+              "Title": "DanhMuc.cshtml",
+              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Product\\DanhMuc.cshtml",
+              "RelativeDocumentMoniker": "WebBanTra\\Views\\Product\\DanhMuc.cshtml",
+              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Product\\DanhMuc.cshtml",
+              "RelativeToolTip": "WebBanTra\\Views\\Product\\DanhMuc.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-07T14:47:13.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebBanTra\\Controllers\\HomeController.cs",
@@ -148,45 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateDonNhapHang.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateDonNhapHang.cshtml",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAC0AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T10:25:00.45Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\CartController.cs",
-              "RelativeToolTip": "WebBanTra\\Controllers\\CartController.cs",
-              "ViewState": "AQIAAPQAAAAAAAAAAAAawA8BAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T14:44:49.629Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Order.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Cart\\Order.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Views\\Cart\\Order.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Cart\\Order.cshtml",
-              "RelativeToolTip": "WebBanTra\\Views\\Cart\\Order.cshtml",
-              "ViewState": "AQIAAI0AAAAAAAAAAAAAAJ0AAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T14:52:23.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 30,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "WebBanTra\\Controllers\\ProductController.cs",
@@ -198,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 26,
               "Title": "KhachHangController.cs",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\KhachHangController.cs",
               "RelativeDocumentMoniker": "WebBanTra\\Controllers\\KhachHangController.cs",
@@ -210,19 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwNQAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T09:09:12.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 29,
               "Title": "ChiTietSanPham.cshtml",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Views\\Product\\ChiTietSanPham.cshtml",
               "RelativeDocumentMoniker": "WebBanTra\\Views\\Product\\ChiTietSanPham.cshtml",
@@ -234,19 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "CreateSanPham.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\CreateSanPham.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAABUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T10:20:11.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 33,
               "Title": "UpdateSanPham.cshtml",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateSanPham.cshtml",
               "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateSanPham.cshtml",
@@ -258,19 +548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "UserProfile.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UserProfile.cshtml",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T10:20:07.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 32,
               "Title": "UpdateNhanVien.cshtml",
               "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateNhanVien.cshtml",
               "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\UpdateNhanVien.cshtml",
@@ -279,30 +557,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-07T10:20:09.284Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Admin.cshtml",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "RelativeDocumentMoniker": "WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "RelativeToolTip": "WebBanTra\\Areas\\Admin\\Views\\Admin\\Admin.cshtml",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADEAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-07T08:05:37.391Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DNController.cs",
-              "DocumentMoniker": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
-              "RelativeDocumentMoniker": "WebBanTra\\Controllers\\DNController.cs",
-              "ToolTip": "D:\\hufi\\hk5\\LaptrinhWeb\\WebBanTra\\WebBanTra\\WebBanTra\\Controllers\\DNController.cs",
-              "RelativeToolTip": "WebBanTra\\Controllers\\DNController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T09:10:06.529Z"
             }
           ]
         }

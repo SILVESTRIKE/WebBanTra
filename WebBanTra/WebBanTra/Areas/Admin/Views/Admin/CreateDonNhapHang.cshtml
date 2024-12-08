@@ -4,11 +4,13 @@
     ViewBag.Title = "CreateDonNhapHang";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     List<WebBanTra.Models.SanPham> sanPhams = ViewBag.SanPhams as List<WebBanTra.Models.SanPham>;
+    string maNV = ViewBag.MaNV?.ToString(); // Lấy giá trị Mã Nhân Viên từ ViewBag
+    string tenNV = ViewBag.TenNV?.ToString(); // Lấy giá trị Tên Nhân Viên từ ViewBag
 }
 
 <h2>Create DonNhapHang</h2>
 
-@using (Html.BeginForm("CreateDonNhapHang", "Admin", FormMethod.Post))
+@using (Html.BeginForm("CheckOutDNH", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -16,6 +18,20 @@
         <h4>Đơn Nhập Hàng</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("MaNV", "Mã Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="MaNV" value="@maNV" readonly />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("TenNV", "Tên Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="TenNV" value="@tenNV" readonly />
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.MaNCC, "Nhà Cung Cấp", htmlAttributes: new { @class = "control-label col-md-2" })

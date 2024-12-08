@@ -429,6 +429,8 @@
     <Content Include="Models\DB_BanTraEntities.edmx.diagram">
       <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Admin\QuanLyDonNhapHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\_TotalIncome.cshtml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -516,6 +518,7 @@
     </Compile>
     <Compile Include="OOP\AppUser.cs" />
     <Compile Include="OOP\CartDetail.cs" />
+    <Compile Include="OOP\CartForNCC.cs" />
     <Compile Include="OOP\DetailProduct.cs" />
     <Compile Include="OOP\OrderDetail.cs" />
     <Compile Include="OOP\ProductDetailViewModel.cs" />

@@ -15,6 +15,7 @@
                 <th>Mã Đơn Hàng</th>
                 <th>Ngày Tạo</th>
                 <th>Trạng Thái</th>
+                @*<th>Tổng tiền</th>*@
             </tr>
         </thead>
         <tbody>
@@ -27,10 +28,20 @@
                     <td>@hoaDon.NgayLap</td>
                     @*<td>@hoaDon.TrangThaiThanhToan.ToString("C")</td>*@
                     <td>@hoaDon.TrangThaiThanhToan.</td>
+                    @*<td>@hoaDon.DonHang.TongTien</td>*@
                 </tr>
             }
         </tbody>
+        
     </table>
+
+
+    @*<div class="form-group">
+        @Html.Label("MaNV", "Mã Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="MaNV" value="@maNV" readonly />
+        </div>
+    </div>*@
     <div class="btn-group">
         <a href="/Admin/Admin/Admin" class="cta-btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px 25px; text-align: center; font-size: 20px;">Quay về</a>
     </div>
