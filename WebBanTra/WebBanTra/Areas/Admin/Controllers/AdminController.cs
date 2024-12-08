@@ -16,7 +16,8 @@ namespace WebBanTra.Areas.Admin.Controllers
     {
 
         private readonly DB_BanTraEntities _dbContext = new DB_BanTraEntities();
-
+        public static List<SanPham> spBanChay = new List<SanPham>();
+        public static List<Anh_SanPham> aspBanChay = new List<Anh_SanPham>();
         public AdminController()
         {
             this._dbContext = new DB_BanTraEntities();
@@ -34,6 +35,18 @@ namespace WebBanTra.Areas.Admin.Controllers
 
             // Lấy tổng số khách hàng (đếm số lượng tài khoản của khách hàng)
             ViewBag.TotalCustomers = _dbContext.KhachHangs.Count();
+
+            var spbc = _dbContext.ChiTietDHs.GroupBy(r => r.MaSP).Select(g => new
+            {
+                MaSP = g.Key,
+                SoLuong = g.Sum(r => r.SoLuongMua),
+            }).OrderByDescending(g => g.SoLuong).Take(9).ToList();
+            
+            foreach (var item in spbc)
+            {
+                spBanChay.Add(_dbContext.SanPhams.Find(item.MaSP));
+                aspBanChay.Add(_dbContext.Anh_SanPham.FirstOrDefault(r => r.MaSP == item.MaSP));
+            }
             return View(list);
         }
 
@@ -341,10 +354,13 @@ namespace WebBanTra.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CreateNhanVien(NhanVien model)
         {
-            if (ModelState.IsValid)
-            {
                 try
                 {
+                    if(model.TenNV == null || model.SDT == null || model.Email == null || model.ChucVu == null) 
+                    {
+                        ModelState.AddModelError("TenNV", "Hãy nhập đầy đủ trường thông tin");
+                        return View(model);
+                    }
                     List<NhanVien> lstNhanVien = _dbContext.NhanViens.ToList();
                     foreach (NhanVien item in lstNhanVien)
                     {
@@ -367,8 +383,6 @@ namespace WebBanTra.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "Lỗi khi thêm Nhân viên: " + ex.Message);
                 }
-            }
-
             ViewBag.NhanViens = _dbContext.NhanViens.ToList();
             return View(model);
         }

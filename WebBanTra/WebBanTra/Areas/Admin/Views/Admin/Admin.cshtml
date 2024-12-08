@@ -274,10 +274,38 @@
                                         });
                                     </script>
                                     <!-- End Line Chart -->
-
                                 </div>
-
                             </div>
+
+
+                            <div class="col-xxl-4 col-md-6">
+                                @foreach (var item in WebBanTra.Areas.Admin.Controllers.AdminController.spBanChay)
+                                {
+                                    <div class="card info-card sales-card">
+
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.TenSP <span>| Mã sản phẩm: @item.MaSP</span></h5>
+
+                                            <div class="d-flex align-items-center">
+                                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                                    <img src="@item.Anh_SanPham.FirstOrDefault().LinhAnh" style="width : 100px;" />
+                                                </div>
+                                                <div class="ps-3">
+                                                    <h6>@item.Gia</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                }
+                            </div>
+                            
+
+
+
+
+
+
                         </div><!-- End Reports -->
                         <!-- Recent Sales -->
                         <div class="col-12">
