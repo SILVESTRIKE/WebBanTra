@@ -9,6 +9,7 @@ using System.Data.Entity;
 using WebBanTra.OOP;
 using System.IO;
 using System.Web.Configuration;
+using System.Collections;
 
 namespace WebBanTra.Areas.Admin.Controllers
 {
@@ -17,7 +18,6 @@ namespace WebBanTra.Areas.Admin.Controllers
 
         private readonly DB_BanTraEntities _dbContext = new DB_BanTraEntities();
         public static List<SanPham> spBanChay = new List<SanPham>();
-        public static List<Anh_SanPham> aspBanChay = new List<Anh_SanPham>();
         public AdminController()
         {
             this._dbContext = new DB_BanTraEntities();
@@ -25,6 +25,7 @@ namespace WebBanTra.Areas.Admin.Controllers
 
         public ActionResult Admin()
         {
+            spBanChay.Clear();
             var list = _dbContext.SanPhams.ToList();
             ViewBag.listAnhSP = _dbContext.Anh_SanPham.ToList();
             // Lấy tổng số đơn hàng đã bán
@@ -41,11 +42,18 @@ namespace WebBanTra.Areas.Admin.Controllers
                 MaSP = g.Key,
                 SoLuong = g.Sum(r => r.SoLuongMua),
             }).OrderByDescending(g => g.SoLuong).Take(9).ToList();
-            
+
+            List<SanPham> lstsp = new List<SanPham>();
+
             foreach (var item in spbc)
             {
-                spBanChay.Add(_dbContext.SanPhams.Find(item.MaSP));
-                aspBanChay.Add(_dbContext.Anh_SanPham.FirstOrDefault(r => r.MaSP == item.MaSP));
+                lstsp.Add(_dbContext.SanPhams.Find(item.MaSP));
+            }
+
+            bool khac = lstsp.Except(spBanChay).Any() || spBanChay.Except(lstsp).Any();
+            if(khac)
+            {
+                spBanChay = lstsp; 
             }
             return View(list);
         }
