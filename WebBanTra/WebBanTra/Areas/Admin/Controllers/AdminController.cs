@@ -15,7 +15,7 @@ namespace WebBanTra.Areas.Admin.Controllers
     public class AdminController : Controller
     {
 
-        private readonly DB_BanTraEntities _dbContext;
+        private readonly DB_BanTraEntities _dbContext = new DB_BanTraEntities();
 
         public AdminController()
         {
@@ -26,6 +26,14 @@ namespace WebBanTra.Areas.Admin.Controllers
         {
             var list = _dbContext.SanPhams.ToList();
             ViewBag.listAnhSP = _dbContext.Anh_SanPham.ToList();
+            // Lấy tổng số đơn hàng đã bán
+            ViewBag.TotalOrders = _dbContext.DonHangs.Count();
+
+            // Lấy tổng số tiền đã kiếm được
+            ViewBag.TotalRevenue = _dbContext.HoaDons.Sum(hd => hd.DonHang.TongTien ?? 0);
+
+            // Lấy tổng số khách hàng (đếm số lượng tài khoản của khách hàng)
+            ViewBag.TotalCustomers = _dbContext.KhachHangs.Count();
             return View(list);
         }
 
@@ -308,12 +316,11 @@ namespace WebBanTra.Areas.Admin.Controllers
 
         public ActionResult QuanLyHoaDon()
         {
-            using (_dbContext)
-            {
-                List<HoaDon> danhSachHoaDon = _dbContext.HoaDons.ToList();
-                ViewBag.TotalIncome = _dbContext.HoaDons.Sum(hd => hd.DonHang.TongTien ?? 0);
-                return View(danhSachHoaDon);
-            }
+            var hoaDons = _dbContext.HoaDons
+                               .Include(hd => hd.DonHang) // Explicit loading
+                               .ToList();
+            ViewBag.TotalIncome = hoaDons.Sum(hd => hd.DonHang.TongTien ?? 0);
+            return View(hoaDons);
         }
 
         public ActionResult QuanLyNhanVien()
@@ -727,6 +734,17 @@ namespace WebBanTra.Areas.Admin.Controllers
                 return PartialView("_TotalIncome", totalIncome);
             }
         }
+        public int SLDH()
+        {
+            return _dbContext.DonHangs.Count();
+        }
+        public ActionResult Dashboard()
+        {
+            
+
+            return View();
+        }
+
 
 
     }
