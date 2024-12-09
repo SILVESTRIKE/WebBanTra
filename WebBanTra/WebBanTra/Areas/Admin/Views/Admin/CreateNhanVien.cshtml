@@ -19,6 +19,18 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(x => x.TaiKhoan.TenDangNhap, "Tên đăng nhập", new { @class = "form-label" })
+            @Html.TextBoxFor(x => x.TaiKhoan.TenDangNhap, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.TaiKhoan.TenDangNhap, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.TaiKhoan.MatKhau, "Mật Khẩu", new { @class = "form-label" })
+            @Html.PasswordFor(x => x.TaiKhoan.MatKhau, new { @class = "form-control", required = "required" })
+            @Html.ValidationMessageFor(x => x.TaiKhoan.MatKhau, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
             <div class="form-group">
                 <label for="ChucVu">Chức vụ</label>
                 <select name="ChucVu" class="form-control" id="chuc-vu">
@@ -46,10 +58,10 @@
             @Html.ValidationMessageFor(x => x.SDT, "", new { @class = "text-danger" })
         </div>
 
-        <div class="form-group" id="quan-ly-nhan-vien" >
+        <div class="form-group" id="quan-ly-nhan-vien">
             <label for="MaQuanLy">Quản lý</label>
             <select name="MaDM" class="form-control">
-                <optgroup label="Danh mục">
+                <optgroup label="Quản lý bởi...">
                     @foreach (var item in lstNhanVien)
                     {
                         <option value="@item.MaNV">@item.TenNV</option>

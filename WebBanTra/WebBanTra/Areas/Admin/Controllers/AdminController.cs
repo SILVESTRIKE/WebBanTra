@@ -362,36 +362,43 @@ namespace WebBanTra.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult CreateNhanVien(NhanVien model)
         {
-                try
+            try
+            {
+                ViewBag.NhanViens = _dbContext.NhanViens.ToList();
+                if (model.TenNV == null || model.SDT == null || model.Email == null || model.ChucVu == null)
                 {
-                    if(model.TenNV == null || model.SDT == null || model.Email == null || model.ChucVu == null) 
-                    {
-                        ModelState.AddModelError("TenNV", "Hãy nhập đầy đủ trường thông tin");
-                        return View(model);
-                    }
-                    List<NhanVien> lstNhanVien = _dbContext.NhanViens.ToList();
-                    foreach (NhanVien item in lstNhanVien)
-                    {
-                        if (item.SDT == model.SDT)
-                        {
-                            ModelState.AddModelError("", "Số điện thoại của nhân viên đã tồn tại.");
-                            return View(model);
-                        }
-                        if (item.Email == model.Email)
-                        {
-                            ModelState.AddModelError("", "Email của nhân viên đã tồn tại.");
-                            return View(model);
-                        }
-                    }
-                    _dbContext.NhanViens.Add(model);
-                    _dbContext.SaveChanges();
-                    return RedirectToAction("QuanLyNhanVien");
+                    ModelState.AddModelError("TenNV", "Hãy nhập đầy đủ trường thông tin");
+                    return View(model);
                 }
-                catch (Exception ex)
+
+                if (_dbContext.TaiKhoans.Where(r => r.TenDangNhap == model.TaiKhoan.TenDangNhap).FirstOrDefault() != null)
                 {
-                    ModelState.AddModelError("", "Lỗi khi thêm Nhân viên: " + ex.Message);
+                    ModelState.AddModelError("TenDangNhap", "Tài khoản đã tồn tại.");
+                    return View(model);
                 }
-            ViewBag.NhanViens = _dbContext.NhanViens.ToList();
+                model.TaiKhoan.VaiTro = model.ChucVu == "Admin" ? "Admin" : "Nhân viên";
+                model.TaiKhoan.TrangThai = "Không đăng nhập";
+
+                if (_dbContext.NhanViens.Where(r=> r.SDT == model.SDT).FirstOrDefault() != null)
+                {
+                    ModelState.AddModelError("", "Số điện thoại của nhân viên đã tồn tại.");
+                    return View(model);
+                }
+                if (_dbContext.NhanViens.Where(r => r.SDT == model.Email).FirstOrDefault() != null)
+                {
+                    ModelState.AddModelError("", "Email của nhân viên đã tồn tại.");
+                    return View(model);
+                }
+
+                _dbContext.NhanViens.Add(model);
+                _dbContext.SaveChanges();
+                return RedirectToAction("QuanLyNhanVien");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Lỗi khi thêm Nhân viên: " + ex.Message);
+            }
+            
             return View(model);
         }
 

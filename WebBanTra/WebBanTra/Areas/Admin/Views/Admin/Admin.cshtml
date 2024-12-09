@@ -29,28 +29,7 @@
                         <i class="bi bi-circle"></i><span>ĐƠN HÀNG</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/Admin/Admin/QuanLyHoaDon">
-                        <i class="bi bi-circle"></i><span>HÓA ĐƠN</span>
-                    </a>
-                </li>
-                @if (Session["VaiTro"] == null)
-                {
-                    Response.Redirect(Url.Action("DangNhap", "DN", new { area = "" }));
-                }
-                else if (Session["VaiTro"].ToString() == "Admin")
-                {
-                    <li>
-                        <a href="/Admin/Admin/QuanLyNhanVien">
-                            <i class="bi bi-circle"></i><span>NHÂN VIÊN</span>
-                        </a>
-                    </li>
-                }
-                <li>
-                    <a href="/Admin/Admin/QuanLyKhachHang">
-                        <i class="bi bi-circle"></i><span>KHÁCH HÀNG</span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="/Admin/Admin/CreateDonNhapHang">
                         <i class="bi bi-circle"></i><span>ĐẶT HÀNG TỪ NHÀ CUNG CẤP</span>
@@ -61,7 +40,30 @@
                         <i class="bi bi-circle"></i><span>TRẠNG THÁI ĐƠN HÀNG TỪ NHÀ CUNG CẤP</span>
                     </a>
                 </li>
+                @if (Session["VaiTro"] == null)
+                {
+                    Response.Redirect(Url.Action("DangNhap", "DN", new { area = "" }));
+                }
+                else if (Session["VaiTro"].ToString() == "Admin")
+                {
+                    <li>
+                        <a href="/Admin/Admin/QuanLyHoaDon">
+                            <i class="bi bi-circle"></i><span>HÓA ĐƠN</span>
+                        </a>
+                    </li>
 
+                    <li>
+                        <a href="/Admin/Admin/QuanLyNhanVien">
+                            <i class="bi bi-circle"></i><span>NHÂN VIÊN</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Admin/Admin/QuanLyKhachHang">
+                            <i class="bi bi-circle"></i><span>KHÁCH HÀNG</span>
+                        </a>
+                    </li>
+                }
 
             </ul>
         </li><!-- End Charts Nav -->
