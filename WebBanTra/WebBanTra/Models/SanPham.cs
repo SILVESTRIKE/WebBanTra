@@ -25,7 +25,7 @@ namespace WebBanTra.Models
     
         public int MaSP { get; set; }
         public string TenSP { get; set; }
-        public decimal Gia { get; set; }
+        public double Gia { get; set; }
         public int SoLuongTon { get; set; }
         public int MaDM { get; set; }
     

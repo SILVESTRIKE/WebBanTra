@@ -32,7 +32,7 @@
     <Property Name="MaDNH" Type="Int32" Nullable="false" />
     <Property Name="MaSP" Type="Int32" Nullable="false" />
     <Property Name="SoLuongNhap" Type="Int32" />
-    <Property Name="GiaNhap" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="GiaNhap" Type="Double" />
     <NavigationProperty Name="DonNhapHang" Relationship="Self.FK__ChiTietDN__MaDNH__6D0D32F4" FromRole="ChiTietDNH" ToRole="DonNhapHang" />
     <NavigationProperty Name="SanPham" Relationship="Self.FK__ChiTietDNH__MaSP__6E01572D" FromRole="ChiTietDNH" ToRole="SanPham" />
   </EntityType>
@@ -65,7 +65,7 @@
     <Property Name="MaKH" Type="Int32" />
     <Property Name="MaNV" Type="Int32" />
     <Property Name="NgayDat" Type="DateTime" Precision="0" />
-    <Property Name="TongTien" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TongTien" Type="Double" />
     <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ChiTietDHs" Relationship="Self.FK__ChiTietDH__MaDH__5EBF139D" FromRole="DonHang" ToRole="ChiTietDH" />
     <NavigationProperty Name="KhachHang" Relationship="Self.FK__DonHang__MaKH__5812160E" FromRole="DonHang" ToRole="KhachHang" />
@@ -79,7 +79,7 @@
     <Property Name="MaDNH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNCC" Type="Int32" />
     <Property Name="NgayDat" Type="DateTime" Precision="0" />
-    <Property Name="TongTien" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TongTien" Type="Double" />
     <Property Name="TrangThai" Type="Boolean" />
     <Property Name="MaNV" Type="Int32" />
     <NavigationProperty Name="ChiTietDNHs" Relationship="Self.FK__ChiTietDN__MaDNH__6D0D32F4" FromRole="DonNhapHang" ToRole="ChiTietDNH" />
@@ -157,7 +157,7 @@
     </Key>
     <Property Name="MaSP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenSP" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Gia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Gia" Type="Double" Nullable="false" />
     <Property Name="SoLuongTon" Type="Int32" Nullable="false" />
     <Property Name="MaDM" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Anh_SanPham" Relationship="Self.FK_Anh_SanPham_SanPham" FromRole="SanPham" ToRole="Anh_SanPham" />

@@ -55,7 +55,7 @@ go
 CREATE TABLE SanPham (
     MaSP INT IDENTITY(1,1) PRIMARY KEY,
     TenSP NVARCHAR(255) NOT NULL, -- Tên sản phẩm
-    Gia DECIMAL(10, 2) NOT NULL CHECK (Gia >= 0), -- Giá sản phẩm (>= 0)
+    Gia FLOAT NOT NULL CHECK (Gia >= 0), -- Giá sản phẩm (>= 0)
     SoLuongTon INT NOT NULL CHECK (SoLuongTon >= 0), -- Số lượng tồn kho (>= 0)
     MaDM INT NOT NULL,           -- Mã danh mục, liên kết tới bảng DanhMuc
     CONSTRAINT FK_SanPham_DanhMuc FOREIGN KEY (MaDM) REFERENCES DanhMuc(MaDM)
@@ -102,7 +102,7 @@ CREATE TABLE DonHang (
     MaKH INT,
     MaNV INT,  -- Nhân viên xử lý đơn hàng
     NgayDat DATE,
-    TongTien DECIMAL(10, 2) CHECK (TongTien>=0),
+    TongTien FLOAT CHECK (TongTien>=0),
     TrangThai NVARCHAR(50) CHECK (TrangThai IN (N'Chờ xác nhận', N'Đã giao', N'Chưa giao')) DEFAULT(N'Chờ xác nhận'),
     FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
@@ -116,6 +116,7 @@ CREATE TABLE ChiTietDH (
     MaSP INT,               -- Tham chiếu đến sản phẩm
     SoLuongMua INT CHECK (SoLuongMua>0),
 	YeuCau NVARCHAR(255),
+	TrangThaiDanhGia NVARCHAR(255) check(TrangThaiDanhGia in (N'Chưa đánh giá', N'Đã đánh giá')) DEFAULT (N'Chưa đánh giá'),
     FOREIGN KEY (MaDH) REFERENCES DonHang(MaDH),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP) 
 );
@@ -137,7 +138,7 @@ CREATE TABLE DonNhapHang (
     MaDNH INT IDENTITY(1,1) PRIMARY KEY,
     MaNCC INT,
     NgayDat DATE,
-    TongTien DECIMAL(10, 2) CHECK(TongTien>0),
+    TongTien FLOAT CHECK(TongTien>0),
     TrangThai BIT,
     MaNV INT,
     CONSTRAINT FK_DonNhapHang_NhanVien FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
@@ -150,7 +151,7 @@ CREATE TABLE ChiTietDNH (
     MaDNH INT,
     MaSP INT,
     SoLuongNhap INT CHECK (SOLUONGNHAP>0),
-    GiaNhap DECIMAL(10, 2),
+    GiaNhap FLOAT,
 	CONSTRAINT PK_ChiTietDNH PRIMARY KEY(MaDNH,MaSP),
     FOREIGN KEY (MaDNH) REFERENCES DonNhapHang(MaDNH),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
@@ -387,17 +388,31 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng ChiTietDH
-INSERT INTO ChiTietDH (MaDH, MaSP, SoLuongMua, YeuCau)
+INSERT INTO ChiTietDH (MaDH, MaSP, SoLuongMua, YeuCau, TrangThaiDanhGia)
 VALUES 
-(1, 1, 2, NULL),
-(1, 2, 1, NULL),
-(2, 1, 1, NULL),
-(3, 1, 2, NULL),
-(4, 2, 1, NULL),
-(5, 8, 1, NULL),
-(6, 9, 2, NULL),
-(7, 9, 1, NULL),
-(8, 8, 1, NULL);
+(1, 1, 2, NULL, DEFAULT),
+(1, 2, 1, NULL, DEFAULT),
+(2, 1, 1, NULL, DEFAULT),
+(3, 1, 2, NULL, DEFAULT),
+(4, 2, 1, NULL, DEFAULT),
+(5, 8, 1, NULL, DEFAULT),
+(6, 9, 2, NULL, DEFAULT),
+(7, 9, 1, NULL, DEFAULT),
+(8, 8, 1, NULL, DEFAULT);
+GO
+
+--Hóa đơn
+DBCC CHECKIDENT ('HoaDon', RESEED, 1);
+INSERT INTO HoaDon(MaDH, TrangThaiThanhToan, NgayLap)
+VALUES 
+(1, N'Đã thanh toán', '2024-11-01'),
+(2, N'Đã thanh toán', '2024-11-02'),
+(3, N'Đã thanh toán', '2024-11-11'),
+(4, N'Đã thanh toán', '2024-11-12'),
+(5, N'Đã thanh toán', '2024-11-10'),
+(6, N'Đã thanh toán', '2024-11-20'),
+(7, N'Đã thanh toán', '2024-11-24'),
+(8, N'Đã thanh toán', '2024-11-19');
 GO
 
 -- Thêm dữ liệu vào bảng DonNhapHang

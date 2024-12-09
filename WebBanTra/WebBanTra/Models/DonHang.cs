@@ -25,7 +25,7 @@ namespace WebBanTra.Models
         public Nullable<int> MaKH { get; set; }
         public Nullable<int> MaNV { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public Nullable<double> TongTien { get; set; }
         public string TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

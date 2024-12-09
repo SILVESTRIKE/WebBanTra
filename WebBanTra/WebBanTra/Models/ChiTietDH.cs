@@ -25,6 +25,7 @@ namespace WebBanTra.Models
         public Nullable<int> MaSP { get; set; }
         public Nullable<int> SoLuongMua { get; set; }
         public string YeuCau { get; set; }
+        public string TrangThaiDanhGia { get; set; }
     
         public virtual DonHang DonHang { get; set; }
         public virtual SanPham SanPham { get; set; }

@@ -38,6 +38,33 @@
     .table p {
         text-align: right;
     }
+
+    #rating-container {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .star {
+        font-size: 50px;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+        .star:hover,
+        .star:hover ~ .star {
+            color: #ccc;
+        }
+
+        .star.selected,
+        .star.selected ~ .star {
+            color: #ff9800;
+        }
+
+        .star[data-hover="true"] {
+            color: #ff9800;
+        }
+
 </style>
 
 
@@ -171,19 +198,22 @@
                                             </td>
                                             <td style="width: 20%">@item.SoLuongMua</td>
                                             <td id="current-" style="width: 30%">@Convert.ToString(item.SanPham.Gia * item.SoLuongMua)</td>
-                                            <td style="width: 30%">@Model.listDonHang.Where(r=> r.MaDH == item.MaDH).FirstOrDefault().TrangThai</td>
-                                            @*<td style="width: 20%">
-            @if (item.TrangThai == "Đã giao")
-            {
-                <button >class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;</button>
-                <a href="#" class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
-            }
-            else
-            {
-                <a href="#" class="btn align-middle" disabled style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
-            }
-
-        </td>*@
+                                            <td style="width: 30%">
+                                                @if (Model.listDonHang.Count > 0)
+                                                {
+                                                    @Model.listDonHang.Where(r => r.MaDH == item.MaDH).FirstOrDefault().TrangThai
+                                                }
+                                                else
+                                                {
+                                                <div id="rating-container" data-selected="0">
+                                                    @for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <span class="star" data-value="@i">☆</span>
+                                                    }
+                                                </div>
+                                                    <a href="#" id="danh-gia" class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
+                                                }
+                                            </td>
                                         </tr>
                                     }
 
@@ -205,6 +235,52 @@
         
     </div>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stars = document.querySelectorAll(".star");
+            const ratingContainer = document.getElementById("rating-container");
+
+            let selectedStars = 0;
+
+            stars.forEach((star) => {
+                // Hover effect
+                star.addEventListener("mouseenter", function () {
+                    updateHoverState(star.dataset.value);
+                });
+
+                // Remove hover effect
+                star.addEventListener("mouseleave", function () {
+                    resetHoverState();
+                });
+
+                // Click to select a rating
+                star.addEventListener("click", function () {
+                    selectedStars = parseInt(star.dataset.value);
+                    ratingContainer.dataset.selected = selectedStars;
+                    updateSelectedState(selectedStars);
+                });
+            });
+
+            function updateHoverState(value) {
+                stars.forEach((star) => {
+                    star.dataset.hover = parseInt(star.dataset.value) <= value ? "true" : "false";
+                });
+            }
+
+            function resetHoverState() {
+                stars.forEach((star) => {
+                    star.dataset.hover = "false";
+                });
+            }
+
+            function updateSelectedState(value) {
+                stars.forEach((star) => {
+                    star.classList.toggle("selected", parseInt(star.dataset.value) <= value);
+                });
+            }
+        });
+
+
+
         function changeData() {
             // Hiển thị nút Save, ẩn nút Change
             document.getElementById('btn-save').style.display = 'block';

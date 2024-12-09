@@ -23,7 +23,7 @@ namespace WebBanTra.Models
         public int MaDNH { get; set; }
         public Nullable<int> MaNCC { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public Nullable<double> TongTien { get; set; }
         public Nullable<bool> TrangThai { get; set; }
         public Nullable<int> MaNV { get; set; }
     

@@ -393,15 +393,15 @@
     <Content Include="Images\tra\tra_shantuyet\link sp.txt" />
     <Content Include="Images\Visa-Logo.png" />
     <Content Include="Images\zalo.jpg" />
-    <Content Include="Models\DB_BanTraEntities.Context.tt">
+    <Content Include="Models\LAPTOP-TEK92DJC.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
-      <LastGenOutput>DB_BanTraEntities.Context.cs</LastGenOutput>
+      <DependentUpon>LAPTOP-TEK92DJC.edmx</DependentUpon>
+      <LastGenOutput>LAPTOP-TEK92DJC.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB_BanTraEntities.tt">
+    <Content Include="Models\LAPTOP-TEK92DJC.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
-      <LastGenOutput>DB_BanTraEntities.cs</LastGenOutput>
+      <DependentUpon>LAPTOP-TEK92DJC.edmx</DependentUpon>
+      <LastGenOutput>LAPTOP-TEK92DJC.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -422,18 +422,18 @@
     <Content Include="Areas\Admin\Views\Admin\UpdateNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CreateNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CreateDonNhapHang.cshtml" />
-    <EntityDeploy Include="Models\DB_BanTraEntities.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_BanTraEntities.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DB_BanTraEntities.edmx.diagram">
-      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Admin\QuanLyDonNhapHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\_TotalIncome.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\QuanLyKhachHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CreateKhachHang.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\UpdateKhachHang.cshtml" />
+    <EntityDeploy Include="Models\LAPTOP-TEK92DJC.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LAPTOP-TEK92DJC.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\LAPTOP-TEK92DJC.edmx.diagram">
+      <DependentUpon>LAPTOP-TEK92DJC.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -460,64 +460,61 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Anh_SanPham.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDH.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ChiTietDNH.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhGia.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhMuc.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_BanTraEntities.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_BanTraEntities.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_BanTraEntities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DB_BanTraEntities.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB_BanTraEntities.edmx</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHang.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonNhapHang.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HoaDon.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LAPTOP-TEK92DJC.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAPTOP-TEK92DJC.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LAPTOP-TEK92DJC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LAPTOP-TEK92DJC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LAPTOP-TEK92DJC.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\MoTa_SanPham.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhaCungCap.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SanPham.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TaiKhoan.cs">
-      <DependentUpon>DB_BanTraEntities.tt</DependentUpon>
+      <DependentUpon>LAPTOP-TEK92DJC.tt</DependentUpon>
     </Compile>
     <Compile Include="OOP\AppUser.cs" />
     <Compile Include="OOP\CartDetail.cs" />

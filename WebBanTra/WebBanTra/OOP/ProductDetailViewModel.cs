@@ -8,7 +8,7 @@ namespace WebBanTra.OOP
     {
         public int MaSP { get; set; }
         public string TenSP { get; set; }
-        public decimal Gia { get; set; }
+        public double Gia { get; set; }
         public int SoLuongTon { get; set; }
         public string TenDM { get; set; }
         public List<string> Images { get; set; }

@@ -32,7 +32,8 @@ namespace WebBanTra.Areas.Admin.Controllers
             ViewBag.TotalOrders = _dbContext.DonHangs.Count();
 
             // Lấy tổng số tiền đã kiếm được
-            ViewBag.TotalRevenue = _dbContext.HoaDons.Sum(hd => hd.DonHang.TongTien ?? 0);
+            ViewBag.TotalRevenue = _dbContext.HoaDons.Where(hd => hd.DonHang.TongTien.HasValue).Sum(hd => hd.DonHang.TongTien) ?? 0;
+
 
             // Lấy tổng số khách hàng (đếm số lượng tài khoản của khách hàng)
             ViewBag.TotalCustomers = _dbContext.KhachHangs.Count();
@@ -640,7 +641,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                     {
                         MaSP = sanPham.MaSP,
                         SoLuongNhap = soLuong,
-                        GiaNhap = Math.Round(Convert.ToDecimal(sanPham.Gia) * 0.7m, 2)
+                        GiaNhap = Math.Round(sanPham.Gia * 0.7, 2)
 
                     });
                 }
