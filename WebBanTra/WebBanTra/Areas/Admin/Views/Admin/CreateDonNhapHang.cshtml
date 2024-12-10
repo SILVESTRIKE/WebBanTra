@@ -7,94 +7,97 @@
     string maNV = ViewBag.MaNV?.ToString(); // Lấy giá trị Mã Nhân Viên từ ViewBag
     string tenNV = ViewBag.TenNV?.ToString(); // Lấy giá trị Tên Nhân Viên từ ViewBag
 }
+<body style="padding: 80px 20px">
 
-<h2>Create DonNhapHang</h2>
 
-@using (Html.BeginForm("CheckOutDNH", "Admin", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm("CheckOutDNH", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Đơn Nhập Hàng</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+            <h4>Đơn Nhập Hàng</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.Label("MaNV", "Mã Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="MaNV" value="@maNV" readonly />
+            @*<div class="form-group">
+                @Html.Label("MaNV", "Mã Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="MaNV" value="@maNV" readonly />
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.Label("TenNV", "Tên Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="text" class="form-control" name="TenNV" value="@tenNV" readonly />
+            <div class="form-group">
+                @Html.Label("TenNV", "Tên Nhân Viên", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="TenNV" value="@tenNV" readonly />
+                </div>
+            </div>*@
+
+            <div >
+                <h5>Nhà cung cấp</h5>
+                <div class="mt-2">
+                    @Html.DropDownListFor(model => model.MaNCC, new SelectList(ViewBag.NhaCungCaps, "MaNCC", "TenNCC"), "Chọn nhà cung cấp", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaNCC, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaNCC, "Nhà Cung Cấp", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.MaNCC, new SelectList(ViewBag.NhaCungCaps, "MaNCC", "TenNCC"), "Chọn nhà cung cấp", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MaNCC, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <h5>Sản Phẩm</h5>
-            <table class="table table-borderless datatable">
-                <thead class="table-success">
-                    <tr>
-                        <th>Mã Sản Phẩm</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Giá Bán</th>
-                        <th>Giá Nhập (70%)</th>
-                        <th>Số Lượng Nhập</th>
-                    </tr>
-                </thead>
-                <tbody id="productTable">
-                    @foreach (WebBanTra.Models.SanPham sanPham in sanPhams)
-                    {
+            <div class="form-group">
+                <div class="mt-2">
+                    <h5>Sản Phẩm</h5>
+                </div>
+                <table class="table table-borderless datatable">
+                    <thead class="table-success">
                         <tr>
-                            <td>@sanPham.MaSP</td>
-                            <td>@sanPham.TenSP</td>
-                            <td>@sanPham.Gia</td>
-                            <td><input type="text" class="form-control" id="giaNhap_@sanPham.MaSP" value="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)" readonly></td>
-                            <td>
-                                <div class="input-group">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity(@sanPham.MaSP)">-</button>
-                                    <input type="number" class="form-control text-center" name="chiTietDonNhap[@sanPham.MaSP].SoLuongNhap" id="quantity_@sanPham.MaSP" value="0" min="0" data-price="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)" onchange="updateTotal()">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity(@sanPham.MaSP)">+</button>
-                                </div>
-                                <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].MaSP" value="@sanPham.MaSP">
-                                <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].GiaNhap" id="hiddenGiaNhap_@sanPham.MaSP" value="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)">
-                            </td>
+                            <th>Mã Sản Phẩm</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Giá Bán</th>
+                            <th>Giá Nhập (70%)</th>
+                            <th>Số Lượng Nhập</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody id="productTable">
+                        @foreach (WebBanTra.Models.SanPham sanPham in sanPhams)
+                        {
+                            <tr>
+                                <td>@sanPham.MaSP</td>
+                                <td>@sanPham.TenSP</td>
+                                <td>@sanPham.Gia</td>
+                                <td><input type="text" class="form-control" id="giaNhap_@sanPham.MaSP" value="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)" readonly></td>
+                                <td>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="decreaseQuantity(@sanPham.MaSP)">-</button>
+                                        <input type="number" class="form-control text-center" name="chiTietDonNhap[@sanPham.MaSP].SoLuongNhap" id="quantity_@sanPham.MaSP" value="0" min="0" data-price="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)" onchange="updateTotal()">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="increaseQuantity(@sanPham.MaSP)">+</button>
+                                    </div>
+                                    <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].MaSP" value="@sanPham.MaSP">
+                                    <input type="hidden" name="chiTietDonNhap[@sanPham.MaSP].GiaNhap" id="hiddenGiaNhap_@sanPham.MaSP" value="@Math.Round(Convert.ToDouble(sanPham.Gia) * 0.7, 2)">
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TongTien, "Tổng Tiền", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.TongTien, new { @class = "form-control", @readonly = "readonly", id = "totalAmount" })
-                @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="mt-2">
+                    <h5>Tổng Tiền</h5>
+               
+                    @Html.TextBoxFor(model => model.TongTien, new { @class = "form-control", @readonly = "readonly", id = "totalAmount" })
+                    @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div style="padding-top:20px">
+                    <input type="submit" value="Tạo Đơn Nhập Hàng" class="btn btn-success" />
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Tạo Đơn Nhập Hàng" class="btn btn-success" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
+    }
+</body>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@
 
 <script>
     function increaseQuantity(productId) {

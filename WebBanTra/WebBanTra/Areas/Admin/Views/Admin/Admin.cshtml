@@ -111,15 +111,20 @@
                                         <li class="dropdown-header text-start">
                                             <h6>Filter</h6>
                                         </li>
-
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="@Url.Action("Admin", "Admin", new { filter = "Today" })">Today</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="@Url.Action("Admin", "Admin", new { filter = "This Month" })">This Month</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="@Url.Action("Admin", "Admin", new { filter = "This Year" })">This Year</a>
+                                        </li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Sales <span>| Today</span></h5>
+                                    <h5 class="card-title">Sales <span>| @ViewBag.Filter</span></h5>
 
                                     <div class="d-flex align-items-center">
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -146,14 +151,20 @@
                                             <h6>Filter</h6>
                                         </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="@Url.Action("Admin", "Admin", new { filter = "Today" })">Today</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="@Url.Action("Admin", "Admin", new { filter = "This Month" })">This Month</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="@Url.Action("Admin", "Admin", new { filter = "This Year" })">This Year</a>
+                                        </li>
                                     </ul>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                    <h5 class="card-title">Revenue <span>| @ViewBag.Filter</span></h5>
 
                                     <div class="d-flex align-items-center">
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -174,21 +185,10 @@
 
                             <div class="card info-card customers-card">
 
-                                <div class="filter">
-                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                        <li class="dropdown-header text-start">
-                                            <h6>Filter</h6>
-                                        </li>
 
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                                    </ul>
-                                </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Customers <span>| This Year</span></h5>
+                                    <h5 class="card-title">Customers </h5>
 
                                     <div class="d-flex align-items-center">
                                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -280,20 +280,79 @@
                                             }).render();
                                         });
                                     </script>
+                                    @*<script>
+                                        document.addEventListener("DOMContentLoaded", () => {
+                                            new ApexCharts(document.querySelector("#reportsChart"), {
+                                                series: [{
+                                                    name: 'Sales',
+                                                    data: @Html.Raw(Json.Encode(ViewBag.SalesData)),
+                                                }, {
+                                                    name: 'Revenue',
+                                                    data: @Html.Raw(Json.Encode(ViewBag.RevenueData)),
+                                                }, {
+                                                    name: 'Customers',
+                                                    data: @Html.Raw(Json.Encode(ViewBag.CustomersData)),
+                                                }],
+                                                chart: {
+                                                    height: 350,
+                                                    type: 'area',
+                                                    toolbar: {
+                                                        show: false
+                                                    },
+                                                },
+                                                markers: {
+                                                    size: 4
+                                                },
+                                                colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                                                fill: {
+                                                    type: "gradient",
+                                                    gradient: {
+                                                        shadeIntensity: 1,
+                                                        opacityFrom: 0.3,
+                                                        opacityTo: 0.4,
+                                                        stops: [0, 90, 100]
+                                                    }
+                                                },
+                                                dataLabels: {
+                                                    enabled: false
+                                                },
+                                                stroke: {
+                                                    curve: 'smooth',
+                                                    width: 2
+                                                },
+                                                xaxis: {
+                                                    type: 'datetime',
+                                                    categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                                                },
+                                                tooltip: {
+                                                    x: {
+                                                        format: 'dd/MM/yy HH:mm'
+                                                    },
+                                                }
+                                            }).render();
+
+                                            // Hiển thị thông tin tổng quan
+                                            document.querySelector("#totalOrders").innerText = "Total Orders: " + @ViewBag.TotalOrders;
+                                            document.querySelector("#totalRevenue").innerText = "Total Revenue: " + @ViewBag.TotalRevenue;
+                                            document.querySelector("#totalCustomers").innerText = "Total Customers: " + @ViewBag.TotalCustomers;
+                                        });
+                                    </script>*@
+
                                     <!-- End Line Chart -->
                                 </div>
                             </div>
+                            <h3>Sản phẩm bán chạy</h3>
 
                             <div class="row" style="background-color: white; margin-bottom: 50px; ">
-                                <h3>Sản phẩm bán chạy</h3>
                                 @foreach (var item in WebBanTra.Areas.Admin.Controllers.AdminController.spBanChay)
                                 {
                                     <div class="col-xxl-4 col-md-6">
                                         <div class="card info-card sales-card">
 
-                                            <div class="card-body">
-                                                <h5 class="card-title">@item.TenSP <span>| Mã sản phẩm: @item.MaSP</span></h5>
-
+                                            <div class="card-body" style="height:40vh">
+                                                <h5 class="card-title">@item.TenSP </h5>
+                                                <p> Mã: @item.MaSP</p>
+                                                <p>Tồn: @item.SoLuongTon sản phẩm</p>
                                                 <div class="d-flex align-items-center">
                                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                                         <img src="@item.Anh_SanPham.FirstOrDefault().LinhAnh" style="width : 100px;" />
@@ -311,32 +370,15 @@
                             </div>
 
 
-
-
-
-
-
-
                         </div><!-- End Reports -->
                         <!-- Recent Sales -->
+                        <h5>QUẢN LÝ SẢN PHẨM</h5>
+
                         <div class="col-12">
                             <div class="card recent-sales overflow-auto">
-
-                                <div class="filter">
-                                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                        <li class="dropdown-header text-start">
-                                            <h6>Filter</h6>
-                                        </li>
-
-                                        <li><a class="dropdown-item" href="#">Today</a></li>
-                                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                                    </ul>
-                                </div>
+                 
 
                                 <div class="card-body">
-                                    <h5 class="card-title">Recent Sales <span>| Today</span></h5>
 
                                     <table class="table table-borderless datatable">
                                         <thead class="table-success">

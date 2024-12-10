@@ -10,6 +10,7 @@ using WebBanTra.OOP;
 using System.IO;
 using System.Web.Configuration;
 using System.Collections;
+using static System.Net.WebRequestMethods;
 
 namespace WebBanTra.Areas.Admin.Controllers
 {
@@ -23,20 +24,41 @@ namespace WebBanTra.Areas.Admin.Controllers
             this._dbContext = new DB_BanTraEntities();
         }
 
-        public ActionResult Admin()
+        public ActionResult Admin(string filter = "Today")
         {
             spBanChay.Clear();
             var list = _dbContext.SanPhams.ToList();
             ViewBag.listAnhSP = _dbContext.Anh_SanPham.ToList();
-            // Lấy tổng số đơn hàng đã bán
-            ViewBag.TotalOrders = _dbContext.DonHangs.Count();
+            DateTime startDate = DateTime.Now;
+            DateTime endDate = DateTime.Now;
 
-            // Lấy tổng số tiền đã kiếm được
-            ViewBag.TotalRevenue = _dbContext.HoaDons.Where(hd => hd.DonHang.TongTien.HasValue).Sum(hd => hd.DonHang.TongTien) ?? 0;
+            // Xử lý các filter theo ngày, tháng, năm
+            switch (filter)
+            {
+                case "Today":
+                    startDate = DateTime.Today;
+                    break;
+                case "This Month":
+                    startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                    break;
+                case "This Year":
+                    startDate = new DateTime(DateTime.Now.Year, 1, 1);
+                    break;
+            }
+            ViewBag.Filter = filter;
+            // Lấy tổng số đơn hàng đã bán trong khoảng thời gian đã chọn
+            ViewBag.TotalOrders = _dbContext.DonHangs
+                                            .Where(dh => dh.NgayDat >= startDate && dh.NgayDat <= endDate)
+                                            .Count();
 
+            // Lấy tổng doanh thu trong khoảng thời gian đã chọn
+            ViewBag.TotalRevenue = _dbContext.HoaDons
+                                              .Where(hd => hd.DonHang.NgayDat >= startDate && hd.DonHang.NgayDat <= endDate && hd.DonHang.TongTien.HasValue)
+                                              .Sum(hd => hd.DonHang.TongTien) ?? 0;
 
             // Lấy tổng số khách hàng (đếm số lượng tài khoản của khách hàng)
             ViewBag.TotalCustomers = _dbContext.KhachHangs.Count();
+
 
             var spbc = _dbContext.ChiTietDHs.GroupBy(r => r.MaSP).Select(g => new
             {
@@ -493,6 +515,7 @@ namespace WebBanTra.Areas.Admin.Controllers
 
             return RedirectToAction("QuanLyNhanVien");
         }
+
         public ActionResult CreateDonNhapHang()
         {
             ViewBag.NhaCungCaps = _dbContext.NhaCungCaps.ToList();
@@ -576,39 +599,7 @@ namespace WebBanTra.Areas.Admin.Controllers
             ViewBag.SanPhams = _dbContext.SanPhams.ToList();
             return View(model);
         }
-        //public ActionResult AddToCart(int maSP, int soLuong)
-        //{
-        //    List<CartForNCC> cart = Session["Cart"] as List<CartForNCC> ?? new List<CartForNCC>();
 
-        //    // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
-        //    CartForNCC item = cart.FirstOrDefault(c => c.MaSP == maSP);
-        //    if (item != null)
-        //    {
-        //        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
-        //        item.SoLuong += soLuong;
-        //    }
-        //    else
-        //    {
-        //        // Nếu sản phẩm chưa tồn tại, thêm sản phẩm mới vào giỏ hàng
-        //        var sanPham = _dbContext.SanPhams.FirstOrDefault(sp => sp.MaSP == maSP);
-        //        if (sanPham != null)
-        //        {
-        //            cart.Add(new CartForNCC
-        //            {
-        //                MaSP = sanPham.MaSP,
-        //                TenSP = sanPham.TenSP,
-        //                Gia = sanPham.Gia,
-        //                SoLuong = soLuong,
-
-        //            });
-        //        }
-        //    }
-
-        //    // Lưu giỏ hàng vào session
-        //    Session["Cart"] = cart;
-
-        //    return RedirectToAction("Admin");
-        //}
 
         private List<CartForNCC> GetCart()
         {
