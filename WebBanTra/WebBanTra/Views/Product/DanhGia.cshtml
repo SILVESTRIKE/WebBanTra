@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Đánh giá sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style="padding:100px 20px">
+
+    <h2>Đánh giá sản phẩm: @ViewBag.TenSP</h2>
+
+    <form action="/Product/DanhGia" method="post">
+        <input type="hidden" name="MaCTDH" value="@ViewBag.MaCTDH" />
+
+        <!-- Đánh giá bằng sao -->
+        <div class="form-group">
+            <label for="DiemDG">Điểm đánh giá (1-5):</label>
+            <div id="star-rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <input type="hidden" id="DiemDG" name="DiemDG" value="0" />
+        </div>
+
+        <!-- Bình luận -->
+        <div class="form-group">
+            <label for="BinhLuan">Bình luận:</label>
+            <textarea name="BinhLuan" id="BinhLuan" class="form-control" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px">Gửi đánh giá</button>
+    </form>
+</body>
+@section Scripts {
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Xử lý sự kiện khi nhấp vào sao
+        const stars = document.querySelectorAll('.star');
+        const diemDGInput = document.getElementById('DiemDG');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.getAttribute('data-value');
+                diemDGInput.value = rating;
+
+                // Cập nhật màu sắc của các sao
+                stars.forEach(star => {
+                    if (star.getAttribute('data-value') <= rating) {
+                        star.style.color = 'gold';
+                    } else {
+                        star.style.color = 'gray';
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+<style>
+    /* Sử dụng màu vàng cho sao đã chọn */
+    .star {
+        font-size: 2rem;
+        color: gray;
+        cursor: pointer;
+    }
+
+        .star:hover {
+            color: gold;
+        }
+</style>

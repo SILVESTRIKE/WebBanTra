@@ -57,6 +57,16 @@ namespace WebBanTra.Controllers
                 {
                     return HttpNotFound();
                 }
+                var danhGias = db.DanhGias
+                    .Where(dg => dg.ChiTietDH.MaSP == id)
+                    .Select(dg => new DanhGiaViewModel
+                    {
+                        TenKH = dg.KhachHang.TenKH,
+                        DiemDG = dg.DiemDG ?? 0, 
+                        BinhLuan = dg.BinhLuan ?? "Không có bình luận", 
+                        NgayDG = dg.NgayDG ?? DateTime.MinValue 
+                    })
+                    .ToList();
 
                 var productDetail = new ProductDetailViewModel
                 {
@@ -65,7 +75,9 @@ namespace WebBanTra.Controllers
                     Gia = product.Gia,
                     Images = anh_SanPhams.Select(a => a.LinhAnh).ToList(),
                     Descriptions = moTa_SanPhams.Select(m => m.MoTa).ToList(),
-                    DanhMuc = product.TenDM
+                    DanhMuc = product.TenDM,
+                    DanhGias = danhGias // Gán danh sách đánh giá vào ViewModel
+
                 };
 
                 return View(productDetail);
@@ -173,6 +185,80 @@ namespace WebBanTra.Controllers
             DB_BanTraEntities db = new DB_BanTraEntities();
             List<DanhMuc> dm = db.DanhMucs.ToList();
             return PartialView(dm);
+        }
+        private void XoaSanPhamDaDanhGia(int MaKH, int MaCTDH)
+        {
+            var donHang = db.DonHangs.FirstOrDefault(dh => dh.MaKH == MaKH);
+            if (donHang != null)
+            {
+                var chiTietDH = db.ChiTietDHs.FirstOrDefault(ctdh => ctdh.MaCTDH == MaCTDH && ctdh.MaDH == donHang.MaDH);
+                if (chiTietDH != null)
+                {
+                    db.ChiTietDHs.Remove(chiTietDH);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        public ActionResult DanhGia(int maCTDH)
+        {
+            var chiTietDH = db.ChiTietDHs.Find(maCTDH);
+            if (chiTietDH != null)
+            {
+                ViewBag.TenSP = chiTietDH.SanPham.TenSP;
+                ViewBag.MaCTDH = maCTDH;
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DanhGia(int MaCTDH, int DiemDG, string BinhLuan)
+        {
+            if (ModelState.IsValid)
+            {
+                int MaKH = 0; 
+
+                if (Session["MaTK"] != null)
+                {
+                    int MaTK = (int)Session["MaTK"]; 
+
+                    var khachHang = db.KhachHangs.FirstOrDefault(kh => kh.MaTK == MaTK);
+                    if (khachHang != null)
+                    {
+                        MaKH = khachHang.MaKH;
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Không tìm thấy khách hàng nào với mã tài khoản này.";
+                        return RedirectToAction("Home", "Home");
+                    }
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Bạn cần đăng nhập để thực hiện thao tác này.";
+                    return RedirectToAction("DangNhap", "DN");
+                }
+
+                var danhGia = new DanhGia
+                {
+                    MaKH = MaKH,           
+                    MaCTDH = MaCTDH,       
+                    DiemDG = DiemDG,       
+                    BinhLuan = BinhLuan,   
+                    NgayDG = DateTime.Now 
+                };
+
+                db.DanhGias.Add(danhGia);
+                db.SaveChanges();
+
+                XoaSanPhamDaDanhGia(MaKH, MaCTDH);
+
+                TempData["SuccessMessage"] = "Đánh giá của bạn đã được gửi thành công!";
+                return RedirectToAction("KhachHangProfile", "KhachHang"); 
+            }
+
+            TempData["ErrorMessage"] = "Có lỗi xảy ra khi gửi đánh giá.";
+            return View();
         }
     }
 }

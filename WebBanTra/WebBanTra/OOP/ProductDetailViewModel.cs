@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebBanTra.OOP
@@ -15,7 +16,15 @@ namespace WebBanTra.OOP
         public List<string> Descriptions { get; set; }
         public string DanhMuc { get; set; }
         public List<ProductViewModel> SanPhamTuongTu { get; set; }
+        public List<DanhGiaViewModel> DanhGias { get; set; }
+    }
 
+    public class DanhGiaViewModel
+    {
+        public string TenKH { get; set; }        // Tên khách hàng
+        public int DiemDG { get; set; }         // Điểm đánh giá
+        public string BinhLuan { get; set; }    // Bình luận
+        public DateTime NgayDG { get; set; }    // Ngày đánh giá
     }
 
 }

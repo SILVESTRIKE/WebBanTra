@@ -130,5 +130,6 @@ namespace WebBanTra.Controllers
                 return View("KhachHangProfile",userKH);
             }
         }
+
     }
 }

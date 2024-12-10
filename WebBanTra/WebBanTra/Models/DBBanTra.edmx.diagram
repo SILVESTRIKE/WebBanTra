@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9b456883bdd541a9ae91bf527c44b71f" Name="Diagram1">
+      <Diagram DiagramId="436dcdf23eb64d41b5eac63d2e1ddad7" Name="Diagram1">
         <EntityTypeShape EntityType="DB_BanTraModel.Anh_SanPham" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BanTraModel.ChiTietDH" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BanTraModel.ChiTietDNH" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
@@ -20,22 +20,22 @@
         <EntityTypeShape EntityType="DB_BanTraModel.SanPham" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BanTraModel.TaiKhoan" Width="1.5" PointX="1.5" PointY="20" IsExpanded="true" />
         <AssociationConnector Association="DB_BanTraModel.FK_Anh_SanPham_SanPham" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDH__MaDH__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDH__MaSP__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__DanhGia__MaCTDH__72C60C4A" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDN__MaDNH__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDNH__MaSP__6E01572D" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__DanhGia__MaKH__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDH__MaDH__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDH__MaSP__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DanhGia__MaCTDH__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDN__MaDNH__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__ChiTietDNH__MaSP__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DanhGia__MaKH__4AB81AF0" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BanTraModel.FK_SanPham_DanhMuc" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__DonHang__MaKH__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__DonHang__MaNV__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__HoaDon__MaDH__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__DonNhapHa__MaNCC__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DonHang__MaKH__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DonHang__MaNV__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__HoaDon__MaDH__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__DonNhapHa__MaNCC__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BanTraModel.FK_DonNhapHang_NhanVien" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__KhachHang__MaTK__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__KhachHang__MaTK__182C9B23" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BanTraModel.FK_MoTa_SanPham_SanPham" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__NhanVien__MaQuan__4316F928" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BanTraModel.FK__NhanVien__MaTK__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__NhanVien__MaQuan__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_BanTraModel.FK__NhanVien__MaTK__1CF15040" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

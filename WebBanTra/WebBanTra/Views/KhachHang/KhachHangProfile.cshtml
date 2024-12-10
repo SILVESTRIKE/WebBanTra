@@ -183,7 +183,7 @@
                                         <th>Sản phẩm</th>
                                         <th>Số lượng</th>
                                         <th>Thành tiền</th>
-                                        <th>Tình trạng</th>
+                                        <th>Đánh giá</th>
                                     </tr>
 
                                     @foreach (WebBanTra.Models.ChiTietDH item in Model.ListChiTietDonHang)
@@ -199,21 +199,26 @@
                                             <td style="width: 20%">@item.SoLuongMua</td>
                                             <td id="current-" style="width: 30%">@Convert.ToString(item.SanPham.Gia * item.SoLuongMua)</td>
                                             <td style="width: 30%">
-                                                @if (Model.listDonHang.Count > 0)
+                                                @*@if (Model.listDonHang.Count > 0)
                                                 {
                                                     @Model.listDonHang.Where(r => r.MaDH == item.MaDH).FirstOrDefault().TrangThai
                                                 }
                                                 else
                                                 {
-                                                <div id="rating-container" data-selected="0">
-                                                    @for (int i = 1; i <= 5; i++)
-                                                    {
-                                                        <span class="star" data-value="@i">☆</span>
-                                                    }
-                                                </div>
+                                                    <div id="rating-container" data-selected="0">
+                                                        @for (int i = 1; i <= 5; i++)
+                                                        {
+                                                            <span class="star" data-value="@i">☆</span>
+                                                        }
+                                                    </div>
                                                     <a href="#" id="danh-gia" class="btn align-middle" style="background-color: rgba(216, 34, 83, 255); color: white; border-radius: 50px; padding: 10px; text-align: center; font-size: 14px;">Đánh giá</a>
-                                                }
+                                                }*@
+                                                <form action="/Product/DanhGia" method="get">
+                                                    <input type="hidden" name="MaCTDH" value="@item.MaCTDH" />
+                                                    <button type="submit" class="btn btn-primary">Đánh giá</button>
+                                                </form>
                                             </td>
+
                                         </tr>
                                     }
 
