@@ -628,7 +628,7 @@
     <Content Include="Views\Product\SanPham.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Product\DanhGia.cshtml" />
+    <Content Include="Views\KhachHang\DanhGia.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
