@@ -38,7 +38,7 @@ namespace WebBanTra.Controllers
                 foreach (DonHang d in dh)
                 {
                     // Lấy chi tiết đơn hàng theo từng trạng thái
-                    List<ChiTietDH> ct = db.ChiTietDHs.Where(r => r.MaDH == d.MaDH).ToList();
+                    List<ChiTietDH> ct = db.ChiTietDHs.Where(r => r.MaDH == d.MaDH && r.TrangThaiDanhGia != "Đã đánh giá").ToList();
                     ctdh.AddRange(ct);
                 }
 
@@ -117,6 +117,7 @@ namespace WebBanTra.Controllers
                     BinhLuan = BinhLuan,
                     NgayDG = DateTime.Now
                 };
+                db.ChiTietDHs.Where(r=>r.MaCTDH == MaCTDH).FirstOrDefault().TrangThaiDanhGia = "Đã đánh giá";
 
                 db.DanhGias.Add(danhGia);
                 db.SaveChanges();
