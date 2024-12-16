@@ -24,40 +24,64 @@ namespace WebBanTra.Areas.Admin.Controllers
             this._dbContext = new DB_BanTraEntities();
         }
 
-        public ActionResult Admin(string filter = "Today")
+        public ActionResult Admin(string filter = "Hôm nay")
         {
             spBanChay.Clear();
             var list = _dbContext.SanPhams.ToList();
             ViewBag.listAnhSP = _dbContext.Anh_SanPham.ToList();
-            DateTime startDate = DateTime.Now;
-            DateTime endDate = DateTime.Now;
+            DateTime startDate = DateTime.Now, endDate = DateTime.Now;
+            DateTime previousStartDate = DateTime.Now, previousEndDate = DateTime.Now;
 
             // Xử lý các filter theo ngày, tháng, năm
             switch (filter)
             {
-                case "Today":
+                case "Hôm nay":
                     startDate = DateTime.Today;
+                    previousStartDate = DateTime.Today.AddDays(-1);
+                    previousEndDate = DateTime.Today.AddDays(-1).AddDays(1);
                     break;
-                case "This Month":
+
+                case "Tháng":
                     startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                    previousStartDate = startDate.AddMonths(-1);
+                    previousEndDate = startDate.AddDays(-1);
                     break;
-                case "This Year":
+
+                case "Năm":
                     startDate = new DateTime(DateTime.Now.Year, 1, 1);
+                    previousStartDate = startDate.AddYears(-1);
+                    previousEndDate = startDate.AddDays(-1);
                     break;
             }
+
+            // Truyền filter sang View
             ViewBag.Filter = filter;
-            // Lấy tổng số đơn hàng đã bán trong khoảng thời gian đã chọn
-            ViewBag.TotalOrders = _dbContext.DonHangs
-                                            .Where(dh => dh.NgayDat >= startDate && dh.NgayDat <= endDate)
-                                            .Count();
 
-            // Lấy tổng doanh thu trong khoảng thời gian đã chọn
-            ViewBag.TotalRevenue = _dbContext.HoaDons
-                                              .Where(hd => hd.DonHang.NgayDat >= startDate && hd.DonHang.NgayDat <= endDate && hd.DonHang.TongTien.HasValue)
-                                              .Sum(hd => hd.DonHang.TongTien) ?? 0;
+            // Lấy tổng số đơn hàng và tổng số khách hàng hiện tại
+            var totalOrders = _dbContext.DonHangs
+                                        .Count(dh => dh.NgayDat >= startDate && dh.NgayDat <= endDate);
+            var totalRevenue = _dbContext.HoaDons
+                                        .Where(hd => hd.DonHang.NgayDat >= startDate &&
+                                                     hd.DonHang.NgayDat <= endDate &&
+                                                     hd.DonHang.TongTien.HasValue)
+                                        .Sum(hd => hd.DonHang.TongTien) ?? 0;
+            var totalCustomers = _dbContext.KhachHangs.Count();
 
-            // Lấy tổng số khách hàng (đếm số lượng tài khoản của khách hàng)
-            ViewBag.TotalCustomers = _dbContext.KhachHangs.Count();
+            // Lấy dữ liệu kỳ trước để tính phần trăm thay đổi
+            var previousTotalOrders = _dbContext.DonHangs
+                                                .Count(dh => dh.NgayDat >= previousStartDate && dh.NgayDat <= previousEndDate);
+            var previousTotalRevenue = _dbContext.HoaDons
+                                                .Where(hd => hd.DonHang.NgayDat >= previousStartDate &&
+                                                             hd.DonHang.NgayDat <= previousEndDate &&
+                                                             hd.DonHang.TongTien.HasValue)
+                                                .Sum(hd => hd.DonHang.TongTien) ?? 0;
+
+            ViewBag.OrderChange = previousTotalOrders == 0 ? 0 : CalculatePercentageChange(previousTotalOrders, totalOrders);
+            ViewBag.RevenueChange = previousTotalRevenue == 0 ? 0 : CalculatePercentageChange(previousTotalRevenue, totalRevenue);
+            ViewBag.TotalOrders = totalOrders;
+            ViewBag.TotalRevenue = totalRevenue;
+            ViewBag.TotalCustomers = totalCustomers;
+
 
 
             var spbc = _dbContext.ChiTietDHs.GroupBy(r => r.MaSP).Select(g => new
@@ -79,6 +103,13 @@ namespace WebBanTra.Areas.Admin.Controllers
                 spBanChay = lstsp; 
             }
             return View(list);
+        }
+
+        private double CalculatePercentageChange(double previousValue, double currentValue)
+        {
+            if (previousValue == 0)
+                return currentValue > 0 ? 100 : 0; // Tránh chia cho 0
+            return ((currentValue - previousValue) / previousValue) * 100;
         }
 
         public ActionResult CreateSanPham()

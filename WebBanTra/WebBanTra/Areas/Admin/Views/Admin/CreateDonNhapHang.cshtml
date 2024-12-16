@@ -36,7 +36,7 @@
             <div >
                 <h5>Nhà cung cấp</h5>
                 <div class="mt-2">
-                    @Html.DropDownListFor(model => model.MaNCC, new SelectList(ViewBag.NhaCungCaps, "MaNCC", "TenNCC"), "Chọn nhà cung cấp", new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.MaNCC, new SelectList(ViewBag.NhaCungCaps, "MaNCC", "TenNCC"), new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.MaNCC, "", new { @class = "text-danger" })
                 </div>
             </div>
