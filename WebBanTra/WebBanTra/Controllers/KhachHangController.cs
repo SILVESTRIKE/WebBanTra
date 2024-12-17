@@ -16,6 +16,16 @@ namespace WebBanTra.Controllers
         private readonly DB_BanTraEntities _dbBanTra;
         DB_BanTraEntities db = new DB_BanTraEntities();
         // GET: KhachHang
+
+        static int GetPriority(string status)
+        {
+            switch (status)
+            {
+                case "Chưa đánh giá": return 0;
+                default: return 1;
+            };
+        }
+
         public ActionResult KhachHangProfile()
         {
             if (Session["TenDangNhap"] == null)
@@ -47,7 +57,6 @@ namespace WebBanTra.Controllers
                     Anh_SanPham a = db.Anh_SanPham.Where(r => r.SanPham.MaSP == i.SanPham.MaSP).FirstOrDefault();
                     userKH.listAnhSP.Add(a);
                 }
-
                 userKH.KhachHang = kh;
                 userKH.ListChiTietDonHang = ctdh;
                 userKH.listDonHang = dh;

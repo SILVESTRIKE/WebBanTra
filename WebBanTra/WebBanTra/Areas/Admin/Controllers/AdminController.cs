@@ -377,6 +377,18 @@ namespace WebBanTra.Areas.Admin.Controllers
             }
 
         }
+
+        int GetPriority(string status)
+        {
+            switch(status)
+            {
+                case "Chờ xác nhận": return 0;
+                case "Chưa giao":  return 1;
+                case "Đã giao": return 2;
+                default: return 3;
+            };
+        }
+
         public ActionResult QuanLyDonHang()
         {
             using (_dbContext)
@@ -384,7 +396,7 @@ namespace WebBanTra.Areas.Admin.Controllers
                 var danhSachDonHang = _dbContext.DonHangs
                                                          .Include(dh => dh.NhanVien)
                                                          .Include(dh => dh.KhachHang)
-                                                         .ToList();
+                                                         .ToList().OrderBy(r => GetPriority(r.TrangThai));
                 return View(danhSachDonHang);
             }
         }

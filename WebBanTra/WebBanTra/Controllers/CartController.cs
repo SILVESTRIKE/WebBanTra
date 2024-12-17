@@ -13,6 +13,10 @@ namespace WebBanTra.Controllers
         // GET: Cart
         public ActionResult Cart()
         {
+            if (Session["MaTK"] == null)
+            {
+                return RedirectToAction("DangNhap", "DN");
+            }
             List<CartDetail> listCart = GetCart();
             return View(listCart);
         }
@@ -78,6 +82,10 @@ namespace WebBanTra.Controllers
 
         public ActionResult AddProduct(int maSP, int soLuong = 1)
         {
+            if (Session["MaTK"] == null)
+            {
+                return RedirectToAction("DangNhap", "DN");
+            }
             DB_BanTraEntities db = new DB_BanTraEntities();
             try
             {
@@ -117,6 +125,10 @@ namespace WebBanTra.Controllers
         [HttpPost]
         public ActionResult AddCart(int maSP, int soLuong = 1)
         {
+            if (Session["MaTK"] == null)
+            {
+                return RedirectToAction("DangNhap", "DN");
+            }
             DB_BanTraEntities db = new DB_BanTraEntities();
             try
             {

@@ -62,7 +62,6 @@ namespace WebBanTra.Controllers
                     return View(model);
                 }
             }
-
             return View(model);
         }
 
